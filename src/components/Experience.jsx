@@ -1,53 +1,40 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { FaBriefcase } from 'react-icons/fa';
 
-const Experience = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const experiences = [
+  {
+    title: 'Frontend Developer',
+    company: 'Tech Solutions Inc.',
+    period: 'Jan 2021 - Present',
+    description: 'Developing responsive web applications using React and modern JavaScript.',
+  },
+  {
+    title: 'Web Developer Intern',
+    company: 'Digital Creations Co.',
+    period: 'Jun 2020 - Dec 2020',
+    description: 'Assisted in the development of client websites and learned modern web technologies.',
+  },
+];
 
-  const experiences = [
-    {
-      title: 'Web Developer',
-      company: 'Dentsu',
-      period: 'July 2023 - Present',
-      description: 'Client reception, switchboard management, entrance desk assistance, organization of entry and exit logs.',
-    },
-    {
-      title: 'SQL Database Administrator',
-      company: 'VICORTIZ',
-      period: '2022 - 2023',
-      description: 'Client reception, switchboard management, entrance desk assistance, file maintenance.',
-    },
-    {
-      title: 'Technology/Management Systems Intern',
-      company: 'BHD',
-      period: 'January 2023 - April 2023',
-      description: 'Client reception, switchboard management, entrance desk assistance, organization of entry and exit logs, file maintenance.',
-    },
-  ];
-
+function Experience() {
   return (
-    <section ref={ref} className="py-16">
-      <h2 className="section-title">Experience</h2>
-      {experiences.map((exp, index) => (
-        <motion.div
-          key={index}
-          className="card mb-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <h3 className="text-2xl font-semibold text-blue-600">{exp.title}</h3>
-          <p className="text-xl text-gray-700">{exp.company}</p>
-          <p className="text-gray-500 mb-2">{exp.period}</p>
-          <p className="text-gray-600">{exp.description}</p>
-        </motion.div>
-      ))}
+    <section className="my-16">
+      <h2 className="section-title">Experience 💼</h2>
+      <div className="space-y-8">
+        {experiences.map((exp, index) => (
+          <div key={index} className="card">
+            <div className="flex items-center mb-4">
+              <FaBriefcase className="text-2xl text-accent mr-4" />
+              <h3 className="text-xl font-semibold">{exp.title}</h3>
+            </div>
+            <p className="text-gray-300 mb-2">{exp.company}</p>
+            <p className="text-gray-400 mb-4">{exp.period}</p>
+            <p>{exp.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
-};
+}
 
 export default Experience;

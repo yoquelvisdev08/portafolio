@@ -1,37 +1,43 @@
 import React from 'react';
+import { FaReact, FaJs, FaHtml5, FaCss3, FaNode, FaGit } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
-const Skills = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const skills = [
+  { name: 'React', icon: FaReact },
+  { name: 'JavaScript', icon: FaJs },
+  { name: 'HTML5', icon: FaHtml5 },
+  { name: 'CSS3', icon: FaCss3 },
+  { name: 'Node.js', icon: FaNode },
+  { name: 'Git', icon: FaGit },
+];
 
-  const skills = [
-    'Web Development', 'SQL Database Administration', 'Software Testing',
-    'Git', 'Linux', 'DevOps', 'APIs', 'Microservices Architecture',
-    'Big Data', 'Ethical Hacking'
-  ];
-
+function Skills() {
   return (
-    <section ref={ref} className="py-16">
-      <h2 className="section-title">Skills</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <section className="my-16">
+      <motion.h2 
+        className="section-title text-white"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Skills 🚀
+      </motion.h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="card flex items-center justify-center text-center p-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
+          <motion.div 
+            key={index} 
+            className="card flex flex-col items-center p-4 bg-gradient-to-br from-blue-900 to-purple-900"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <span className="text-gray-700">{skill}</span>
+            <skill.icon className="text-5xl mb-4 text-blue-400" />
+            <h4 className="text-xl font-semibold text-white">{skill.name}</h4>
           </motion.div>
         ))}
       </div>
     </section>
   );
-};
+}
 
 export default Skills;

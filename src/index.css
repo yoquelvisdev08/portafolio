@@ -2,15 +2,54 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f0f4f8;
+  font-family: 'Poppins', sans-serif;
 }
 
-.section-title {
-  @apply text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-500 pb-2 inline-block;
+@layer components {
+  .section-title {
+    @apply text-3xl font-bold mb-8 text-blue-300 border-b-2 border-blue-300 pb-2 inline-block;
+  }
+
+  .card {
+    @apply bg-gray-800 bg-opacity-50 rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform hover:shadow-lg hover:-translate-y-1 backdrop-filter backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 text-white font-semibold py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
+  }
 }
 
-.card {
-  @apply bg-white rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform hover:shadow-lg hover:-translate-y-1;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glass-effect {
+  @apply bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg;
 }
