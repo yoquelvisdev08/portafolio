@@ -3,8 +3,18 @@ import { FaGraduationCap } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const education = [
-  { degree: 'Bachelor of Science in Computer Science', institution: 'University of Example', year: '2020' },
-  { degree: 'Full Stack Web Development Bootcamp', institution: 'Tech Academy', year: '2021' },
+  { degree: 'SOFTWARE ENGINEERING', institution: 'APEC UNIVERSITY', year: '2023 - PRESENT' },
+  { degree: 'FUNDAMENTALS IN DEVOPS, APIS AND MICROSERVICES ARCHITECTURE', institution: 'Udemy', year: '2024' },
+  { degree: 'SOFTWARE TESTING', institution: 'Udemy', year: '2023' },
+  { degree: 'SOFTWARE DEVELOPMENT TECHNOLOGIST', institution: 'Instituto Tecnológico de las Américas (ITLA)', year: '2021 - 2023' },
+  { degree: 'ETHICAL HACKING', institution: 'Instituto Tecnológico de las Américas (ITLA)', year: '2022' },
+  { degree: 'BIG DATA', institution: 'Pontificia Universidad Católica Madre y Maestra (PUCMM)', year: '2021' },
+  { degree: 'GIT MANAGEMENT ', institution: 'Máster Mind', year: '2021' },
+  { degree: 'LINUX MANAGEMENT ', institution: 'Máster Mind', year: '2021' },
+  
+  
+  
+  
   
 ];
 

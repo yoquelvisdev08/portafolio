@@ -3,16 +3,23 @@ import { FaBriefcase } from 'react-icons/fa';
 
 const experiences = [
   {
-    title: 'Frontend Developer',
-    company: 'Tech Solutions Inc.',
-    period: 'Jan 2021 - Present',
-    description: 'Developing responsive web applications using React and modern JavaScript.',
+    title: 'Web development',
+    company: 'Dentsu',
+    period: 'July present',
+    description: 'I work on the creation and optimization of websites, using technologies such as HTML, CSS and JavaScript, among other frameworks, focusing on user experience and the performance of web applications.',
+  },
+ 
+  {
+    title: 'Intern, Technology/Management Systems',
+    company: 'Bank BHD',
+    period: 'January 2023 - April 2023',
+    description: 'During my internship in Technology/Management Systems, I used Oracle SQL to manage enterprise data and created reports and analysis using tools such as Pentaho and BI Publisher, supporting decision making.',
   },
   {
-    title: 'Web Developer Intern',
-    company: 'Digital Creations Co.',
-    period: 'Jun 2020 - Dec 2020',
-    description: 'Assisted in the development of client websites and learned modern web technologies.',
+    title: 'SQL database administrator',
+    company: 'VICORTIZ',
+    period: '2022 - 2023',
+    description: 'Reception of clients. Switchboard management. Assistance at the reception desk. File maintenance.',
   },
 
 ];
