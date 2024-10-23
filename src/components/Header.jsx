@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -53,14 +53,14 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <a href="#" className="text-4xl text-white hover:text-blue-400 transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/" className="text-4xl text-white hover:text-blue-400 transition-colors duration-300">
                 <FaLinkedin />
               </a>
-              <a href="#" className="text-4xl text-white hover:text-gray-400 transition-colors duration-300">
+              <a href="https://github.com/yoquelvisdev08" className="text-4xl text-white hover:text-gray-400 transition-colors duration-300">
                 <FaGithub />
               </a>
-              <a href="#" className="text-4xl text-white hover:text-blue-300 transition-colors duration-300">
-                <FaTwitter />
+              <a href="https://www.instagram.com/yoquelvis_08" className="text-4xl text-white hover:text-blue-300 transition-colors duration-300">
+                <FaInstagram />
               </a>
             </motion.div>
             <motion.div
