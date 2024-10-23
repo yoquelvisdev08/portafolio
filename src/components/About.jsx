@@ -15,17 +15,7 @@ function About() {
         <p className="mb-4">
           When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee. ☕
         </p>
-        <div className="flex space-x-4 mt-6">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
-            <FaGithub size={24} />
-          </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
-            <FaLinkedin size={24} />
-          </a>
-          <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
-            <FaTwitter size={24} />
-          </a>
-        </div>
+        
       </div>
     </section>
   );

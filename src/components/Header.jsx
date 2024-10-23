@@ -19,7 +19,7 @@ const Header = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <img
-              src="https://avatars.dicebear.com/api/initials/YJA.svg"
+              src="public/me.jpg"
               alt="Yoquelvis Jorge Abreu"
               className="w-40 h-40 rounded-full border-4 border-blue-300 shadow-lg animate-float"
             />

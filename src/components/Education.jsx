@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 const education = [
   { degree: 'Bachelor of Science in Computer Science', institution: 'University of Example', year: '2020' },
   { degree: 'Full Stack Web Development Bootcamp', institution: 'Tech Academy', year: '2021' },
+  
 ];
 
 function Education() {

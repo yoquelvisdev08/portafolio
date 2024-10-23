@@ -14,6 +14,7 @@ const experiences = [
     period: 'Jun 2020 - Dec 2020',
     description: 'Assisted in the development of client websites and learned modern web technologies.',
   },
+
 ];
 
 function Experience() {
