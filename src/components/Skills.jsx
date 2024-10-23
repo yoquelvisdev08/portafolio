@@ -1,39 +1,72 @@
 import React from 'react';
-import { FaReact, FaJs, FaHtml5, FaCss3, FaNode, FaGit } from 'react-icons/fa';
+import { FaReact, FaJs, FaHtml5, FaCss3, FaNode, FaGit, FaDatabase, FaLinux, FaApple, FaPython, FaInfoCircle } from 'react-icons/fa';
+import { SiSelenium, SiPowerbi } from 'react-icons/si';
+import { GiArtificialIntelligence } from 'react-icons/gi';
+import { VscServerProcess } from 'react-icons/vsc';
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'React', icon: FaReact },
-  { name: 'JavaScript', icon: FaJs },
-  { name: 'HTML5', icon: FaHtml5 },
-  { name: 'CSS3', icon: FaCss3 },
-  { name: 'Node.js', icon: FaNode },
-  { name: 'Git', icon: FaGit },
+  { name: 'React', icon: FaReact, percentage: 90 },
+  { name: 'JavaScript', icon: FaJs, percentage: 95 },
+  { name: 'HTML5', icon: FaHtml5, percentage: 100 },
+  { name: 'CSS3', icon: FaCss3, percentage: 95 },
+  { name: 'Node.js', icon: FaNode, percentage: 85 },
+  { name: 'Git', icon: FaGit, percentage: 90 },
+  { name: 'SQL', icon: FaDatabase, percentage: 80 },
+  { name: 'Linux', icon: FaLinux, percentage: 75 },
+  { name: 'Swift', icon: FaApple, percentage: 70 },
+  { name: 'Selenium', icon: SiSelenium, percentage: 85 },
+  { name: 'Python', icon: FaPython, percentage: 90 },
+  { name: 'Machine Learning', icon: GiArtificialIntelligence, percentage: 75 },
+  { name: 'Power BI', icon: SiPowerbi, percentage: 80 },
+  { name: 'Microservices', icon: VscServerProcess, percentage: 85 },
 ];
+
+function SkillCard({ skill }) {
+  return (
+    <motion.div 
+      className="flip-container w-full h-24"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flipper w-full h-full">
+        <div className="front w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg">
+          <skill.icon className="text-4xl mb-2 text-blue-400" />
+          <h4 className="text-sm font-semibold text-white text-center">{skill.name}</h4>
+        </div>
+        <div className="back w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-blue-900 rounded-lg">
+          <h4 className="percentage-display text-white">{skill.percentage}%</h4>
+          <p className="text-sm text-blue-200">Proficiency</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 function Skills() {
   return (
     <section className="my-16">
       <motion.h2 
-        className="section-title text-white"
+        className="section-title text-white mb-8"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         Skills 🚀
       </motion.h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+      <motion.div
+        className="flex items-center justify-center mb-4 text-blue-300"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        <FaInfoCircle className="info-icon mr-2" />
+        <p>Hover over skills to see proficiency</p>
+      </motion.div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {skills.map((skill, index) => (
-          <motion.div 
-            key={index} 
-            className="card flex flex-col items-center p-4 bg-gradient-to-br from-blue-900 to-purple-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <skill.icon className="text-5xl mb-4 text-blue-400" />
-            <h4 className="text-xl font-semibold text-white">{skill.name}</h4>
-          </motion.div>
+          <SkillCard key={index} skill={skill} />
         ))}
       </div>
     </section>

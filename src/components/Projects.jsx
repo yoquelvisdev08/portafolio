@@ -4,40 +4,40 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "A showcase of my personal portfolio website built with React and Tailwind CSS.",
-    link: "/projects/portfolio-website/index.html",
-    icon: "🌐"
+    title: "Calculator",
+    description: "A functional calculator application built with React.",
+    link: "/calculator",
+    icon: "🧮"
+  },
+  {
+    title: "E-commerce Store",
+    description: "A simple e-commerce platform with product listing and cart functionality.",
+    link: "/e-commerce",
+    icon: "🛒"
   },
   {
     title: "Quiz App",
-    description: "An interactive quiz application built with JavaScript, HTML, and CSS.",
-    link: "/projects/quiz-app/index.html",
+    description: "An interactive quiz application with multiple-choice questions.",
+    link: "/quiz-app",
     icon: "❓"
   },
   {
     title: "Todo App",
-    description: "A simple todo application built with React and local storage.",
-    link: "/projects/todo-app/index.html",
+    description: "A task management application to keep track of your todos.",
+    link: "/todo-app",
     icon: "📝"
   },
   {
     title: "Weather Dashboard",
-    description: "A weather dashboard that displays current weather and forecast using a weather API.",
-    link: "/projects/weather-dashboard/index.html",
+    description: "A weather dashboard that displays current weather information.",
+    link: "/weather-dashboard",
     icon: "🌤️"
   },
   {
-    title: "Calculator",
-    description: "A basic calculator application built with JavaScript.",
-    link: "/projects/calculator/index.html",
-    icon: "🧮"
-  },
-  {
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce platform with user authentication and payment integration.",
-    link: "/projects/e-commerce/index.html",
-    icon: "🛒"
+    title: "Portfolio Website",
+    description: "A showcase of all the projects in one place.",
+    link: "/portfolio-website",
+    icon: "🌐"
   }
 ];
 

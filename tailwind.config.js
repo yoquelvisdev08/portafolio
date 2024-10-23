@@ -12,6 +12,9 @@ export default {
         accent: '#e94560',
         text: '#ffffff',
       },
+      perspective: {
+        '1000': '1000px',
+      },
     },
   },
   plugins: [],

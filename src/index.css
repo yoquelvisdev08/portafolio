@@ -10,32 +10,56 @@ body {
 
 @layer components {
   .section-title {
-    @apply text-3xl font-bold mb-8 text-blue-300 border-b-2 border-blue-300 pb-2 inline-block;
+    @apply text-4xl font-bold mb-8 text-blue-300 dark:text-blue-400 border-b-2 border-blue-300 dark:border-blue-400 pb-2 inline-block;
   }
 
   .card {
-    @apply bg-gray-800 bg-opacity-50 rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform hover:shadow-lg hover:-translate-y-1 backdrop-filter backdrop-blur-sm;
+    @apply bg-gray-800 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform hover:shadow-xl hover:-translate-y-2 backdrop-filter backdrop-blur-sm;
   }
 
   .btn-primary {
-    @apply bg-blue-500 text-white font-semibold py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300;
+    @apply bg-blue-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300 shadow-md hover:shadow-lg;
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
   }
+
+  .flip-container {
+    @apply relative w-full h-full;
+    perspective: 1000px;
+  }
+
+  .flipper {
+    @apply relative w-full h-full transition-transform duration-700;
+    transform-style: preserve-3d;
+  }
+
+  .flip-container:hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+  .front, .back {
+    @apply absolute w-full h-full;
+    backface-visibility: hidden;
+  }
+
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  .percentage-display {
+    @apply text-3xl font-bold;
+  }
+
+  .info-icon {
+    @apply text-blue-300 dark:text-blue-400 text-sm ml-2;
+  }
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
 .animate-float {
@@ -43,7 +67,7 @@ body {
 }
 
 .glass-effect {
-  @apply bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg;
+  @apply bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 backdrop-filter backdrop-blur-lg;
 }
 
 .text-shadow {
@@ -51,5 +75,25 @@ body {
 }
 
 .hover-lift {
-  @apply transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg;
+  @apply transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-lg;
+}
+
+.dark .dark\:text-gray-200 {
+  @apply text-gray-200;
+}
+
+.dark .dark\:bg-gray-800 {
+  @apply bg-gray-800;
+}
+
+.dark .dark\:from-gray-900 {
+  @apply from-gray-900;
+}
+
+.dark .dark\:via-gray-800 {
+  @apply via-gray-800;
+}
+
+.dark .dark\:to-gray-700 {
+  @apply to-gray-700;
 }
