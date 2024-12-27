@@ -16,17 +16,17 @@ const Contact = () => {
   ];
 
   return (
-    <section ref={ref} className="py-16">
+    <section ref={ref} className="py-4">
       <motion.h2 
-        className="section-title text-white"
+        className="section-title mb-2"
         initial={{ opacity: 0, y: -20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}
       >
-        Contact
+        Contact 📱
       </motion.h2>
       <motion.div
-        className="card space-y-6 bg-gradient-to-br from-blue-900 to-purple-900"
+        className="card space-y-3 bg-gradient-to-br from-[#3A6D8C]/20 to-[#6A9AB0]/20"
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -35,12 +35,12 @@ const Contact = () => {
           <motion.a
             key={index}
             href={item.href}
-            className="flex items-center text-white hover:text-blue-300 transition-colors duration-300"
+            className="flex items-center text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors duration-300"
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
           >
-            <item.icon className="h-6 w-6 mr-4 text-blue-400" />
+            <item.icon className="h-6 w-6 mr-4 text-[#6A9AB0]" />
             <span className="text-lg">{item.text}</span>
           </motion.a>
         ))}

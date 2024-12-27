@@ -30,14 +30,14 @@ function Experience() {
       <h2 className="section-title">Experience 💼</h2>
       <div className="space-y-8">
         {experiences.map((exp, index) => (
-          <div key={index} className="card">
+          <div key={index} className="card bg-gradient-to-br from-[#001F3F] to-[#3A6D8C]">
             <div className="flex items-center mb-4">
-              <FaBriefcase className="text-2xl text-accent mr-4" />
-              <h3 className="text-xl font-semibold">{exp.title}</h3>
+              <FaBriefcase className="text-2xl text-[#6A9AB0] mr-4" />
+              <h3 className="text-xl font-semibold text-[#EAD8B1]">{exp.title}</h3>
             </div>
-            <p className="text-gray-300 mb-2">{exp.company}</p>
-            <p className="text-gray-400 mb-4">{exp.period}</p>
-            <p>{exp.description}</p>
+            <p className="text-white mb-2">{exp.company}</p>
+            <p className="text-white/70 mb-4">{exp.period}</p>
+            <p className="text-white">{exp.description}</p>
           </div>
         ))}
       </div>

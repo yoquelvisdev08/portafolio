@@ -22,7 +22,7 @@ function Education() {
   return (
     <section className="my-16">
       <motion.h2 
-        className="section-title text-white"
+        className="section-title"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -33,17 +33,17 @@ function Education() {
         {education.map((edu, index) => (
           <motion.div 
             key={index} 
-            className="card p-6 bg-gradient-to-br from-blue-900 to-purple-900"
+            className="card p-6 bg-gradient-to-br from-[#001F3F] to-[#3A6D8C]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <div className="flex items-center mb-4">
-              <FaGraduationCap className="text-3xl mr-4 text-blue-400" />
-              <h3 className="text-xl font-semibold text-white">{edu.degree}</h3>
+              <FaGraduationCap className="text-3xl mr-4 text-[#6A9AB0]" />
+              <h3 className="text-xl font-semibold text-[#EAD8B1]">{edu.degree}</h3>
             </div>
             <p className="text-white mb-2">{edu.institution}</p>
-            <p className="text-blue-200">{edu.year}</p>
+            <p className="text-white/80">{edu.year}</p>
           </motion.div>
         ))}
       </div>

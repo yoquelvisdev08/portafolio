@@ -56,19 +56,19 @@ function Projects() {
         {projects.map((project, index) => (
           <motion.div 
             key={index} 
-            className="card hover-lift bg-gradient-to-br from-blue-900 to-purple-900"
+            className="card hover-lift bg-gradient-to-br from-[#3A6D8C]/20 to-[#6A9AB0]/20"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <div className="text-4xl mb-4">{project.icon}</div>
-            <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
-            <p className="text-blue-200 mb-4">{project.description}</p>
+            <h3 className="text-xl font-semibold mb-2 text-[#EAD8B1]">{project.title}</h3>
+            <p className="text-[#6A9AB0] mb-4">{project.description}</p>
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+              className="btn-primary inline-flex items-center bg-[#3A6D8C] hover:bg-[#6A9AB0] text-[#EAD8B1] font-bold py-2 px-4 rounded transition-colors duration-300"
             >
               View Project <FaExternalLinkAlt className="ml-2" />
             </a>

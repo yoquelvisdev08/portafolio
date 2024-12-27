@@ -4,13 +4,22 @@ import { FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa';
 
 const Header = () => {
   return (
-    <header className="py-20">
+    <header className="py-12">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
-          className="glass-effect rounded-lg p-12 flex flex-col md:flex-row items-center justify-center"
+          className="glass-effect rounded-lg p-8 flex flex-col md:flex-row items-center justify-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            mass: 1
+          }}
+          whileHover={{ 
+            scale: 1.02,
+            transition: { duration: 0.3 }
+          }}
         >
           <motion.div
             className="mr-12 mb-8 md:mb-0"
@@ -21,26 +30,80 @@ const Header = () => {
             <img
               src="/me.JPG"
               alt="Yoquelvis Jorge Abreu"
-              className="w-64 h-auto shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300"
+              className="w-80 h-auto shadow-2xl rounded-lg hover:shadow-xl transition-shadow duration-300 border-2 border-[#6A9AB0]/30"
             />
           </motion.div>
           <div className="text-center md:text-left">
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 text-shadow"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              style={{
-                background: 'linear-gradient(45deg, #4F46E5, #06B6D4, #3B82F6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-              }}
+              className="text-5xl md:text-7xl font-bold mb-6"
+              style={{ fontFamily: "'Share Tech Mono', monospace" }}
             >
-              Yoquelvis Jorge Abreu
+              <motion.div
+                className="flex flex-col space-y-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <motion.span
+                  className="inline-block sparkle-text"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  style={{
+                    color: '#EAD8B1',
+                    textShadow: `
+                      0 0 2px #EAD8B1,
+                      0 0 4px #6A9AB0,
+                      0 0 6px #6A9AB0
+                    `,
+                    animation: 'flicker 2s infinite alternate, sparkle 1.5s infinite',
+                    paddingLeft: '10px'
+                  }}
+                >
+                  &gt;_Yoquelvis
+                </motion.span>
+                <motion.span
+                  className="inline-block"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  style={{
+                    color: '#EAD8B1',
+                    textShadow: `
+                      0 0 4px #EAD8B1,
+                      0 0 8px #EAD8B1,
+                      0 0 12px #6A9AB0,
+                      0 0 16px #6A9AB0
+                    `,
+                    animation: 'flicker 2s infinite alternate',
+                    paddingLeft: '20px'
+                  }}
+                >
+                  &gt;_Jorge
+                </motion.span>
+                <motion.span
+                  className="inline-block"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  style={{
+                    color: '#EAD8B1',
+                    textShadow: `
+                      0 0 4px #EAD8B1,
+                      0 0 8px #EAD8B1,
+                      0 0 12px #6A9AB0,
+                      0 0 16px #6A9AB0
+                    `,
+                    animation: 'flicker 1.8s infinite alternate',
+                    paddingLeft: '30px'
+                  }}
+                >
+                  &gt;_Abreu
+                </motion.span>
+              </motion.div>
             </motion.h1>
             <motion.p 
-              className="text-2xl md:text-3xl text-blue-200 dark:text-blue-300 mb-6"
+              className="text-2xl md:text-3xl text-white mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -53,7 +116,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <a href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/" className="text-4xl text-white hover:text-blue-400 transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/" className="text-4xl text-white hover:text-[#6A9AB0] transition-colors duration-300">
                 <FaLinkedin />
               </a>
               <a href="https://github.com/yoquelvisdev08" className="text-4xl text-white hover:text-gray-400 transition-colors duration-300">

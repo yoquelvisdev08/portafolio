@@ -31,13 +31,13 @@ function SkillCard({ skill }) {
       transition={{ duration: 0.5 }}
     >
       <div className="flipper w-full h-full">
-        <div className="front w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg">
-          <skill.icon className="text-4xl mb-2 text-blue-400" />
-          <h4 className="text-sm font-semibold text-white text-center">{skill.name}</h4>
+        <div className="front w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#3A6D8C]/20 to-[#6A9AB0]/20 rounded-lg">
+          <skill.icon className="text-4xl mb-2 text-[#6A9AB0]" />
+          <h4 className="text-sm font-semibold text-[#EAD8B1] text-center">{skill.name}</h4>
         </div>
-        <div className="back w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-blue-900 rounded-lg">
-          <h4 className="percentage-display text-white">{skill.percentage}%</h4>
-          <p className="text-sm text-blue-200">Proficiency</p>
+        <div className="back w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#001F3F] to-[#3A6D8C] rounded-lg">
+          <h4 className="percentage-display text-[#EAD8B1]">{skill.percentage}%</h4>
+          <p className="text-sm text-[#6A9AB0]">Proficiency</p>
         </div>
       </div>
     </motion.div>

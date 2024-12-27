@@ -3,26 +3,65 @@
 @import 'tailwindcss/utilities';
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
+  @apply bg-[#001F3F];
 }
 
 @layer components {
+  /* Light Mode */
+  :root {
+    --primary: #3A6D8C;
+    --secondary: #6A9AB0;
+    --accent: #EAD8B1;
+    --background: #001F3F;
+    --card: rgba(58, 109, 140, 0.1);
+    --text: #EAD8B1;
+    --text-secondary: #6A9AB0;
+  }
+
+  /* Dark Mode */
+  .dark {
+    --primary: #14B8A6;
+    --secondary: #0284C7;
+    --accent: #7C3AED;
+    --background: #0F172A;
+    --card: rgba(30, 41, 59, 0.8);
+    --text: #F1F5F9;
+    --text-secondary: #CBD5E1;
+  }
+
+  body {
+    @apply bg-[#001F3F];
+  }
+
   .section-title {
-    @apply text-4xl font-bold mb-8 text-blue-300 dark:text-blue-400 border-b-2 border-blue-300 dark:border-blue-400 pb-2 inline-block;
+    @apply text-4xl font-bold mb-4 text-[#EAD8B1] border-b-2 border-[#6A9AB0] pb-2 inline-block;
   }
 
   .card {
-    @apply bg-gray-800 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform hover:shadow-xl hover:-translate-y-2 backdrop-filter backdrop-blur-sm;
+    @apply bg-[#3A6D8C]/10 backdrop-blur-lg rounded-lg p-6 shadow-lg;
+  }
+
+  /* Texto normal dentro de las cards */
+  .card p {
+    @apply text-white;
+  }
+
+  /* Títulos dentro de las cards */
+  .card h3 {
+    @apply text-[#EAD8B1];
   }
 
   .btn-primary {
-    @apply bg-blue-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300 shadow-md hover:shadow-lg;
+    @apply bg-[#3A6D8C] text-[#EAD8B1] font-semibold py-2 px-6 rounded-full 
+    hover:bg-[#6A9AB0] transition duration-300 shadow-md hover:shadow-lg;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#001F3F] via-[#3A6D8C] to-[#6A9AB0];
   }
 
   .flip-container {
@@ -57,7 +96,7 @@ body {
   }
 
   .footer-gradient {
-    @apply bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700;
+    @apply bg-gradient-to-r from-emerald-900 via-teal-900 to-cyan-900 dark:from-slate-900 dark:via-gray-800 dark:to-gray-700;
   }
 
   .footer-content {
@@ -71,11 +110,37 @@ body {
   .footer-icon {
     @apply text-white text-opacity-90 hover:text-opacity-100 transition-opacity duration-300 transform hover:scale-110;
   }
+
+  .dark {
+    @apply bg-gray-900;
+  }
+
+  .dark .section-title {
+    @apply text-emerald-400 border-emerald-400;
+  }
+
+  .dark .card {
+    @apply bg-slate-900 bg-opacity-50;
+  }
+
+  .glass-effect {
+    @apply bg-[#3A6D8C]/5 backdrop-filter backdrop-blur-lg border border-[#6A9AB0]/20;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 .animate-float {
@@ -83,7 +148,7 @@ body {
 }
 
 .glass-effect {
-  @apply bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 backdrop-filter backdrop-blur-lg;
+  @apply bg-[#3A6D8C]/5 backdrop-filter backdrop-blur-lg;
 }
 
 .text-shadow {
@@ -91,7 +156,14 @@ body {
 }
 
 .hover-lift {
-  @apply transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-lg;
+  @apply transition-all duration-500 ease-out;
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(106, 154, 176, 0.2);
+  }
+  &:active {
+    transform: translateY(-2px) scale(0.98);
+  }
 }
 
 .dark .dark\:text-gray-200 {
@@ -112,4 +184,93 @@ body {
 
 .dark .dark\:to-gray-700 {
   @apply to-gray-700;
+}
+
+.dark {
+  @apply bg-gray-900;
+}
+
+.dark .dark\:bg-emerald-400 {
+  @apply bg-emerald-400;
+}
+
+.dark .dark\:text-gray-900 {
+  @apply text-gray-900;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px #EAD8B1,
+      0 0 8px #EAD8B1,
+      0 0 12px #6A9AB0,
+      0 0 16px #6A9AB0;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 
+      0 0 2px #EAD8B1,
+      0 0 4px #6A9AB0,
+      0 0 6px #6A9AB0,
+      0 0 10px #6A9AB0,
+      2px 2px 2px rgba(206, 89, 55, 0);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px #EAD8B1,
+      0 0 4px #6A9AB0,
+      0 0 6px #6A9AB0,
+      2px -2px 2px rgba(206, 89, 55, 0.3);
+  }
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 2px #EAD8B1,
+      0 0 4px #6A9AB0,
+      0 0 6px #6A9AB0;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+.sparkle-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: sparkle-move 3s infinite linear;
+  background: radial-gradient(circle, rgba(234, 216, 177, 0.1) 10%, transparent 20%);
+  background-size: 3px 3px;
+  pointer-events: none;
+}
+
+@keyframes sparkle-move {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-2px) rotate(1deg) }
+  100% { transform: translateY(0) }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease-out forwards;
 }
