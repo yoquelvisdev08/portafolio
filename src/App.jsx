@@ -8,6 +8,9 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import AnimatedBackground from './components/AnimatedBackground';
+import ScrollToTop from './components/ScrollToTop';
+import SectionIndicator from './components/SectionIndicator';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -32,28 +35,34 @@ function App() {
 
   return (
     <div className={`min-h-screen text-white ${darkMode ? 'dark' : ''}`}>
+      <AnimatedBackground />
+      <ScrollToTop />
+      <SectionIndicator />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-[#6A9AB0] origin-left z-50"
         style={{ scaleX }}
       />
-      
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="relative z-10"
       >
-        <Header />
+        <div id="header">
+          <Header />
+        </div>
         <main className="container mx-auto px-4 py-8 max-w-5xl">
-          {[About, Experience, Skills, Projects, Education, Contact].map((Section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <Section />
-            </motion.div>
+          {[
+            { Component: About, id: 'about' },
+            { Component: Experience, id: 'experience' },
+            { Component: Skills, id: 'skills' },
+            { Component: Projects, id: 'projects' },
+            { Component: Education, id: 'education' },
+            { Component: Contact, id: 'contact' }
+          ].map(({ Component, id }, index) => (
+            <div key={index} id={id}>
+              <Component />
+            </div>
           ))}
         </main>
       </motion.div>
