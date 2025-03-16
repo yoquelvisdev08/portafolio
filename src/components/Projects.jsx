@@ -4,40 +4,16 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: "Calculator",
-    description: "A functional calculator application built with React.",
-    link: "/calculator",
-    icon: "🧮"
+    title: "Avatar Generator",
+    description: "It is an AI-powered platform that allows users to generate random avatars.",
+    link: "https://avatar-3000.vercel.app/",
+    icon: "😝"
   },
   {
-    title: "E-commerce Store",
-    description: "A simple e-commerce platform with product listing and cart functionality.",
-    link: "/e-commerce",
-    icon: "🛒"
-  },
-  {
-    title: "Quiz App",
-    description: "An interactive quiz application with multiple-choice questions.",
-    link: "/quiz-app",
-    icon: "❓"
-  },
-  {
-    title: "Todo App",
-    description: "A task management application to keep track of your todos.",
-    link: "/todo-app",
-    icon: "📝"
-  },
-  {
-    title: "Weather Dashboard",
-    description: "A weather dashboard that displays current weather information.",
-    link: "/weather-dashboard",
-    icon: "🌤️"
-  },
-  {
-    title: "Portfolio Website",
-    description: "A showcase of all the projects in one place.",
-    link: "/portfolio-website",
-    icon: "🌐"
+    title: "Jokes Generator",
+    description: "Improvised jokes and a generator of dark jokes as simple as.",
+    link: "https://chistes-nine.vercel.app/",
+    icon: "🤣"
   }
 ];
 
