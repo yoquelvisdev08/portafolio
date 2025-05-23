@@ -11,8 +11,8 @@ const Contact = () => {
 
   const contactItems = [
     { icon: FaPhone, text: "(829) 422-3313", href: "tel:+18294223313" },
-    { icon: FaEnvelope, text: "yoquelvis18@gmail.com", href: "mailto:yoquelvis18@gmail.com" },
-    { icon: FaGlobe, text: "https://yoquelvisdev.com/", href: "https://yoquelvisdev.com/" },
+    { icon: FaEnvelope, text: "yoquelvis18@gmail.com", href: "mailto:yoquelvisdev@gmail.com" },
+    { icon: FaGlobe, text: "https://yoquelvis.dev/", href: "https://yoquelvis.dev/" },
   ];
 
   return (

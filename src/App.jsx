@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { FaMoon, FaSun, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import React from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import Header from './components/Header';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -13,10 +13,6 @@ import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('darkMode') === 'true';
-  });
-  
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -24,17 +20,8 @@ function App() {
     restDelta: 0.001
   });
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('darkMode', darkMode);
-  }, [darkMode]);
-
   return (
-    <div className={`min-h-screen text-white ${darkMode ? 'dark' : ''}`}>
+    <div className="min-h-screen text-white">
       <AnimatedBackground />
       <ScrollToTop />
       <SectionIndicator />
@@ -67,20 +54,11 @@ function App() {
         </main>
       </motion.div>
 
-      <motion.button
-        className="fixed bottom-4 right-4 p-3 rounded-full bg-[#3A6D8C] text-[#EAD8B1] shadow-lg z-50 hover:scale-110 transition-transform"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => setDarkMode(!darkMode)}
-      >
-        {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-      </motion.button>
-
       <footer className="mt-16 py-8 bg-gradient-to-r from-[#001F3F] via-[#3A6D8C] to-[#6A9AB0]">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-[#EAD8B1] mb-4 md:mb-0">
-              © 2024 Yoquelvis Jorge Abreu. All rights reserved.
+              © 2025 Yoquelvis Jorge Abreu. All rights reserved.
             </div>
             <div className="flex space-x-6">
               <a href="https://github.com/yoquelvisdev08" className="text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors">
