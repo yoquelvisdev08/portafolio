@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import GenerateCV from './GenerateCV';
 
 const Header = () => {
   return (
@@ -33,6 +34,7 @@ const Header = () => {
               className="w-80 h-auto shadow-2xl rounded-lg hover:shadow-xl transition-shadow duration-300 border-2 border-[#6A9AB0]/30"
             />
           </motion.div>
+
           <div className="text-center md:text-left">
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6"
@@ -130,10 +132,9 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex justify-center md:justify-start"
             >
-              <a href="#contact" className="btn-primary text-xl py-3 px-8 rounded-full hover-lift">
-                Get in touch
-              </a>
+              <GenerateCV />
             </motion.div>
           </div>
         </motion.div>
