@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import Modal from 'react-modal';
 import Header from './components/Header';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -11,6 +12,9 @@ import Contact from './components/Contact';
 import AnimatedBackground from './components/AnimatedBackground';
 import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
+
+// Configurar react-modal
+Modal.setAppElement('#root');
 
 function App() {
   const { scrollYProgress } = useScroll();
