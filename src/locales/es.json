@@ -123,6 +123,6 @@
     ]
   },
   "footer": {
-    "copyright": "© 2025 Yoquelvis Jorge Abreu. Todos los derechos reservados."
+    "copyright": "© {{year}} Yoquelvis Jorge Abreu. Todos los derechos reservados."
   }
 } 

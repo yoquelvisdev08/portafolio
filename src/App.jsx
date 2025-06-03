@@ -11,6 +11,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
@@ -63,26 +64,7 @@ function App() {
           </main>
         </motion.div>
 
-        <footer className="mt-16 py-8 bg-gradient-to-r from-[#001F3F] via-[#3A6D8C] to-[#6A9AB0]">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="text-[#EAD8B1] mb-4 md:mb-0">
-                © 2025 Yoquelvis Jorge Abreu. All rights reserved.
-              </div>
-              <div className="flex space-x-6">
-                <a href="https://github.com/yoquelvisdev08" className="text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors">
-                  <FaGithub size={24} />
-                </a>
-                <a href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/" className="text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors">
-                  <FaLinkedin size={24} />
-                </a>
-                <a href="mailto:yoquelvis18@gmail.com" className="text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors">
-                  <FaEnvelope size={24} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </I18nextProvider>
   );
