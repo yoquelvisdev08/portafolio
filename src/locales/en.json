@@ -1,0 +1,128 @@
+{
+  "header": {
+    "title": "Software Developer",
+    "description": "Creating innovative solutions"
+  },
+  "nav": {
+    "about": "About",
+    "experience": "Experience", 
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "name": "Yoquelvis Jorge Abreu",
+    "description": "A passionate Software Developer dedicated to creating innovative and efficient solutions."
+  },
+  "about": {
+    "title": "About Me 👨‍💻",
+    "paragraphs": [
+      "Hello! I'm Yoquelvis Jorge Abreu, a passionate web developer with a love for creating beautiful and functional websites. 🚀",
+      "I specialize in front-end development, with expertise in React, JavaScript, HTML5, and modern CSS frameworks like Tailwind CSS. 💻",
+      "Additionally, I have experience with Node.js, allowing me to work on full-stack projects. 🌐",
+      "My skill set also includes Git for version control, SQL for database management, and Linux for server environments. 🛠️",
+      "I am familiar with Python and Machine Learning, which expands my capabilities in data analysis and AI-driven projects. 🤖",
+      "Moreover, I have experience in Power BI for data visualization, and I'm knowledgeable in Microservices architecture for scalable applications. 📊🔧",
+      "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee. ☕"
+    ]
+  },
+  "experience": {
+    "title": "Experience 💼",
+    "jobs": [
+      {
+        "title": "Web Development",
+        "company": "Dentsu",
+        "period": "July Present",
+        "description": "I work on the creation and optimization of websites, using technologies such as HTML, CSS and JavaScript, among other frameworks, focusing on user experience and the performance of web applications."
+      },
+      {
+        "title": "Intern, Technology/Management Systems",
+        "company": "Bank BHD",
+        "period": "January 2023 - April 2023",
+        "description": "During my internship in Technology/Management Systems, I used Oracle SQL to manage enterprise data and created reports and analysis using tools such as Pentaho and BI Publisher, supporting decision making."
+      },
+      {
+        "title": "SQL Database Administrator",
+        "company": "VICORTIZ",
+        "period": "2022 - 2023",
+        "description": "Reception of clients. Switchboard management. Assistance at the reception desk. File maintenance."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Skills 🚀",
+    "description": "Explore my professional skills and expertise",
+    "projectsCompleted": "Projects Completed",
+    "skillDetails": [
+      { 
+        "name": "React", 
+        "competency": "Professional Mastery", 
+        "projects": 5,
+        "description": "Development of complex and scalable web applications"
+      },
+      { 
+        "name": "JavaScript", 
+        "competency": "Expert", 
+        "projects": 8,
+        "description": "Implementation of innovative frontend and backend solutions"
+      },
+      { 
+        "name": "Node.js", 
+        "competency": "Advanced", 
+        "projects": 4,
+        "description": "Building robust RESTful APIs and microservices"
+      },
+      { 
+        "name": "Python", 
+        "competency": "Specialist", 
+        "projects": 6,
+        "description": "Development of automation scripts and data analysis"
+      },
+      { 
+        "name": "SQL", 
+        "competency": "Professional", 
+        "projects": 3,
+        "description": "Management and optimization of enterprise databases"
+      },
+      { 
+        "name": "Git", 
+        "competency": "Expert", 
+        "projects": 7,
+        "description": "Version control and collaboration in development teams"
+      },
+      { 
+        "name": "Machine Learning", 
+        "competency": "Advanced Intermediate", 
+        "projects": 2,
+        "description": "Implementation of predictive models and data analysis"
+      },
+      { 
+        "name": "Docker", 
+        "competency": "Professional", 
+        "projects": 3,
+        "description": "Containerization and deployment of scalable applications"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "description": "A showcase of my most significant and innovative projects"
+  },
+  "education": {
+    "title": "Educational Journey",
+    "description": "Click on an education item to view its certificate"
+  },
+  "contact": {
+    "title": "Contact 📱",
+    "contactItems": [
+      { "type": "phone", "text": "(829) 422-3313", "href": "tel:+18294223313" },
+      { "type": "email", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },
+      { "type": "website", "text": "https://yoquelvis.dev/", "href": "https://yoquelvis.dev/" }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2025 Yoquelvis Jorge Abreu. All rights reserved."
+  }
+} 

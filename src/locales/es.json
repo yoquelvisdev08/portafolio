@@ -1,0 +1,128 @@
+{
+  "header": {
+    "title": "Desarrollador de Software",
+    "description": "Creando soluciones innovadoras"
+  },
+  "nav": {
+    "about": "Sobre Mí",
+    "experience": "Experiencia", 
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "education": "Educación",
+    "contact": "Contacto"
+  },
+  "home": {
+    "greeting": "Hola, soy",
+    "name": "Yoquelvis Jorge Abreu",
+    "description": "Un desarrollador de software apasionado dedicado a crear soluciones innovadoras y eficientes."
+  },
+  "about": {
+    "title": "Sobre Mí 👨‍💻",
+    "paragraphs": [
+      "¡Hola! Soy Yoquelvis Jorge Abreu, un desarrollador web apasionado con amor por crear sitios web hermosos y funcionales. 🚀",
+      "Me especializo en desarrollo front-end, con experiencia en React, JavaScript, HTML5 y frameworks de CSS modernos como Tailwind CSS. 💻",
+      "Además, tengo experiencia con Node.js, lo que me permite trabajar en proyectos full-stack. 🌐",
+      "Mi conjunto de habilidades también incluye Git para control de versiones, SQL para gestión de bases de datos y Linux para entornos de servidores. 🛠️",
+      "Estoy familiarizado con Python y Machine Learning, lo que amplía mis capacidades en análisis de datos y proyectos impulsados por IA. 🤖",
+      "Además, tengo experiencia en Power BI para visualización de datos y conocimientos en arquitectura de microservicios para aplicaciones escalables. 📊🔧",
+      "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto o disfrutando de una buena taza de café. ☕"
+    ]
+  },
+  "experience": {
+    "title": "Experiencia 💼",
+    "jobs": [
+      {
+        "title": "Desarrollo Web",
+        "company": "Dentsu",
+        "period": "Julio Presente",
+        "description": "Trabajo en la creación y optimización de sitios web, utilizando tecnologías como HTML, CSS y JavaScript, entre otros frameworks, enfocándome en la experiencia de usuario y el rendimiento de aplicaciones web."
+      },
+      {
+        "title": "Pasante de Sistemas de Tecnología/Gestión",
+        "company": "Banco BHD",
+        "period": "Enero 2023 - Abril 2023",
+        "description": "Durante mi pasantía en Sistemas de Tecnología/Gestión, utilicé Oracle SQL para gestionar datos empresariales y creé informes y análisis utilizando herramientas como Pentaho y BI Publisher, apoyando la toma de decisiones."
+      },
+      {
+        "title": "Administrador de Base de Datos SQL",
+        "company": "VICORTIZ",
+        "period": "2022 - 2023",
+        "description": "Recepción de clientes. Gestión de centralita. Asistencia en recepción. Mantenimiento de archivos."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Habilidades Técnicas 🚀",
+    "description": "Explora mis habilidades profesionales y experiencia",
+    "projectsCompleted": "Proyectos Completados",
+    "skillDetails": [
+      { 
+        "name": "React", 
+        "competency": "Dominio Profesional", 
+        "projects": 5,
+        "description": "Desarrollo de aplicaciones web complejas y escalables"
+      },
+      { 
+        "name": "JavaScript", 
+        "competency": "Experto", 
+        "projects": 8,
+        "description": "Implementación de soluciones innovadoras de frontend y backend"
+      },
+      { 
+        "name": "Node.js", 
+        "competency": "Avanzado", 
+        "projects": 4,
+        "description": "Construcción de API RESTful y microservicios robustos"
+      },
+      { 
+        "name": "Python", 
+        "competency": "Especialista", 
+        "projects": 6,
+        "description": "Desarrollo de scripts de automatización y análisis de datos"
+      },
+      { 
+        "name": "SQL", 
+        "competency": "Profesional", 
+        "projects": 3,
+        "description": "Gestión y optimización de bases de datos empresariales"
+      },
+      { 
+        "name": "Git", 
+        "competency": "Experto", 
+        "projects": 7,
+        "description": "Control de versiones y colaboración en equipos de desarrollo"
+      },
+      { 
+        "name": "Machine Learning", 
+        "competency": "Intermedio Avanzado", 
+        "projects": 2,
+        "description": "Implementación de modelos predictivos y análisis de datos"
+      },
+      { 
+        "name": "Docker", 
+        "competency": "Profesional", 
+        "projects": 3,
+        "description": "Contenerización y despliegue de aplicaciones escalables"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "description": "Una muestra de mis proyectos más significativos e innovadores"
+  },
+  "education": {
+    "title": "Trayectoria Educativa",
+    "description": "Haz clic en un elemento educativo para ver su certificado"
+  },
+  "contact": {
+    "title": "Contacto 📱",
+    "contactItems": [
+      { "type": "teléfono", "text": "(829) 422-3313", "href": "tel:+18294223313" },
+      { "type": "correo", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },
+      { "type": "sitio web", "text": "https://yoquelvis.dev/", "href": "https://yoquelvis.dev/" }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2025 Yoquelvis Jorge Abreu. Todos los derechos reservados."
+  }
+} 

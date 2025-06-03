@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import GenerateCV from './GenerateCV';
 
 const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <header className="py-12">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -30,7 +33,7 @@ const Header = () => {
           >
             <img
               src="/me.JPG"
-              alt="Yoquelvis Jorge Abreu"
+              alt={t('home.name')}
               className="w-80 h-auto shadow-2xl rounded-lg hover:shadow-xl transition-shadow duration-300 border-2 border-[#6A9AB0]/30"
             />
           </motion.div>
@@ -110,7 +113,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Software Developer
+              {t('header.title')}
             </motion.p>
             <motion.div
               className="mb-8 flex justify-center md:justify-start space-x-6"

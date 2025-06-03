@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaGraduationCap, FaFilePdf } from 'react-icons/fa';
 import Modal from 'react-modal';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const education = [
   { 
@@ -58,6 +59,7 @@ const education = [
 
 function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const { t } = useTranslation();
 
   const openCertificateModal = (certificatePath) => {
     if (certificatePath) {
@@ -77,7 +79,7 @@ function Education() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Educational Journey 🎓
+        {t('education.title')} 🎓
       </motion.h2>
       
       <motion.div
@@ -86,7 +88,7 @@ function Education() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <p>Click on an education item to view its certificate</p>
+        <p>{t('education.description')}</p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
