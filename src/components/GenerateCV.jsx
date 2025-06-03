@@ -16,7 +16,7 @@ const GenerateCV = () => {
             </div>
             <div style="text-align: right;">
               <p style="margin: 0 0 6px 0; font-size: 14px;">
-                <a href="mailto:yoquelvis18@gmail.com" style="color: #2b6cb0; text-decoration: none; font-weight: 500;">
+                <a href="mailto:yoquelvis18@gmail.com" style="color: #2b6cb0; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
                   📧 yoquelvis18@gmail.com
                 </a>
               </p>
