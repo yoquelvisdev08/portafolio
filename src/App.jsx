@@ -31,41 +31,41 @@ function App() {
   return (
     <I18nextProvider i18n={i18n}>
       <div className="min-h-screen text-white">
-        <AnimatedBackground />
-        <ScrollToTop />
-        <SectionIndicator />
+      <AnimatedBackground />
+      <ScrollToTop />
+      <SectionIndicator />
         <LanguageSelector />
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-[#6A9AB0] origin-left z-50"
-          style={{ scaleX }}
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative z-10"
-        >
-          <div id="header">
-            <Header />
-          </div>
-          <main className="container mx-auto px-4 py-8 max-w-5xl">
-            {[
-              { Component: About, id: 'about' },
-              { Component: Experience, id: 'experience' },
-              { Component: Skills, id: 'skills' },
-              { Component: Projects, id: 'projects' },
-              { Component: Education, id: 'education' },
-              { Component: Contact, id: 'contact' }
-            ].map(({ Component, id }, index) => (
-              <div key={index} id={id}>
-                <Component />
-              </div>
-            ))}
-          </main>
-        </motion.div>
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-[#6A9AB0] origin-left z-50"
+        style={{ scaleX }}
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="relative z-10"
+      >
+        <div id="header">
+          <Header />
+        </div>
+        <main className="container mx-auto px-4 py-8 max-w-5xl">
+          {[
+            { Component: About, id: 'about' },
+            { Component: Experience, id: 'experience' },
+            { Component: Skills, id: 'skills' },
+            { Component: Projects, id: 'projects' },
+            { Component: Education, id: 'education' },
+            { Component: Contact, id: 'contact' }
+          ].map(({ Component, id }, index) => (
+            <div key={index} id={id}>
+              <Component />
+            </div>
+          ))}
+        </main>
+      </motion.div>
 
         <Footer />
-      </div>
+            </div>
     </I18nextProvider>
   );
 }

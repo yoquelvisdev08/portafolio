@@ -10,7 +10,7 @@ const education = [
     institution: 'APEC UNIVERSITY', 
     year: '2023 - PRESENT',
     certificate: null,
-    status: 'Coming Soon'
+    status: 'comingSoon'
   },
   { 
     degree: 'FUNDAMENTALS IN DEVOPS, APIS AND MICROSERVICES ARCHITECTURE', 
@@ -29,7 +29,7 @@ const education = [
     institution: 'Instituto Tecnológico de las Américas (ITLA)', 
     year: '2021 - 2023',
     certificate: null,
-    status: 'University Degree (Pending Upload)'
+    status: 'pendingUpload'
   },
   { 
     degree: 'ETHICAL HACKING', 
@@ -119,14 +119,14 @@ function Education() {
                 {edu.certificate ? (
                   <div className="flex items-center text-sm text-blue-300 mt-2">
                     <FaFilePdf className="mr-2" />
-                    <span>Certificate Available</span>
+                    <span>{t('education.certificateAvailable')}</span>
                   </div>
                 ) : (
                   <div className="flex items-center text-sm text-yellow-300 mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>{edu.status || 'Certificate Pending'}</span>
+                    <span>{t(`education.${edu.status}`)}</span>
                   </div>
                 )}
               </div>

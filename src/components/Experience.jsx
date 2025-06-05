@@ -54,15 +54,15 @@ function Experience() {
               animate="visible"
               exit="hidden"
             >
-              <div className="flex items-center mb-4">
-                <FaBriefcase className="text-2xl text-[#6A9AB0] mr-4" />
-                <h3 className="text-xl font-semibold text-[#EAD8B1]">{exp.title}</h3>
-              </div>
-              <p className="text-white mb-2">{exp.company}</p>
-              <p className="text-white/70 mb-4">{exp.period}</p>
-              <p className="text-white">{exp.description}</p>
+            <div className="flex items-center mb-4">
+              <FaBriefcase className="text-2xl text-[#6A9AB0] mr-4" />
+              <h3 className="text-xl font-semibold text-[#EAD8B1]">{exp.title}</h3>
+            </div>
+            <p className="text-white mb-2">{exp.company}</p>
+            <p className="text-white/70 mb-4">{exp.period}</p>
+            <p className="text-white">{exp.description}</p>
             </motion.div>
-          ))}
+        ))}
         </AnimatePresence>
       </motion.div>
     </section>

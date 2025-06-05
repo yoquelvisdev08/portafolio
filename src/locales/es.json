@@ -16,6 +16,7 @@
     "name": "Yoquelvis Jorge Abreu",
     "description": "Un desarrollador de software apasionado dedicado a crear soluciones innovadoras y eficientes."
   },
+  "downloadCV": "Descargar CV",
   "about": {
     "title": "Sobre Mí 👨‍💻",
     "paragraphs": [
@@ -112,7 +113,10 @@
   },
   "education": {
     "title": "Trayectoria Educativa",
-    "description": "Haz clic en un elemento educativo para ver su certificado"
+    "description": "Haz clic en un elemento educativo para ver su certificado",
+    "certificateAvailable": "Certificado Disponible",
+    "comingSoon": "Próximamente",
+    "pendingUpload": "Título Universitario (Pendiente de Subir)"
   },
   "contact": {
     "title": "Contacto 📱",

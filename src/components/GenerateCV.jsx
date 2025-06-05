@@ -1,7 +1,10 @@
 import React from 'react';
 import html2pdf from 'html2pdf.js';
+import { useTranslation } from 'react-i18next';
 
 const GenerateCV = () => {
+  const { t } = useTranslation();
+  
   const downloadCV = () => {
     const element = document.createElement('div');
     element.innerHTML = `
@@ -276,7 +279,7 @@ const GenerateCV = () => {
       onClick={downloadCV}
       className="btn-primary text-xl py-3 px-8 rounded-full hover-lift flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors"
     >
-      <span>Download CV</span>
+      <span>{t('downloadCV')}</span>
       <svg 
         className="w-6 h-6" 
         fill="none" 

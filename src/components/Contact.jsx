@@ -41,17 +41,17 @@ const Contact = () => {
           const Icon = iconMap[item.type] || FaGlobe;
 
           return (
-            <motion.a
-              key={index}
-              href={item.href}
-              className="flex items-center text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors duration-300"
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-            >
+          <motion.a
+            key={index}
+            href={item.href}
+            className="flex items-center text-[#EAD8B1] hover:text-[#6A9AB0] transition-colors duration-300"
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+          >
               <Icon className="h-6 w-6 mr-4 text-[#6A9AB0]" />
-              <span className="text-lg">{item.text}</span>
-            </motion.a>
+            <span className="text-lg">{item.text}</span>
+          </motion.a>
           );
         })}
       </motion.div>
