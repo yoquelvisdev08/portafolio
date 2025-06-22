@@ -183,9 +183,10 @@ const GenerateCV = () => {
             </div>
             <h5 style="margin: 0 0 10px 0; color: #1a365d; font-weight: 600; font-size: 16px;">VICORTIZ</h5>
             <ul style="margin: 0; padding-left: 20px; color: #4a5568; line-height: 1.7;">
-              <li>Managed database operations and maintenance</li>
-              <li>Handled client communications and support</li>
-              <li>Maintained system files and documentation</li>
+              <li>Administered and maintained SQL databases with focus on performance optimization</li>
+              <li>Optimized database queries and implemented performance tuning strategies</li>
+              <li>Managed database backups, recovery procedures, and disaster recovery planning</li>
+              <li>Implemented security procedures and access control measures for data protection</li>
             </ul>
           </div>
         </div>
