@@ -128,5 +128,10 @@
   },
   "footer": {
     "copyright": "© {{year}} Yoquelvis Jorge Abreu. Todos los derechos reservados."
+  },
+  "cv": {
+    "selectLanguage": "Selecciona el idioma del CV",
+    "spanish": "Español",
+    "english": "Inglés"
   }
 } 

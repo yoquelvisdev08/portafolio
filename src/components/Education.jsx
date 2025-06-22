@@ -138,6 +138,9 @@ function Education() {
       <Modal
         isOpen={!!selectedCertificate}
         onRequestClose={closeCertificateModal}
+        shouldCloseOnOverlayClick={true}
+        shouldCloseOnEsc={true}
+        ariaHideApp={false}
         className={{
           base: 'modal-base',
           afterOpen: 'modal-base_after-open',
@@ -181,6 +184,9 @@ function Education() {
         }}
         contentLabel="Certificate Modal"
         closeTimeoutMS={300}
+        shouldFocusAfterRender={false}
+        shouldReturnFocusAfterClose={false}
+        portalClassName="custom-modal-portal"
       >
         <div className="relative w-full h-full flex flex-col">
           <div className="absolute top-4 right-4 z-50 flex items-center space-x-4">

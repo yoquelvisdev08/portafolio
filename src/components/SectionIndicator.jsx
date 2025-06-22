@@ -57,7 +57,7 @@ const SectionIndicator = () => {
 
   return (
     <motion.div 
-      className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 hidden lg:flex flex-col gap-6"
+      className="fixed right-8 top-1/2 transform -translate-y-[65%] z-50 hidden lg:flex flex-col gap-6"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.5 }}

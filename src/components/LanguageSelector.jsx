@@ -38,7 +38,7 @@ const LanguageSelector = () => {
               ${i18n.language === 'es' ? 'bg-[#6A9AB0] text-white' : 'hover:bg-[#6A9AB0]/50'}`}
             title="Español"
           >
-            🇪🇸
+            🇩🇴
           </button>
         </div>
       </div>
