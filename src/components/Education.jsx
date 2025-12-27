@@ -79,7 +79,7 @@ function Education() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {t('education.title')} 🎓
+        {t('education.title')}
       </motion.h2>
       
       <motion.div

@@ -18,19 +18,19 @@
   },
   "downloadCV": "Download CV",
   "about": {
-    "title": "About Me 👨‍💻",
+    "title": "About Me",
     "paragraphs": [
-      "Hello! I'm Yoquelvis Jorge Abreu, a passionate web developer with a love for creating beautiful and functional websites. 🚀",
-      "I specialize in front-end development, with expertise in React, JavaScript, HTML5, and modern CSS frameworks like Tailwind CSS. 💻",
-      "Additionally, I have experience with Node.js, allowing me to work on full-stack projects. 🌐",
-      "My skill set also includes Git for version control, SQL for database management, and Linux for server environments. 🛠️",
-      "I am familiar with Python and Machine Learning, which expands my capabilities in data analysis and AI-driven projects. 🤖",
-      "Moreover, I have experience in Power BI for data visualization, and I'm knowledgeable in Microservices architecture for scalable applications. 📊🔧",
-      "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee. ☕"
+      "Hello! I'm Yoquelvis Jorge Abreu, a passionate web developer with a love for creating beautiful and functional websites.",
+      "I specialize in front-end development, with expertise in React, JavaScript, HTML5, and modern CSS frameworks like Tailwind CSS.",
+      "Additionally, I have experience with Node.js, allowing me to work on full-stack projects.",
+      "My skill set also includes Git for version control, SQL for database management, and Linux for server environments.",
+      "I am familiar with Python and Machine Learning, which expands my capabilities in data analysis and AI-driven projects.",
+      "Moreover, I have experience in Power BI for data visualization, and I'm knowledgeable in Microservices architecture for scalable applications.",
+      "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee."
     ]
   },
   "experience": {
-    "title": "Experience 💼",
+    "title": "Experience",
     "jobs": [
       {
         "title": "Web Development",
@@ -53,7 +53,7 @@
     ]
   },
   "skills": {
-    "title": "Technical Skills 🚀",
+    "title": "Technical Skills",
     "description": "Explore my professional skills and expertise",
     "projectsCompleted": "Projects Completed",
     "skillDetails": [
@@ -109,14 +109,41 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "description": "A showcase of my most significant and innovative projects"
+    "description": "A showcase of my most significant and innovative projects",
+    "viewProject": "View Project",
+    "items": [
+      {
+        "title": "Barcode Generator",
+        "description": "Desktop application with GUI for generating barcodes with unique ID and local SQLite database management. Features include user authentication, multiple barcode formats (Code128, EAN13, EAN8, Code39), ID card editor with customizable HTML templates, and automatic OCR verification.",
+        "icon": "barcode",
+        "github": "https://github.com/yoquelvisdev08",
+        "technologies": ["Python", "PyQt6", "SQLite", "Tesseract OCR", "Pillow"]
+      },
+      {
+        "title": "Avatar Generator",
+        "description": "AI-powered platform that allows users to generate random and unique avatars with customizable styles and options.",
+        "link": "https://avatar-3000.vercel.app/",
+        "icon": "avatar",
+        "technologies": ["React", "Next.js", "Tailwind CSS", "AI API"]
+      },
+      {
+        "title": "Jokes Generator",
+        "description": "Fun application that generates improvised jokes and dark humor content with a simple and intuitive interface.",
+        "link": "https://chistes-nine.vercel.app/",
+        "icon": "jokes",
+        "technologies": ["React", "JavaScript", "CSS"]
+      }
+    ]
   },
   "education": {
     "title": "Educational Journey",
-    "description": "Click on an education item to view its certificate"
+    "description": "Click on an education item to view its certificate",
+    "certificateAvailable": "Certificate Available",
+    "comingSoon": "Coming Soon",
+    "pendingUpload": "University Degree (Pending Upload)"
   },
   "contact": {
-    "title": "Contact 📱",
+    "title": "Contact",
     "contactItems": [
       { "type": "phone", "text": "(829) 422-3313", "href": "tel:+18294223313" },
       { "type": "email", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },

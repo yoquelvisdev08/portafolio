@@ -18,19 +18,19 @@
   },
   "downloadCV": "Descargar CV",
   "about": {
-    "title": "Sobre Mí 👨‍💻",
+    "title": "Sobre Mí",
     "paragraphs": [
-      "¡Hola! Soy Yoquelvis Jorge Abreu, un desarrollador web apasionado con amor por crear sitios web hermosos y funcionales. 🚀",
-      "Me especializo en desarrollo front-end, con experiencia en React, JavaScript, HTML5 y frameworks de CSS modernos como Tailwind CSS. 💻",
-      "Además, tengo experiencia con Node.js, lo que me permite trabajar en proyectos full-stack. 🌐",
-      "Mi conjunto de habilidades también incluye Git para control de versiones, SQL para gestión de bases de datos y Linux para entornos de servidores. 🛠️",
-      "Estoy familiarizado con Python y Machine Learning, lo que amplía mis capacidades en análisis de datos y proyectos impulsados por IA. 🤖",
-      "Además, tengo experiencia en Power BI para visualización de datos y conocimientos en arquitectura de microservicios para aplicaciones escalables. 📊🔧",
-      "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto o disfrutando de una buena taza de café. ☕"
+      "¡Hola! Soy Yoquelvis Jorge Abreu, un desarrollador web apasionado con amor por crear sitios web hermosos y funcionales.",
+      "Me especializo en desarrollo front-end, con experiencia en React, JavaScript, HTML5 y frameworks de CSS modernos como Tailwind CSS.",
+      "Además, tengo experiencia con Node.js, lo que me permite trabajar en proyectos full-stack.",
+      "Mi conjunto de habilidades también incluye Git para control de versiones, SQL para gestión de bases de datos y Linux para entornos de servidores.",
+      "Estoy familiarizado con Python y Machine Learning, lo que amplía mis capacidades en análisis de datos y proyectos impulsados por IA.",
+      "Además, tengo experiencia en Power BI para visualización de datos y conocimientos en arquitectura de microservicios para aplicaciones escalables.",
+      "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto o disfrutando de una buena taza de café."
     ]
   },
   "experience": {
-    "title": "Experiencia 💼",
+    "title": "Experiencia",
     "jobs": [
       {
         "title": "Desarrollo Web",
@@ -53,7 +53,7 @@
     ]
   },
   "skills": {
-    "title": "Habilidades Técnicas 🚀",
+    "title": "Habilidades Técnicas",
     "description": "Explora mis habilidades profesionales y experiencia",
     "projectsCompleted": "Proyectos Completados",
     "skillDetails": [
@@ -109,7 +109,31 @@
   },
   "projects": {
     "title": "Proyectos Destacados",
-    "description": "Una muestra de mis proyectos más significativos e innovadores"
+    "description": "Una muestra de mis proyectos más significativos e innovadores",
+    "viewProject": "Ver Proyecto",
+    "items": [
+      {
+        "title": "Generador de Códigos de Barras",
+        "description": "Aplicación de escritorio con interfaz gráfica para generar códigos de barras con ID único y gestión mediante base de datos local SQLite. Incluye autenticación de usuarios, múltiples formatos (Code128, EAN13, EAN8, Code39), editor de carnets con templates HTML personalizables y verificación OCR automática.",
+        "icon": "barcode",
+        "github": "https://github.com/yoquelvisdev08",
+        "technologies": ["Python", "PyQt6", "SQLite", "Tesseract OCR", "Pillow"]
+      },
+      {
+        "title": "Generador de Avatares",
+        "description": "Plataforma impulsada por IA que permite a los usuarios generar avatares aleatorios y únicos con estilos y opciones personalizables.",
+        "link": "https://avatar-3000.vercel.app/",
+        "icon": "avatar",
+        "technologies": ["React", "Next.js", "Tailwind CSS", "AI API"]
+      },
+      {
+        "title": "Generador de Chistes",
+        "description": "Aplicación divertida que genera chistes improvisados y contenido de humor negro con una interfaz simple e intuitiva.",
+        "link": "https://chistes-nine.vercel.app/",
+        "icon": "jokes",
+        "technologies": ["React", "JavaScript", "CSS"]
+      }
+    ]
   },
   "education": {
     "title": "Trayectoria Educativa",
@@ -119,7 +143,7 @@
     "pendingUpload": "Título Universitario (Pendiente de Subir)"
   },
   "contact": {
-    "title": "Contacto 📱",
+    "title": "Contacto",
     "contactItems": [
       { "type": "teléfono", "text": "(829) 422-3313", "href": "tel:+18294223313" },
       { "type": "correo", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },
