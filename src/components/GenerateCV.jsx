@@ -198,8 +198,8 @@ const GenerateCV = () => {
           </h3>
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
             <div style="padding: 15px;">
-              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px;">
-                <span>⚛️</span> Frontend Development
+              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px;">
+                Frontend Development
               </h4>
               <ul style="margin: 0; padding-left: 20px; color: #4a5568; line-height: 1.7;">
                 <li>React.js & Next.js</li>
@@ -212,8 +212,8 @@ const GenerateCV = () => {
               </ul>
             </div>
             <div style="padding: 15px;">
-              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px;">
-                <span>🔧</span> Backend Development
+              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px;">
+                Backend Development
               </h4>
               <ul style="margin: 0; padding-left: 20px; color: #4a5568; line-height: 1.7;">
                 <li>Node.js & Express.js</li>
@@ -225,8 +225,8 @@ const GenerateCV = () => {
               </ul>
             </div>
             <div style="padding: 15px;">
-              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px;">
-                <span>🗄️</span> Databases & Tools
+              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px;">
+                Databases & Tools
               </h4>
               <ul style="margin: 0; padding-left: 20px; color: #4a5568; line-height: 1.7;">
                 <li>SQL & Oracle</li>
@@ -238,8 +238,8 @@ const GenerateCV = () => {
               </ul>
             </div>
             <div style="padding: 15px;">
-              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px;">
-                <span>🛠️</span> Development Tools
+              <h4 style="margin: 0 0 12px 0; color: #2b6cb0; font-weight: 700; font-size: 16px;">
+                Development Tools
               </h4>
               <ul style="margin: 0; padding-left: 20px; color: #4a5568; line-height: 1.7;">
                 <li>VS Code & WebStorm</li>

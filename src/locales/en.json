@@ -132,6 +132,13 @@
         "link": "https://chistes-nine.vercel.app/",
         "icon": "jokes",
         "technologies": ["React", "JavaScript", "CSS"]
+      },
+      {
+        "title": "ScheduleHub",
+        "description": "Web application for university students that allows organizing and visualizing academic schedules in an aesthetic and intuitive way. Features PDF upload with AI processing, interactive weekly calendar, customizable colors, and export functionality.",
+        "link": "https://horario-delta-ten.vercel.app/",
+        "icon": "schedule",
+        "technologies": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Prisma ORM", "PostgreSQL", "Google Gemini AI", "JWT"]
       }
     ]
   },

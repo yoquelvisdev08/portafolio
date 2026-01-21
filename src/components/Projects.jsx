@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaExternalLinkAlt, FaGithub, FaBarcode, FaUserCircle, FaTheaterMasks } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaBarcode, FaUserCircle, FaTheaterMasks, FaCalendarAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,8 @@ function Projects() {
   const iconMap = {
     barcode: <FaBarcode className="text-4xl text-[#EAD8B1]" />,
     avatar: <FaUserCircle className="text-4xl text-[#EAD8B1]" />,
-    jokes: <FaTheaterMasks className="text-4xl text-[#EAD8B1]" />
+    jokes: <FaTheaterMasks className="text-4xl text-[#EAD8B1]" />,
+    schedule: <FaCalendarAlt className="text-4xl text-[#EAD8B1]" />
   };
 
   return (
