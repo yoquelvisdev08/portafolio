@@ -1,0 +1,10 @@
+# robots.txt para yoquelvis.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yoquelvis.dev/sitemap.xml
+
+# Crawl-delay (opcional, para ser amigable con los servidores)
+Crawl-delay: 1

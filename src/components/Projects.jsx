@@ -16,7 +16,7 @@ function Projects() {
   };
 
   return (
-    <section className="my-16">
+    <section className="my-16" aria-label={t('projects.title')}>
       <motion.h2 
         className="section-title text-white"
         initial={{ opacity: 0, y: -20 }}
@@ -33,18 +33,21 @@ function Projects() {
       >
         {t('projects.description')}
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
         {projects.map((project, index) => (
-          <motion.div 
+          <motion.article 
             key={index} 
             className="card hover-lift bg-gradient-to-br from-[#3A6D8C]/20 to-[#6A9AB0]/20 flex flex-col"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            role="listitem"
+            itemScope
+            itemType="https://schema.org/SoftwareApplication"
           >
-            <div className="mb-4">{iconMap[project.icon] || <span className="text-4xl">🚀</span>}</div>
-            <h3 className="text-xl font-semibold mb-2 text-[#EAD8B1]">{project.title}</h3>
-            <p className="text-[#6A9AB0] mb-4 flex-grow">{project.description}</p>
+            <div className="mb-4" aria-hidden="true">{iconMap[project.icon] || <span className="text-4xl">🚀</span>}</div>
+            <h3 className="text-xl font-semibold mb-2 text-[#EAD8B1]" itemProp="name">{project.title}</h3>
+            <p className="text-[#6A9AB0] mb-4 flex-grow" itemProp="description">{project.description}</p>
             
             {/* Tags de tecnologías */}
             {project.technologies && (
@@ -82,7 +85,7 @@ function Projects() {
                 </a>
               )}
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
     </section>

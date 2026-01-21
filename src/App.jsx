@@ -16,6 +16,7 @@ import AnimatedBackground from './components/AnimatedBackground';
 import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
 import LanguageSelector from './components/LanguageSelector';
+import SEOHead from './components/SEOHead';
 
 // Configurar react-modal
 Modal.setAppElement('#root');
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <I18nextProvider i18n={i18n}>
+      <SEOHead />
       <div className="min-h-screen text-white">
       <AnimatedBackground />
       <ScrollToTop />

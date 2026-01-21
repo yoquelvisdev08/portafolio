@@ -40,16 +40,17 @@ function About() {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={variants}
+      aria-label={t('about.title')}
     >
       <motion.div variants={itemVariants}>
         <h2 className="section-title">{t('about.title')}</h2>
-        <div className="card mt-4">
+        <article className="card mt-4">
           {t('about.paragraphs', { returnObjects: true }).map((paragraph, index) => (
             <p key={index} className="mb-4 text-white">
               {paragraph}
             </p>
           ))}
-        </div>
+        </article>
       </motion.div>
     </motion.section>
   );

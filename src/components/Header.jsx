@@ -33,8 +33,11 @@ const Header = () => {
           >
             <img
               src="/me.JPG"
-              alt={t('home.name')}
+              alt={`${t('home.name')} - ${t('header.title')} profesional con experiencia en React, Next.js y desarrollo web full-stack`}
               className="w-80 h-auto shadow-2xl rounded-lg hover:shadow-xl transition-shadow duration-300 border-2 border-[#6A9AB0]/30"
+              loading="eager"
+              width="320"
+              height="320"
             />
           </motion.div>
 
