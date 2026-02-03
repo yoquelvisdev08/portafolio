@@ -17,6 +17,7 @@ import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
 import LanguageSelector from './components/LanguageSelector';
 import SEOHead from './components/SEOHead';
+import { Analytics } from '@vercel/analytics/react';
 
 // Configurar react-modal
 Modal.setAppElement('#root');
@@ -67,7 +68,8 @@ function App() {
       </motion.div>
 
         <Footer />
-            </div>
+        <Analytics />
+      </div>
     </I18nextProvider>
   );
 }
