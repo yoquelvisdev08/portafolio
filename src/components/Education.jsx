@@ -28,8 +28,19 @@ const education = [
     degree: 'SOFTWARE DEVELOPMENT TECHNOLOGIST', 
     institution: 'Instituto Tecnológico de las Américas (ITLA)', 
     year: '2021 - 2023',
-    certificate: null,
-    status: 'pendingUpload'
+    certificate: '/certificacion/titulo-itla.pdf'
+  },
+  { 
+    degree: 'ORACLE PL/SQL', 
+    institution: 'Oracle', 
+    year: '2023',
+    certificate: '/certificacion/PL:SQL.pdf'
+  },
+  { 
+    degree: 'SQL', 
+    institution: 'Certificación', 
+    year: '2023',
+    certificate: '/certificacion/sql.pdf'
   },
   { 
     degree: 'ETHICAL HACKING', 
