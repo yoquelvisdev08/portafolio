@@ -12,7 +12,7 @@ import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AnimatedBackground from './components/AnimatedBackground';
+import ThreeBackground from './components/ThreeBackground';
 import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
 import LanguageSelector from './components/LanguageSelector';
@@ -34,7 +34,7 @@ function App() {
     <I18nextProvider i18n={i18n}>
       <SEOHead />
       <div className="min-h-screen text-white">
-      <AnimatedBackground />
+      <ThreeBackground />
       <ScrollToTop />
       <SectionIndicator />
         <LanguageSelector />
