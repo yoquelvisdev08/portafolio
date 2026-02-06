@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import GenerateCV from './GenerateCV';
+import CoinPhoto from './CoinPhoto';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -30,15 +31,9 @@ const Header = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            aria-label={`${t('home.name')} - ${t('header.title')}`}
           >
-            <img
-              src="/me.JPG"
-              alt={`${t('home.name')} - ${t('header.title')} profesional con experiencia en React, Next.js y desarrollo web full-stack`}
-              className="w-80 h-auto shadow-2xl rounded-lg hover:shadow-xl transition-shadow duration-300 border-2 border-[#6A9AB0]/30"
-              loading="eager"
-              width="320"
-              height="320"
-            />
+            <CoinPhoto />
           </motion.div>
 
           <div className="text-center md:text-left">

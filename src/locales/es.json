@@ -104,6 +104,18 @@
         "competency": "Profesional", 
         "projects": 3,
         "description": "Contenerización y despliegue de aplicaciones escalables"
+      },
+      { 
+        "name": "PL/SQL", 
+        "competency": "Profesional", 
+        "projects": 3,
+        "description": "Desarrollo en bases de datos Oracle, procedimientos almacenados y triggers"
+      },
+      { 
+        "name": "C#", 
+        "competency": "Avanzado", 
+        "projects": 2,
+        "description": "Desarrollo de escritorio y backend con .NET"
       }
     ]
   },

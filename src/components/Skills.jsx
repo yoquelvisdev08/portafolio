@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaJs, FaHtml5, FaCss3, FaNode, FaGit, FaDatabase, FaLinux, FaApple, FaPython, FaInfoCircle, FaDocker } from 'react-icons/fa';
-import { SiSelenium, SiPowerbi } from 'react-icons/si';
+import { SiSelenium, SiPowerbi, SiCsharp } from 'react-icons/si';
 import { GiArtificialIntelligence } from 'react-icons/gi';
 import { VscServerProcess } from 'react-icons/vsc';
 import { motion } from 'framer-motion';
@@ -14,7 +14,9 @@ const iconMap = {
   'SQL': FaDatabase,
   'Git': FaGit,
   'Machine Learning': GiArtificialIntelligence,
-  'Docker': FaDocker
+  'Docker': FaDocker,
+  'PL/SQL': FaDatabase,
+  'C#': SiCsharp
 };
 
 function Skills() {
