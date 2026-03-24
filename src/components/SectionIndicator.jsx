@@ -1,25 +1,30 @@
-import { motion, useScroll } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { slideInRight, timings } from '../lib/motion';
 
 const SectionIndicator = () => {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('');
-  const { scrollY } = useScroll();
+  const shouldReduceMotion = useReducedMotion();
 
-  const sections = [
-    { id: 'header', label: 'Header' },
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' }
-  ];
+  const sections = useMemo(
+    () => [
+      { id: 'header', label: t('nav.home', 'Home') },
+      { id: 'about', label: t('nav.about') },
+      { id: 'experience', label: t('nav.experience') },
+      { id: 'skills', label: t('nav.skills') },
+      { id: 'projects', label: t('nav.projects') },
+      { id: 'education', label: t('nav.education') },
+      { id: 'contact', label: t('nav.contact') },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
       const pageTop = window.scrollY;
-      const pageBottom = pageTop + window.innerHeight;
-      const buffer = 100; // Ajuste para mejorar la detección
+      const buffer = 100;
 
       for (const section of sections) {
         const element = document.getElementById(section.id);
@@ -36,31 +41,33 @@ const SectionIndicator = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Llamada inicial
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sections]);
 
   const handleClick = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Ajuste para el scroll
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: shouldReduceMotion ? 'auto' : 'smooth',
       });
     }
   };
 
   return (
-    <motion.div 
-      className="fixed right-8 top-1/2 transform -translate-y-[65%] z-50 hidden lg:flex flex-col gap-6"
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.5 }}
+    <motion.nav
+      className="fixed right-6 top-1/2 z-50 hidden -translate-y-[65%] transform flex-col gap-5 lg:flex"
+      initial="hidden"
+      animate="visible"
+      variants={slideInRight}
+      transition={{ delay: shouldReduceMotion ? timings.instant : timings.base }}
+      aria-label={t('navigation.sectionIndicator', 'Section navigation')}
     >
       {sections.map(({ id, label }) => (
         <motion.div
@@ -69,20 +76,22 @@ const SectionIndicator = () => {
         >
           <motion.button
             onClick={() => handleClick(id)}
-            className={`w-5 h-5 rounded-full cursor-pointer transition-all duration-300 ${
+            className={`h-4 w-4 rounded-full border border-[#EAD8B1]/50 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744] ${
               activeSection === id
-                ? 'bg-[#EAD8B1] scale-150'
-                : 'bg-[#EAD8B1]/50 hover:bg-[#EAD8B1] hover:scale-125'
+                ? 'scale-125 bg-[#EAD8B1]'
+                : 'bg-[#EAD8B1]/45 hover:scale-110 hover:bg-[#EAD8B1]'
             }`}
-            whileHover={{ scale: 1.5 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.3 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
+            aria-label={t('accessibility.goToSection', { section: label })}
+            aria-current={activeSection === id ? 'location' : undefined}
           />
-          <span className="absolute left-0 transform -translate-x-[calc(100%+1rem)] top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#EAD8B1] whitespace-nowrap text-sm">
+          <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%+1rem)] whitespace-nowrap text-sm text-[#EAD8B1] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             {label}
           </span>
         </motion.div>
       ))}
-    </motion.div>
+    </motion.nav>
   );
 };
 

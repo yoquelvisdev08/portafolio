@@ -1,141 +1,122 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import GenerateCV from './GenerateCV';
 import CoinPhoto from './CoinPhoto';
+import { revealContainer, revealItem, reducedMotionVariant } from '../lib/motion';
 
 const Header = () => {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
+  const proofChips = t('header.proofChips', { returnObjects: true });
+  const nameParts = t('home.name').split(' ');
+  const first = nameParts[0] || '';
+  const second = nameParts[1] || '';
+  const third = nameParts[2] || '';
 
   return (
-    <header className="py-12">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <header className="py-12 md:py-16">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="glass-effect rounded-lg p-8 flex flex-col md:flex-row items-center justify-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
-            mass: 1
-          }}
-          whileHover={{ 
-            scale: 1.02,
-            transition: { duration: 0.3 }
-          }}
+          className="glass-effect flex flex-col items-center gap-8 rounded-3xl border border-[#6A9AB0]/25 p-7 md:flex-row md:items-start md:gap-12 md:p-10"
+          initial="hidden"
+          animate="visible"
+          variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
+          whileHover={shouldReduceMotion ? undefined : { y: -2 }}
         >
           <motion.div
-            className="mr-12 mb-8 md:mb-0"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:mb-0"
+            variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             aria-label={`${t('home.name')} - ${t('header.title')}`}
           >
             <CoinPhoto />
           </motion.div>
 
-          <div className="text-center md:text-left">
-            <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          <div className="w-full text-center md:text-left">
+            <motion.p
+              className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#9dc0d0]"
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             >
-              <motion.div
-                className="flex flex-col space-y-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <motion.span
-                  className="inline-block sparkle-text"
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  style={{
-                    color: '#EAD8B1',
-                    textShadow: `
-                      0 0 2px #EAD8B1,
-                      0 0 4px #6A9AB0,
-                      0 0 6px #6A9AB0
-                    `,
-                    animation: 'flicker 2s infinite alternate, sparkle 1.5s infinite',
-                    paddingLeft: '10px'
-                  }}
-                >
-                  &gt;_Yoquelvis
-                </motion.span>
-                <motion.span
-                  className="inline-block"
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  style={{
-                    color: '#EAD8B1',
-                    textShadow: `
-                      0 0 4px #EAD8B1,
-                      0 0 8px #EAD8B1,
-                      0 0 12px #6A9AB0,
-                      0 0 16px #6A9AB0
-                    `,
-                    animation: 'flicker 2s infinite alternate',
-                    paddingLeft: '20px'
-                  }}
-                >
-                  &gt;_Jorge
-                </motion.span>
-                <motion.span
-                  className="inline-block"
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  style={{
-                    color: '#EAD8B1',
-                    textShadow: `
-                      0 0 4px #EAD8B1,
-                      0 0 8px #EAD8B1,
-                      0 0 12px #6A9AB0,
-                      0 0 16px #6A9AB0
-                    `,
-                    animation: 'flicker 1.8s infinite alternate',
-                    paddingLeft: '30px'
-                  }}
-                >
-                  &gt;_Abreu
-                </motion.span>
-              </motion.div>
+              {t('home.greeting')}
+            </motion.p>
+            <motion.h1
+              className="mb-4 text-4xl font-extrabold leading-[0.94] tracking-tight text-[#EAD8B1] md:text-6xl lg:text-7xl"
+              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+            >
+              <div className="flex flex-col space-y-2">
+                <span className="inline-block text-shadow-[0_0_18px_rgba(132,175,194,0.3)]">&gt;_{first}</span>
+                <span className="inline-block pl-4 text-shadow-[0_0_16px_rgba(132,175,194,0.24)]">&gt;_{second}</span>
+                <span className="inline-block pl-8 text-shadow-[0_0_14px_rgba(132,175,194,0.2)]">&gt;_{third}</span>
+              </div>
             </motion.h1>
-            <motion.p 
-              className="text-2xl md:text-3xl text-white mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+            <motion.p
+              className="mb-3 max-w-2xl text-xl font-semibold leading-relaxed text-[#eff5ff] md:text-3xl"
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             >
               {t('header.title')}
             </motion.p>
-            <motion.div
-              className="mb-8 flex justify-center md:justify-start space-x-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+            <motion.p
+              className="mb-6 max-w-2xl text-base leading-7 text-[#d2e2f0] md:text-lg"
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             >
-              <a href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/" className="text-4xl text-white hover:text-[#6A9AB0] transition-colors duration-300">
-                <FaLinkedin />
-              </a>
-              <a href="https://github.com/yoquelvisdev08" className="text-4xl text-white hover:text-gray-400 transition-colors duration-300">
-                <FaGithub />
-              </a>
-              <a href="https://www.instagram.com/yoquelvis_08" className="text-4xl text-white hover:text-blue-300 transition-colors duration-300">
-                <FaInstagram />
-              </a>
-            </motion.div>
+              {t('home.description')}
+            </motion.p>
+
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex justify-center md:justify-start"
+              className="mb-7 flex flex-wrap justify-center gap-2.5 md:justify-start"
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+            >
+              {proofChips.map((chip, index) => (
+                <span key={`${chip}-${index}`} className="proof-chip">
+                  {chip}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="mb-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center md:justify-start"
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             >
               <GenerateCV />
+              <a href="#contact" className="btn-secondary w-full sm:w-auto">
+                {t('header.contactCta')}
+              </a>
+            </motion.div>
+
+            <motion.div
+              className="flex justify-center space-x-3 md:justify-start"
+              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+              aria-label={t('accessibility.headerSocialLinks')}
+            >
+              <a
+                href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/"
+                className="rounded-full border border-[#7ea6ba]/35 bg-[#112f4b]/60 p-2.5 text-2xl text-white transition-colors duration-300 hover:text-[#6A9AB0] focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t('accessibility.socialLinkedin')}
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://github.com/yoquelvisdev08"
+                className="rounded-full border border-[#7ea6ba]/35 bg-[#112f4b]/60 p-2.5 text-2xl text-white transition-colors duration-300 hover:text-gray-300 focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t('accessibility.socialGithub')}
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.instagram.com/yoquelvis_08"
+                className="rounded-full border border-[#7ea6ba]/35 bg-[#112f4b]/60 p-2.5 text-2xl text-white transition-colors duration-300 hover:text-blue-300 focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t('accessibility.socialInstagram')}
+              >
+                <FaInstagram />
+              </a>
             </motion.div>
           </div>
         </motion.div>

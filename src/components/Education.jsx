@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
 import { FaGraduationCap, FaFilePdf } from 'react-icons/fa';
 import Modal from 'react-modal';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import {
+  revealContainer,
+  revealItem,
+  reducedMotionVariant,
+  sectionViewport,
+  listViewport,
+  listContainer,
+  listItem,
+  cardInteractions,
+} from '../lib/motion';
+
+const nonInteractiveCard = {
+  whileHover: undefined,
+  whileTap: undefined,
+  whileFocus: undefined,
+  transition: undefined,
+};
 
 const education = [
   { 
@@ -71,6 +88,7 @@ const education = [
 function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
 
   const openCertificateModal = (certificatePath) => {
     if (certificatePath) {
@@ -83,53 +101,75 @@ function Education() {
   };
 
   return (
-    <section className="my-16">
-      <motion.h2 
-        className="section-title text-white mb-8"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+    <motion.section
+      className="my-24"
+      variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={sectionViewport}
+      aria-label={t('education.title')}
+    >
+      <motion.h2
+        className="section-title mb-8"
+        variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
       >
         {t('education.title')}
       </motion.h2>
       
       <motion.div
-        className="flex items-center justify-center mb-4 text-blue-300"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        className="mb-7 mt-4 flex items-center justify-center text-slate-200"
+        variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
       >
         <p>{t('education.description')}</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <motion.div
+        className="grid grid-cols-1 gap-7 md:grid-cols-2"
+        variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={listViewport}
+      >
         {education.map((edu, index) => (
-          <motion.div 
-            key={index} 
+          <motion.div
+            key={index}
             className={`card p-6 
               ${edu.certificate 
-                ? 'bg-gradient-to-br from-[#001F3F] to-[#3A6D8C] hover:shadow-xl cursor-pointer' 
-                : 'bg-gradient-to-br from-[#001F3F] to-[#3A6D8C]/50'
+                ? 'cursor-pointer' 
+                : 'opacity-95'
               } 
               transition-all duration-300`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            variants={shouldReduceMotion ? reducedMotionVariant : listItem}
+            {...(edu.certificate && !shouldReduceMotion ? cardInteractions : nonInteractiveCard)}
             onClick={() => openCertificateModal(edu.certificate)}
+            onKeyDown={(event) => {
+              if (!edu.certificate) return;
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openCertificateModal(edu.certificate);
+              }
+            }}
+            role={edu.certificate ? 'button' : undefined}
+            tabIndex={edu.certificate ? 0 : -1}
+            aria-label={
+              edu.certificate
+                ? `${edu.degree} - ${t('education.certificateAvailable')}`
+                : `${edu.degree} - ${t(`education.${edu.status}`)}`
+            }
           >
             <div className="flex items-start gap-4">
               <div className="min-w-[40px]">
-                <FaGraduationCap className="text-4xl text-[#6A9AB0]" />
+                <FaGraduationCap className="text-4xl text-[#6A9AB0]" aria-hidden="true" />
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-[#EAD8B1] leading-tight mb-3">
                   {edu.degree}
                 </h3>
                 <p className="text-white text-base mb-2">{edu.institution}</p>
-                <p className="text-white/80 text-sm">{edu.year}</p>
+                <p className="text-white/85 text-sm">{edu.year}</p>
                 {edu.certificate ? (
                   <div className="flex items-center text-sm text-blue-300 mt-2">
-                    <FaFilePdf className="mr-2" />
+                    <FaFilePdf className="mr-2" aria-hidden="true" />
                     <span>{t('education.certificateAvailable')}</span>
                   </div>
                 ) : (
@@ -144,7 +184,7 @@ function Education() {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <Modal
         isOpen={!!selectedCertificate}
@@ -152,6 +192,9 @@ function Education() {
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={true}
         ariaHideApp={false}
+        aria={{
+          labelledby: 'education-certificate-modal-title',
+        }}
         className={{
           base: 'modal-base',
           afterOpen: 'modal-base_after-open',
@@ -200,6 +243,9 @@ function Education() {
         portalClassName="custom-modal-portal"
       >
         <div className="relative w-full h-full flex flex-col">
+          <h3 id="education-certificate-modal-title" className="sr-only">
+            {t('education.certificateAvailable')}
+          </h3>
           <div className="absolute top-4 right-4 z-50 flex items-center space-x-4">
             <button 
               onClick={() => {
@@ -208,8 +254,9 @@ function Education() {
                 link.download = selectedCertificate.split('/').pop();
                 link.click();
               }}
-              className="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors flex items-center"
+              className="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors flex items-center focus-visible:ring-2 focus-visible:ring-white"
               title="Download Certificate"
+              aria-label="Download certificate"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -217,8 +264,9 @@ function Education() {
             </button>
             <button 
               onClick={() => window.open(selectedCertificate, '_blank')}
-              className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors flex items-center"
+              className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors flex items-center focus-visible:ring-2 focus-visible:ring-white"
               title="Open in New Tab"
+              aria-label="Open certificate in a new tab"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -226,8 +274,9 @@ function Education() {
             </button>
             <button 
               onClick={closeCertificateModal}
-              className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors flex items-center"
+              className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors flex items-center focus-visible:ring-2 focus-visible:ring-white"
               title="Close Modal"
+              aria-label="Close certificate modal"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -257,7 +306,7 @@ function Education() {
           }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }
 

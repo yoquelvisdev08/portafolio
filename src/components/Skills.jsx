@@ -1,10 +1,19 @@
 import React from 'react';
-import { FaReact, FaJs, FaHtml5, FaCss3, FaNode, FaGit, FaDatabase, FaLinux, FaApple, FaPython, FaInfoCircle, FaDocker } from 'react-icons/fa';
-import { SiSelenium, SiPowerbi, SiCsharp } from 'react-icons/si';
+import { FaReact, FaJs, FaNode, FaGit, FaDatabase, FaPython, FaInfoCircle, FaDocker } from 'react-icons/fa';
+import { SiCsharp } from 'react-icons/si';
 import { GiArtificialIntelligence } from 'react-icons/gi';
-import { VscServerProcess } from 'react-icons/vsc';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import {
+  revealContainer,
+  revealItem,
+  reducedMotionVariant,
+  sectionViewport,
+  listViewport,
+  listContainer,
+  listItem,
+  cardInteractions,
+} from '../lib/motion';
 
 const iconMap = {
   'React': FaReact,
@@ -21,61 +30,71 @@ const iconMap = {
 
 function Skills() {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
   const skills = t('skills.skillDetails', { returnObjects: true });
 
   return (
-    <section className="my-16" aria-label={t('skills.title')}>
-      <motion.h2 
-        className="section-title text-white mb-8"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+    <motion.section
+      className="my-24"
+      aria-label={t('skills.title')}
+      variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={sectionViewport}
+    >
+      <motion.h2
+        className="section-title mb-8"
+        variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
       >
         {t('skills.title')}
       </motion.h2>
       <motion.div
-        className="flex items-center justify-center mb-4 text-blue-300"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        className="mb-7 mt-4 flex items-center justify-center text-slate-200"
+        variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
       >
-        <FaInfoCircle className="info-icon mr-2" aria-hidden="true" />
+        <FaInfoCircle className="mr-2 text-[#6A9AB0]" aria-hidden="true" />
         <p>{t('skills.description')}</p>
       </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+      <motion.div
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        role="list"
+        variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={listViewport}
+      >
         {skills.map((skill, index) => {
           const SkillIcon = iconMap[skill.name] || FaInfoCircle;
           
           return (
             <motion.article 
               key={index}
-              className="bg-gradient-to-br from-[#001F3F] to-[#3A6D8C] rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="card"
+              variants={shouldReduceMotion ? reducedMotionVariant : listItem}
+              {...(shouldReduceMotion ? {} : cardInteractions)}
               role="listitem"
               itemScope
               itemType="https://schema.org/Thing"
             >
-              <div className="flex items-center mb-4">
+              <div className="mb-4 flex items-center">
                 <SkillIcon className="text-4xl text-[#6A9AB0] mr-4" aria-hidden="true" />
                 <div>
                   <h3 className="text-xl font-bold text-[#EAD8B1]" itemProp="name">{skill.name}</h3>
-                  <p className="text-sm text-white/80" itemProp="additionalType">{skill.competency}</p>
+                  <p className="text-sm text-white/85" itemProp="additionalType">{skill.competency}</p>
                 </div>
               </div>
-              <div className="bg-[#002B4D] rounded-lg p-4">
-                <div className="flex justify-between mb-2">
-                  <span className="text-white/70">{t('skills.projectsCompleted')}</span>
+              <div className="surface-panel">
+                <div className="mb-2 flex justify-between">
+                  <span className="text-slate-200">{t('skills.projectsCompleted')}</span>
                   <span className="font-bold text-[#EAD8B1]" itemProp="aggregateRating">{skill.projects}</span>
                 </div>
-                <p className="text-sm text-white/70 italic" itemProp="description">{skill.description}</p>
+                <p className="text-sm italic leading-6 text-slate-200" itemProp="description">{skill.description}</p>
               </div>
             </motion.article>
           );
         })}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

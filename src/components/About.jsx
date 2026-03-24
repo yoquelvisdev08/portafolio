@@ -1,52 +1,26 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-
-const variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      damping: 20,
-      stiffness: 100,
-      when: "beforeChildren",
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      damping: 25,
-      stiffness: 120
-    }
-  }
-};
+import { revealContainer, revealItem, reducedMotionVariant, sectionViewport } from '../lib/motion';
 
 function About() {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={variants}
+      viewport={sectionViewport}
+      variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
       aria-label={t('about.title')}
+      className="my-24"
     >
-      <motion.div variants={itemVariants}>
+      <motion.div variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
         <h2 className="section-title">{t('about.title')}</h2>
-        <article className="card mt-4">
+        <article className="card mt-6 space-y-5">
           {t('about.paragraphs', { returnObjects: true }).map((paragraph, index) => (
-            <p key={index} className="mb-4 text-white">
+            <p key={index} className="text-base leading-8 text-slate-100 md:text-lg">
               {paragraph}
             </p>
           ))}

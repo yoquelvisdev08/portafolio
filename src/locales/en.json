@@ -1,15 +1,38 @@
 {
   "header": {
     "title": "Software Developer",
-    "description": "Creating innovative solutions"
+    "description": "Creating innovative solutions",
+    "contactCta": "Let's talk about your project",
+    "proofChips": [
+      "Frontend + Full Stack",
+      "Real experience in banking and agency",
+      "Performance and UX focused"
+    ]
   },
   "nav": {
+    "home": "Home",
     "about": "About",
     "experience": "Experience", 
     "skills": "Skills",
     "projects": "Projects",
     "education": "Education",
     "contact": "Contact"
+  },
+  "navigation": {
+    "sectionIndicator": "Section navigation"
+  },
+  "accessibility": {
+    "headerSocialLinks": "Header social links",
+    "footerSocialLinks": "Footer social links",
+    "socialLinkedin": "Open LinkedIn profile",
+    "socialGithub": "Open GitHub profile",
+    "socialInstagram": "Open Instagram profile",
+    "socialEmail": "Send email",
+    "goToSection": "Go to {{section}} section",
+    "scrollToTop": "Scroll to top",
+    "languageSelector": "Language selector",
+    "switchToEnglish": "Switch language to English",
+    "switchToSpanish": "Switch language to Spanish"
   },
   "home": {
     "greeting": "Hi, I'm",
@@ -163,6 +186,10 @@
   },
   "contact": {
     "title": "Contact",
+    "ctaTitle": "Ready to build something serious?",
+    "ctaDescription": "If you have an idea, a redesign, or a growing app, let's schedule a conversation and define clear next steps.",
+    "primaryAction": "Send email",
+    "secondaryAction": "View projects",
     "contactItems": [
       { "type": "phone", "text": "(829) 422-3313", "href": "tel:+18294223313" },
       { "type": "email", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },
@@ -175,6 +202,15 @@
   "cv": {
     "selectLanguage": "Select the CV language",
     "spanish": "Spanish",
-    "english": "English"
+    "english": "English",
+    "close": "Close"
+  },
+  "pwa": {
+    "offlineReady": "Ready to work offline.",
+    "offlineHint": "The app will keep working even if your connection drops.",
+    "updateReady": "A new version is available.",
+    "updateHint": "Reload to get the latest version and improvements.",
+    "reload": "Reload",
+    "dismiss": "Dismiss"
   }
 } 

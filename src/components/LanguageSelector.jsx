@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { popIn, reducedMotionVariant } from '../lib/motion';
 
 const LanguageSelector = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -12,31 +14,31 @@ const LanguageSelector = () => {
 
   return (
     <motion.div 
-      className="fixed left-6 bottom-6 z-50"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ 
-        duration: 0.5, 
-        type: "spring", 
-        stiffness: 260, 
-        damping: 20 
-      }}
+      className="fixed bottom-5 left-5 z-50"
+      initial="hidden"
+      animate="visible"
+      variants={shouldReduceMotion ? reducedMotionVariant : popIn}
+      aria-label={t('accessibility.languageSelector')}
     >
-      <div className="bg-[#3A6D8C] rounded-full shadow-2xl">
-        <div className="flex space-x-2 p-2">
+      <div className="rounded-full border border-[#84afc2]/35 bg-[#173959]/95 p-2 shadow-2xl backdrop-blur-md">
+        <div className="flex items-center gap-2">
           <button 
             onClick={() => changeLanguage('en')}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 
+            className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]
               ${i18n.language === 'en' ? 'bg-[#6A9AB0] text-white' : 'hover:bg-[#6A9AB0]/50'}`}
-            title="English"
+            title={t('accessibility.switchToEnglish')}
+            aria-label={t('accessibility.switchToEnglish')}
+            aria-pressed={i18n.language === 'en'}
           >
             🇺🇸
           </button>
           <button 
             onClick={() => changeLanguage('es')}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 
+            className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]
               ${i18n.language === 'es' ? 'bg-[#6A9AB0] text-white' : 'hover:bg-[#6A9AB0]/50'}`}
-            title="Español"
+            title={t('accessibility.switchToSpanish')}
+            aria-label={t('accessibility.switchToSpanish')}
+            aria-pressed={i18n.language === 'es'}
           >
             🇩🇴
           </button>

@@ -1,15 +1,38 @@
 {
   "header": {
     "title": "Desarrollador de Software",
-    "description": "Creando soluciones innovadoras"
+    "description": "Creando soluciones innovadoras",
+    "contactCta": "Hablemos de tu proyecto",
+    "proofChips": [
+      "Frontend + Full Stack",
+      "Experiencia real en banca y agencia",
+      "Enfoque en performance y UX"
+    ]
   },
   "nav": {
+    "home": "Inicio",
     "about": "Sobre Mí",
     "experience": "Experiencia", 
     "skills": "Habilidades",
     "projects": "Proyectos",
     "education": "Educación",
     "contact": "Contacto"
+  },
+  "navigation": {
+    "sectionIndicator": "Navegación por secciones"
+  },
+  "accessibility": {
+    "headerSocialLinks": "Enlaces sociales del encabezado",
+    "footerSocialLinks": "Enlaces sociales del pie",
+    "socialLinkedin": "Abrir perfil de LinkedIn",
+    "socialGithub": "Abrir perfil de GitHub",
+    "socialInstagram": "Abrir perfil de Instagram",
+    "socialEmail": "Enviar correo",
+    "goToSection": "Ir a la sección {{section}}",
+    "scrollToTop": "Volver arriba",
+    "languageSelector": "Selector de idioma",
+    "switchToEnglish": "Cambiar idioma a inglés",
+    "switchToSpanish": "Cambiar idioma a español"
   },
   "home": {
     "greeting": "Hola, soy",
@@ -163,6 +186,10 @@
   },
   "contact": {
     "title": "Contacto",
+    "ctaTitle": "¿Listo para construir algo serio?",
+    "ctaDescription": "Si tenés una idea, un rediseño o una app en crecimiento, coordinamos una conversación y definimos próximos pasos claros.",
+    "primaryAction": "Enviar email",
+    "secondaryAction": "Ver proyectos",
     "contactItems": [
       { "type": "teléfono", "text": "(829) 422-3313", "href": "tel:+18294223313" },
       { "type": "correo", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },
@@ -175,6 +202,15 @@
   "cv": {
     "selectLanguage": "Selecciona el idioma del CV",
     "spanish": "Español",
-    "english": "Inglés"
+    "english": "Inglés",
+    "close": "Cerrar"
+  },
+  "pwa": {
+    "offlineReady": "Listo para usar sin conexión.",
+    "offlineHint": "La app va a seguir funcionando incluso si te quedás sin internet.",
+    "updateReady": "Hay una nueva versión disponible.",
+    "updateHint": "Recargá para obtener mejoras y la versión más reciente.",
+    "reload": "Actualizar",
+    "dismiss": "Cerrar"
   }
 } 
