@@ -323,7 +323,7 @@
     "contactItems": [
       { "type": "phone", "text": "(829) 422-3313", "href": "tel:+18294223313" },
       { "type": "email", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvis18@gmail.com" },
-      { "type": "website", "text": "https://yoquelvis.dev/", "href": "https://yoquelvis.dev/" }
+      { "type": "Instagram", "text": "@yoquelvis_08", "href": "https://www.instagram.com/yoquelvis_08" }
     ]
   },
   "footer": {

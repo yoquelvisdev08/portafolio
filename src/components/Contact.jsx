@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { FaInstagram } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { useContactForm } from '../hooks/useContactForm';
 import {
@@ -17,8 +18,10 @@ const contactIconMap = {
   teléfono: 'call',
   email: 'mail',
   correo: 'mail',
-  website: 'language',
-  'sitio web': 'language',
+};
+
+const contactBrandIconMap = {
+  instagram: FaInstagram,
 };
 
 const Contact = () => {
@@ -63,18 +66,28 @@ const Contact = () => {
                 whileInView="visible"
                 viewport={listViewport}
               >
-                {contactItems.map((item) => (
+                {contactItems.map((item) => {
+                  const BrandIcon = contactBrandIconMap[item.type.toLowerCase()];
+                  const materialIcon = contactIconMap[item.type.toLowerCase()] || contactIconMap[item.type];
+
+                  return (
                   <motion.a
                     key={item.href}
                     href={item.href}
+                    target={BrandIcon ? '_blank' : undefined}
+                    rel={BrandIcon ? 'noopener noreferrer' : undefined}
                     className="group flex items-center gap-4 rounded-xl border border-transparent p-4 transition-colors hover:border-outline hover:bg-white/5"
                     variants={shouldReduceMotion ? reducedMotionVariant : listItem}
                     aria-label={`${item.type}: ${item.text}`}
                   >
                     <div className="flex h-12 w-12 items-center justify-center rounded-full border border-outline bg-surface text-on-surface transition-colors group-hover:text-primary-fixed">
-                      <span className="material-symbols-outlined">
-                        {contactIconMap[item.type] || 'contact_mail'}
-                      </span>
+                      {BrandIcon ? (
+                        <BrandIcon className="text-xl" aria-hidden="true" />
+                      ) : (
+                        <span className="material-symbols-outlined">
+                          {materialIcon || 'contact_mail'}
+                        </span>
+                      )}
                     </div>
                     <div>
                       <p className="mb-1 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">
@@ -85,7 +98,8 @@ const Contact = () => {
                       </p>
                     </div>
                   </motion.a>
-                ))}
+                  );
+                })}
               </motion.div>
             </div>
 
