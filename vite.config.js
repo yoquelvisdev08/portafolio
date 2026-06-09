@@ -9,7 +9,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'prompt',
       injectRegister: false,
-      includeAssets: ['pwa-192x192.png', 'robots.txt', 'sitemap.xml', 'me.JPG', 'c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg', 'pwa-512x512.png'],
+      includeAssets: ['pwa-192x192.png', 'robots.txt', 'sitemap.xml', 'me.JPG', 'c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg', 'pwa-512x512.png', 'fonts/MaterialSymbolsOutlined.ttf'],
       manifest: {
         id: '/',
         name: 'Yoquelvis Jorge Abreu Portfolio',
@@ -49,7 +49,7 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         clientsClaim: false,
         skipWaiting: false,
-        globPatterns: ['**/*.{js,css,html,svg,png,jpg,jpeg,webp,pdf,json}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,jpg,jpeg,webp,pdf,json,ttf,woff2}'],
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.mode === 'navigate',
