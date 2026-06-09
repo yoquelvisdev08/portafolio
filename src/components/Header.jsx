@@ -3,7 +3,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
-import GenerateCV from './GenerateCV';
 import HeroPhoto from './HeroPhoto';
 import { revealContainer, revealItem, reducedMotionVariant } from '../lib/motion';
 
@@ -122,7 +121,6 @@ const Header = () => {
               {isBlue ? t('header.primaryCta') : t('header.contactCta')}
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
-            <GenerateCV variant="hero" />
           </motion.div>
 
           <motion.div

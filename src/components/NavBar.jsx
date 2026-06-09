@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { useScrollSpy } from '../hooks/useScrollSpy';
-import GenerateCV from './GenerateCV';
 import ThemeToggle from './ThemeToggle';
 
 const NAV_ITEMS = [
@@ -138,9 +137,6 @@ function NavBar() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <div className="hidden md:block">
-            <GenerateCV variant="nav" />
-          </div>
           <button
             type="button"
             className="p-2 text-on-surface transition-colors hover:text-primary md:hidden"
@@ -156,9 +152,6 @@ function NavBar() {
       {mobileOpen && (
         <div className="border-t border-outline-variant px-gutter py-4 md:hidden">
           <div className="flex flex-col gap-2">{navContent}</div>
-          <div className="mt-4">
-            <GenerateCV variant="nav" />
-          </div>
         </div>
       )}
     </nav>
