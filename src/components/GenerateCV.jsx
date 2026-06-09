@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import html2pdf from 'html2pdf.js';
 import { useTranslation } from 'react-i18next';
 import { createPortal } from 'react-dom';
@@ -240,10 +240,25 @@ const renderCVTemplate = (lang) => {
   `;
 };
 
-const GenerateCV = () => {
+const GenerateCV = ({ variant = 'default' }) => {
   const { t } = useTranslation();
   const [showLangModal, setShowLangModal] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
+
+  useEffect(() => {
+    if (!showLangModal) {
+      return undefined;
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setShowLangModal(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [showLangModal]);
 
   const handleDownload = async (lang) => {
     setIsGenerating(true);
@@ -281,58 +296,69 @@ const GenerateCV = () => {
     }
   };
 
+  const buttonClass =
+    variant === 'hero'
+      ? 'btn-secondary w-full sm:w-auto'
+      : variant === 'nav'
+        ? 'inline-flex items-center gap-2 rounded-control border border-primary-fixed bg-transparent px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest text-primary-fixed transition-all hover:bg-primary-fixed/10'
+        : 'btn-primary w-full text-base sm:w-auto';
+
   return (
     <>
       <button
+        type="button"
         onClick={() => setShowLangModal(true)}
-        className="btn-primary w-full text-base sm:w-auto"
+        className={buttonClass}
         disabled={isGenerating}
       >
-        <span>{t('downloadCV')}</span>
-        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-          />
-        </svg>
+        {variant === 'nav' ? (
+          <>
+            <span className="material-symbols-outlined text-[18px]">download</span>
+            {t('downloadCV')}
+          </>
+        ) : (
+          <>
+            <span>{t('downloadCV')}</span>
+            <span className="material-symbols-outlined text-[18px]">download</span>
+          </>
+        )}
       </button>
 
       {showLangModal &&
         createPortal(
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-            <div className="relative w-full max-w-md rounded-2xl border border-[#EAD8B1]/55 bg-gradient-to-br from-[#122338] to-[#1a344f] p-6 shadow-2xl">
-              <h3 className="mb-5 text-center text-xl font-bold text-[#EAD8B1]">{t('cv.selectLanguage')}</h3>
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+            onClick={() => setShowLangModal(false)}
+            role="presentation"
+          >
+            <dialog
+              open
+              className="w-full max-w-md rounded-lg border border-outline bg-surface p-6 shadow-2xl"
+              onClick={(event) => event.stopPropagation()}
+              aria-labelledby="cv-language-dialog-title"
+            >
+              <h3 id="cv-language-dialog-title" className="mb-5 text-center text-xl font-bold text-on-surface">
+                {t('cv.selectLanguage')}
+              </h3>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button
+                  type="button"
                   onClick={() => handleDownload('es')}
-                  className="flex-1 rounded-lg bg-[#2e6fa8] px-4 py-2.5 font-semibold text-white transition-colors hover:bg-[#235782]"
                   disabled={isGenerating}
                   aria-label="Descargar CV en Espanol"
                 >
                   {t('cv.spanish')}
                 </button>
                 <button
+                  type="button"
                   onClick={() => handleDownload('en')}
-                  className="flex-1 rounded-lg bg-[#2e6fa8] px-4 py-2.5 font-semibold text-white transition-colors hover:bg-[#235782]"
                   disabled={isGenerating}
                   aria-label="Download CV in English"
                 >
                   {t('cv.english')}
                 </button>
               </div>
-              <button
-                onClick={() => setShowLangModal(false)}
-                className="absolute right-3 top-3 rounded-full bg-[#b94242] p-2 text-white transition-colors hover:bg-[#9b3434]"
-                title={t('cv.close')}
-                aria-label={t('cv.close')}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+            </dialog>
           </div>,
           document.body
         )}

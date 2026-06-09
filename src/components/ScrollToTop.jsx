@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 
   return (
     <motion.button
-      className="fixed bottom-5 right-20 z-50 rounded-full border border-[#84afc2]/40 bg-[#143a5f] p-3 text-[#EAD8B1] shadow-lg backdrop-blur focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
+      className="fixed bottom-6 right-6 z-50 rounded-full border border-outline bg-surface-container p-3 text-primary-fixed shadow-lg backdrop-blur-md transition-colors hover:border-primary-fixed hover:bg-primary-fixed/10 focus-visible:ring-2 focus-visible:ring-primary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
       initial="hidden"
       variants={slideInRight}
       animate={controls}
@@ -37,7 +37,7 @@ const ScrollToTop = () => {
       title={t('accessibility.scrollToTop')}
       type="button"
     >
-      <FaArrowUp size={20} />
+      <FaArrowUp size={18} aria-hidden="true" />
     </motion.button>
   );
 };

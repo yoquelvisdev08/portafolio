@@ -1,32 +1,61 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { revealContainer, revealItem, reducedMotionVariant, sectionViewport } from '../lib/motion';
+import AboutDevCube from './AboutDevCube';
+import SectionHeader from './SectionHeader';
+import {
+  listContainer,
+  listItem,
+  revealItem,
+  reducedMotionVariant,
+  sectionViewport,
+} from '../lib/motion';
 
 function About() {
   const { t } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
+  const motionViewport = { ...sectionViewport, amount: 0.18, margin: '0px 0px -6% 0px' };
+  const paragraphs = t('about.paragraphs', { returnObjects: true });
 
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      viewport={sectionViewport}
-      variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
+    <section
+      id="about"
+      className="section-block scroll-mt-28"
       aria-label={t('about.title')}
-      className="my-24"
     >
-      <motion.div variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
-        <h2 className="section-title">{t('about.title')}</h2>
-        <article className="card mt-6 space-y-5">
-          {t('about.paragraphs', { returnObjects: true }).map((paragraph, index) => (
-            <p key={index} className="text-base leading-8 text-slate-100 md:text-lg">
-              {paragraph}
-            </p>
-          ))}
-        </article>
-      </motion.div>
-    </motion.section>
+      <div className="mx-auto max-w-container-max px-gutter">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={motionViewport}
+          variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+        >
+          <SectionHeader title={t('about.title')} showDivider={false} />
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={motionViewport}
+          variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
+        >
+          <motion.article
+            className="glass-card rounded-card p-8 lg:col-span-7"
+            variants={shouldReduceMotion ? reducedMotionVariant : listItem}
+          >
+            <div className="space-y-5 font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+              {Array.isArray(paragraphs) &&
+                paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+            </div>
+          </motion.article>
+
+          <AboutDevCube />
+        </motion.div>
+      </div>
+    </section>
   );
 }
 

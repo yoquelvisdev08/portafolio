@@ -13,7 +13,7 @@ export const cvData = {
         'github.com/yoquelvisdev08'
       ]
     },
-    summary: 'Software Developer focused on building reliable and user-centric web products. Strong background in frontend engineering with practical full-stack exposure, production collaboration experience, and a disciplined approach to performance, maintainability, and delivery quality.',
+    summary: 'Software Developer with a professional mindset focused on debuggable code, purposeful UI, and software that solves real problems. Experienced in web delivery, banking systems, and SQL environments.',
     sections: {
       summary: 'Professional Summary',
       competencies: 'Core Competencies',
@@ -33,14 +33,25 @@ export const cvData = {
     ],
     experience: [
       {
-        role: 'Web Developer',
-        company: 'Dentsu',
-        period: 'Jul 2023 - Present',
+        role: 'Mid Web Developer',
+        company: 'S22 (All Media)',
+        period: 'Jan 2024 - Present',
         location: 'Dominican Republic',
         highlights: [
-          'Develop and maintain production websites using modern frontend technologies and reusable component patterns.',
-          'Optimize user flows, visual consistency, and page performance to support stronger engagement and conversion outcomes.',
-          'Partner with design and product stakeholders to deliver features aligned with business objectives and delivery timelines.'
+          'Build and optimize production websites using HTML, CSS, JavaScript, and modern frontend frameworks.',
+          'Continued web delivery within the All Media group after moving from Dentsu to S22 in early 2024.',
+          'Focus on UX, performance, and stable releases aligned with business and design stakeholders.'
+        ]
+      },
+      {
+        role: 'Web Developer',
+        company: 'Dentsu (All Media)',
+        period: 'Jul 2023 - Jan 2024',
+        location: 'Dominican Republic',
+        highlights: [
+          'Started within the All Media group, developing and maintaining websites with modern frontend technologies.',
+          'Improved user flows, visual consistency, and page performance for production web products.',
+          'Collaborated with design and product teams to deliver features on schedule.'
         ]
       },
       {
@@ -68,12 +79,22 @@ export const cvData = {
     ],
     projects: [
       {
+        name: 'Sablee',
+        stack: 'Next.js, React, TypeScript, Tailwind CSS, Framer Motion',
+        impact: 'Built an immersive racing team landing page with section navigation and a sports-dashboard visual experience.'
+      },
+      {
         name: 'ScheduleHub',
         stack: 'Next.js, React, TypeScript, Prisma, PostgreSQL, AI integration',
         impact: 'Built an academic scheduling platform with PDF processing and AI-assisted extraction to help students organize and visualize schedules faster.'
       },
       {
-        name: 'Barcode Generator (Desktop)',
+        name: 'AVATARIA 3000',
+        stack: 'React, JavaScript, Tailwind CSS, DiceBear API',
+        impact: 'Created an avatar generator with multiple styles, live preview, and direct download.'
+      },
+      {
+        name: 'Employee Code Generator (Desktop)',
         stack: 'Python, PyQt6, SQLite, OCR',
         impact: 'Developed a desktop tool for barcode generation and identity card workflows with authentication, template customization, and OCR validation.'
       }
@@ -120,7 +141,7 @@ export const cvData = {
         'github.com/yoquelvisdev08'
       ]
     },
-    summary: 'Desarrollador de Software enfocado en construir productos web confiables y orientados al usuario. Base solida en ingenieria frontend con experiencia full stack aplicada, trabajo en entornos productivos y enfoque disciplinado en rendimiento, mantenibilidad y calidad de entrega.',
+    summary: 'Desarrollador de Software con mentalidad profesional, enfocado en código depurable, UI con propósito y software que resuelve problemas reales. Experiencia en entrega web, sistemas bancarios y entornos SQL.',
     sections: {
       summary: 'Resumen Profesional',
       competencies: 'Competencias Clave',
@@ -140,18 +161,29 @@ export const cvData = {
     ],
     experience: [
       {
-        role: 'Desarrollador Web',
-        company: 'Dentsu',
-        period: 'Jul 2023 - Presente',
+        role: 'Desarrollador Web Mid',
+        company: 'S22 (All Media)',
+        period: 'Ene 2024 - Presente',
         location: 'Republica Dominicana',
         highlights: [
-          'Desarrollo y mantenimiento de sitios web en produccion con tecnologias frontend modernas y componentes reutilizables.',
-          'Optimizacion de flujos de usuario, consistencia visual y performance para apoyar mejores resultados de engagement y conversion.',
-          'Trabajo conjunto con equipos de diseno y producto para entregar funcionalidades alineadas a objetivos de negocio y tiempos de entrega.'
+          'Desarrollo y optimizacion de sitios web en produccion con HTML, CSS, JavaScript y frameworks modernos.',
+          'Continuidad de trayectoria en el grupo All Media tras el paso de Dentsu a S22 a inicios de 2024.',
+          'Enfoque en UX, rendimiento y entregas estables junto a equipos de diseno y producto.'
         ]
       },
       {
-        role: 'Pasante de Sistemas Tecnologicos',
+        role: 'Desarrollador Web',
+        company: 'Dentsu (All Media)',
+        period: 'Jul 2023 - Ene 2024',
+        location: 'Republica Dominicana',
+        highlights: [
+          'Inicio de trayectoria en el grupo All Media, desarrollando y manteniendo sitios web con tecnologias frontend modernas.',
+          'Optimizacion de flujos de usuario, consistencia visual y performance en productos web en produccion.',
+          'Colaboracion con equipos de diseno y producto para entregar funcionalidades en los tiempos acordados.'
+        ]
+      },
+      {
+        role: 'Pasante de Tecnología y Sistemas Gerenciales',
         company: 'Banco BHD',
         period: 'Ene 2023 - Abr 2023',
         location: 'Republica Dominicana',
@@ -175,14 +207,24 @@ export const cvData = {
     ],
     projects: [
       {
-        name: 'ScheduleHub',
-        stack: 'Next.js, React, TypeScript, Prisma, PostgreSQL, integracion de IA',
-        impact: 'Desarrollo de plataforma para gestion academica con procesamiento de PDF y extraccion asistida por IA para organizar horarios de forma mas rapida.'
+        name: 'Sablee',
+        stack: 'Next.js, React, TypeScript, Tailwind CSS, Framer Motion',
+        impact: 'Landing inmersiva para equipo de carreras con navegacion por secciones y experiencia visual tipo dashboard deportivo.'
       },
       {
-        name: 'Generador de Codigos de Barras (Escritorio)',
+        name: 'ScheduleHub',
+        stack: 'Next.js, React, TypeScript, Prisma, PostgreSQL, integracion de IA',
+        impact: 'Plataforma academica con procesamiento de PDF y extraccion asistida por IA para organizar horarios de forma mas rapida.'
+      },
+      {
+        name: 'AVATARIA 3000',
+        stack: 'React, JavaScript, Tailwind CSS, DiceBear API',
+        impact: 'Creador de avatares con multiples estilos, vista previa en tiempo real y descarga directa.'
+      },
+      {
+        name: 'Generador de Codigo de Empleado (Escritorio)',
         stack: 'Python, PyQt6, SQLite, OCR',
-        impact: 'Creacion de herramienta de escritorio para codigos de barras y gestion de carnets con autenticacion, plantillas personalizables y validacion OCR.'
+        impact: 'Herramienta de escritorio para codigos de barras y carnets con autenticacion, plantillas personalizables y validacion OCR.'
       }
     ],
     skills: [

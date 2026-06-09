@@ -2,11 +2,15 @@
   "header": {
     "title": "Software Developer",
     "description": "Creating innovative solutions",
-    "contactCta": "Let's talk about your project",
+    "availability": "Available for new opportunities",
+    "primaryCta": "Start a Project",
+    "heroBadgeValue": "Build · test · refactor",
+    "heroBadgeLabel": "The Programmer's Black Book",
+    "contactCta": "Let's Talk",
     "proofChips": [
-      "Frontend + Full Stack",
-      "Real experience in banking and agency",
-      "Performance and UX focused"
+      "It's all in the UI",
+      "Debuggable code",
+      "Talent · technology · method"
     ]
   },
   "nav": {
@@ -19,7 +23,13 @@
     "contact": "Contact"
   },
   "navigation": {
-    "sectionIndicator": "Section navigation"
+    "sectionIndicator": "Section navigation",
+    "mainNav": "Main navigation",
+    "toggleMenu": "Toggle menu"
+  },
+  "theme": {
+    "switchToLight": "Switch to light theme",
+    "switchToBlue": "Switch to blue theme"
   },
   "accessibility": {
     "headerSocialLinks": "Header social links",
@@ -36,36 +46,67 @@
   },
   "home": {
     "greeting": "Hi, I'm",
+    "greetingLight": "HI, I'M",
+    "greetingBlue": "Hello World, I am",
     "name": "Yoquelvis Jorge Abreu",
-    "description": "A passionate Software Developer dedicated to creating innovative and efficient solutions."
+    "description": "I build software made for the real world: debuggable code, intentional UX, and production-ready delivery. Direct in approach, serious in execution — no 'it worked on my machine' excuses."
   },
   "downloadCV": "Download CV",
   "about": {
     "title": "About Me",
+    "expertise": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "React, Tailwind, HTML/CSS"
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Node.js, SQL, Microservices"
+      },
+      "data": {
+        "title": "Data & AI",
+        "description": "Python, Machine Learning, Power BI"
+      }
+    },
+    "cube": {
+      "ariaLabel": "Interactive 3D cube with core technologies",
+      "title": "Rotating stack",
+      "hint": "Drag the cube to rotate and explore each face",
+      "faces": {
+        "react": "React",
+        "node": "Node.js",
+        "sql": "SQL",
+        "python": "Python",
+        "git": "Git",
+        "docker": "Docker"
+      }
+    },
     "paragraphs": [
-      "Hello! I'm Yoquelvis Jorge Abreu, a passionate web developer with a love for creating beautiful and functional websites.",
-      "I specialize in front-end development, with expertise in React, JavaScript, HTML5, and modern CSS frameworks like Tailwind CSS.",
-      "Additionally, I have experience with Node.js, allowing me to work on full-stack projects.",
-      "My skill set also includes Git for version control, SQL for database management, and Linux for server environments.",
-      "I am familiar with Python and Machine Learning, which expands my capabilities in data analysis and AI-driven projects.",
-      "Moreover, I have experience in Power BI for data visualization, and I'm knowledgeable in Microservices architecture for scalable applications.",
-      "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee."
+      "I'm a software developer focused on web products that work in the real world. I care about writing debuggable code, intentional UX, and shipping software that holds up in production — not just Friday's demo.",
+      "I work with React, JavaScript, HTML5, and Tailwind on the frontend, and Node.js, Git, and Linux when a project needs full-stack delivery. I'm currently a mid-level web developer at S22 (All Media), building and optimizing web products in production.",
+      "My path also includes technology operations at Banco BHD and SQL administration at VICORTIZ, with a solid base in Oracle SQL, Pentaho, and Power BI. When scaling is required, I add Python, Docker, and microservices with the same standard."
     ]
   },
   "experience": {
     "title": "Experience",
     "jobs": [
       {
-        "title": "Web Development",
-        "company": "Dentsu",
-        "period": "July Present",
-        "description": "I work on the creation and optimization of websites, using technologies such as HTML, CSS and JavaScript, among other frameworks, focusing on user experience and the performance of web applications."
+        "title": "Mid Web Developer",
+        "company": "S22 · All Media",
+        "period": "Jan 2024 - Present",
+        "description": "I build and optimize production websites using HTML, CSS, JavaScript, and modern frameworks. In early 2024 I moved from Dentsu to S22 within the All Media group, keeping the same focus on UX, performance, and reliable delivery."
       },
       {
-        "title": "Intern, Technology/Management Systems",
-        "company": "Bank BHD",
+        "title": "Web Developer",
+        "company": "Dentsu · All Media",
+        "period": "Jul 2023 - Jan 2024",
+        "description": "Started my path within the All Media group, creating and optimizing websites with modern frontend technologies while prioritizing user experience and performance in real environments."
+      },
+      {
+        "title": "Intern, Technology and Management Systems",
+        "company": "Banco BHD",
         "period": "January 2023 - April 2023",
-        "description": "During my internship in Technology/Management Systems, I used Oracle SQL to manage enterprise data and created reports and analysis using tools such as Pentaho and BI Publisher, supporting decision making."
+        "description": "During my internship in Technology and Management Systems, I used Oracle SQL to manage enterprise data and created reports and analysis using tools such as Pentaho and BI Publisher, supporting decision making."
       },
       {
         "title": "SQL Database Administrator",
@@ -146,43 +187,119 @@
     "title": "Featured Projects",
     "description": "A showcase of my most significant and innovative projects",
     "viewProject": "View Project",
+    "status": {
+      "live": "live",
+      "demo": "demo"
+    },
     "items": [
       {
-        "title": "Barcode Generator",
-        "description": "Desktop application with GUI for generating barcodes with unique ID and local SQLite database management. Features include user authentication, multiple barcode formats (Code128, EAN13, EAN8, Code39), ID card editor with customizable HTML templates, and automatic OCR verification.",
-        "icon": "barcode",
-        "github": "https://github.com/yoquelvisdev08",
-        "technologies": ["Python", "PyQt6", "SQLite", "Tesseract OCR", "Pillow"]
+        "title": "Sablee",
+        "description": "Immersive racing team landing page with strong visual identity, section-based navigation (team, competition, merch, sponsors), and a sports-dashboard-style UI.",
+        "link": "https://sablee-sooty.vercel.app/",
+        "icon": "sable",
+        "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
       },
       {
-        "title": "Avatar Generator",
-        "description": "AI-powered platform that allows users to generate random and unique avatars with customizable styles and options.",
+        "title": "AVATARIA 3000",
+        "description": "Unique avatar creator with multiple visual styles, real-time preview, size controls, and direct download from a clean, responsive interface.",
         "link": "https://avatar-3000.vercel.app/",
         "icon": "avatar",
-        "technologies": ["React", "Next.js", "Tailwind CSS", "AI API"]
-      },
-      {
-        "title": "Jokes Generator",
-        "description": "Fun application that generates improvised jokes and dark humor content with a simple and intuitive interface.",
-        "link": "https://chistes-nine.vercel.app/",
-        "icon": "jokes",
-        "technologies": ["React", "JavaScript", "CSS"]
+        "technologies": ["React", "JavaScript", "Tailwind CSS", "DiceBear API"]
       },
       {
         "title": "ScheduleHub",
-        "description": "Web application for university students that allows organizing and visualizing academic schedules in an aesthetic and intuitive way. Features PDF upload with AI processing, interactive weekly calendar, customizable colors, and export functionality.",
+        "description": "Platform for university students: upload a PDF schedule, process it with AI, and view it in a customizable weekly calendar with PNG, CSV, and JSON export.",
         "link": "https://horario-delta-ten.vercel.app/",
         "icon": "schedule",
-        "technologies": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Prisma ORM", "PostgreSQL", "Google Gemini AI", "JWT"]
+        "status": "demo",
+        "technologies": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Google Gemini AI"]
+      },
+      {
+        "title": "Employee Code Generator",
+        "description": "Desktop PyQt6 app for generating barcodes with unique IDs, SQLite management, role-based authentication, ID card editor with HTML templates, and automatic OCR verification.",
+        "icon": "employee",
+        "github": "https://github.com/yoquelvisdev08/Generador-de-codigo-de-empleado",
+        "technologies": ["Python", "PyQt6", "SQLite", "Tesseract OCR", "Pillow"]
       }
     ]
   },
   "education": {
     "title": "Educational Journey",
-    "description": "Click on an education item to view its certificate",
+    "studiesTitle": "Education (Estudios)",
+    "coursesTitle": "Courses & Certifications",
+    "description": "Click a certificate to view it",
+    "graduated": "Graduated",
+    "completed": "Completed",
+    "inProgress": "In Progress",
     "certificateAvailable": "Certificate Available",
     "comingSoon": "Coming Soon",
-    "pendingUpload": "University Degree (Pending Upload)"
+    "pendingUpload": "University Degree (Pending Upload)",
+    "studies": [
+      {
+        "id": "itla",
+        "degree": "Software Development Technologist",
+        "institution": "Instituto Tecnológico de las Américas (ITLA)",
+        "year": "2021 - 2023",
+        "description": "Higher technical education in software development, data structures, full-stack development, and database administration."
+      },
+      {
+        "id": "apec",
+        "degree": "Software Engineering",
+        "institution": "APEC University",
+        "year": "2023 - Present",
+        "description": "Advanced studies in software architecture, scalable systems, and modern engineering practices."
+      }
+    ],
+    "courses": [
+      {
+        "id": "devops",
+        "degree": "Fundamentals in DevOps, APIs and Microservices Architecture",
+        "institution": "Udemy",
+        "year": "2024"
+      },
+      {
+        "id": "testing",
+        "degree": "Software Testing",
+        "institution": "Udemy",
+        "year": "2023"
+      },
+      {
+        "id": "plsql",
+        "degree": "Oracle PL/SQL",
+        "institution": "Oracle",
+        "year": "2023"
+      },
+      {
+        "id": "sql",
+        "degree": "SQL",
+        "institution": "Certification",
+        "year": "2023"
+      },
+      {
+        "id": "ethical-hacking",
+        "degree": "Ethical Hacking",
+        "institution": "Instituto Tecnológico de las Américas (ITLA)",
+        "year": "2022"
+      },
+      {
+        "id": "big-data",
+        "degree": "Big Data Analytics",
+        "institution": "Pontificia Universidad Católica Madre y Maestra (PUCMM)",
+        "year": "2021"
+      },
+      {
+        "id": "it-essentials",
+        "degree": "IT Essentials",
+        "institution": "Cisco",
+        "year": "2021"
+      },
+      {
+        "id": "linux",
+        "degree": "Linux and Git Management",
+        "institution": "Máster Mind",
+        "year": "2021"
+      }
+    ]
   },
   "contact": {
     "title": "Contact",
@@ -190,9 +307,22 @@
     "ctaDescription": "If you have an idea, a redesign, or a growing app, let's schedule a conversation and define clear next steps.",
     "primaryAction": "Send email",
     "secondaryAction": "View projects",
+    "responseTime": "Response within 24 hours",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message sent. I will get back to you soon.",
+      "error": "Could not send the message. Try again or email yoquelvis18@gmail.com."
+    },
     "contactItems": [
       { "type": "phone", "text": "(829) 422-3313", "href": "tel:+18294223313" },
-      { "type": "email", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvisdev@gmail.com" },
+      { "type": "email", "text": "yoquelvis18@gmail.com", "href": "mailto:yoquelvis18@gmail.com" },
       { "type": "website", "text": "https://yoquelvis.dev/", "href": "https://yoquelvis.dev/" }
     ]
   },

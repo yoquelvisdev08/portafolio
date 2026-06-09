@@ -1,31 +1,44 @@
 import React from 'react';
-import { FaReact, FaJs, FaNode, FaGit, FaDatabase, FaPython, FaInfoCircle, FaDocker } from 'react-icons/fa';
-import { SiCsharp } from 'react-icons/si';
+import { FaDatabase, FaDocker, FaGit, FaJs, FaNode, FaPython, FaReact } from 'react-icons/fa';
 import { GiArtificialIntelligence } from 'react-icons/gi';
+import { SiCsharp } from 'react-icons/si';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import SectionHeader from './SectionHeader';
+import SkillCard3D from './SkillCard3D';
 import {
   revealContainer,
-  revealItem,
   reducedMotionVariant,
   sectionViewport,
   listViewport,
   listContainer,
   listItem,
-  cardInteractions,
 } from '../lib/motion';
 
 const iconMap = {
-  'React': FaReact,
-  'JavaScript': FaJs,
+  React: FaReact,
+  JavaScript: FaJs,
   'Node.js': FaNode,
-  'Python': FaPython,
-  'SQL': FaDatabase,
-  'Git': FaGit,
+  Python: FaPython,
+  SQL: FaDatabase,
+  Git: FaGit,
   'Machine Learning': GiArtificialIntelligence,
-  'Docker': FaDocker,
+  Docker: FaDocker,
   'PL/SQL': FaDatabase,
-  'C#': SiCsharp
+  'C#': SiCsharp,
+};
+
+const iconColors = {
+  React: 'text-secondary',
+  JavaScript: 'text-yellow-400',
+  'Node.js': 'text-green-500',
+  Python: 'text-blue-400',
+  SQL: 'text-orange-400',
+  Git: 'text-red-400',
+  'Machine Learning': 'text-purple-400',
+  Docker: 'text-cyan-400',
+  'PL/SQL': 'text-orange-300',
+  'C#': 'text-indigo-400',
 };
 
 function Skills() {
@@ -35,65 +48,74 @@ function Skills() {
 
   return (
     <motion.section
-      className="my-24"
+      id="skills"
+      className="section-block scroll-mt-28"
       aria-label={t('skills.title')}
       variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
     >
-      <motion.h2
-        className="section-title mb-8"
-        variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-      >
-        {t('skills.title')}
-      </motion.h2>
-      <motion.div
-        className="mb-7 mt-4 flex items-center justify-center text-slate-200"
-        variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-      >
-        <FaInfoCircle className="mr-2 text-[#6A9AB0]" aria-hidden="true" />
-        <p>{t('skills.description')}</p>
-      </motion.div>
-      <motion.div
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-        role="list"
-        variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={listViewport}
-      >
-        {skills.map((skill, index) => {
-          const SkillIcon = iconMap[skill.name] || FaInfoCircle;
-          
-          return (
-            <motion.article 
-              key={index}
-              className="card"
-              variants={shouldReduceMotion ? reducedMotionVariant : listItem}
-              {...(shouldReduceMotion ? {} : cardInteractions)}
-              role="listitem"
-              itemScope
-              itemType="https://schema.org/Thing"
-            >
-              <div className="mb-4 flex items-center">
-                <SkillIcon className="text-4xl text-[#6A9AB0] mr-4" aria-hidden="true" />
-                <div>
-                  <h3 className="text-xl font-bold text-[#EAD8B1]" itemProp="name">{skill.name}</h3>
-                  <p className="text-sm text-white/85" itemProp="additionalType">{skill.competency}</p>
+      <div className="mx-auto max-w-container-max px-gutter">
+        <SectionHeader
+          title={t('skills.title')}
+          subtitle={t('skills.description')}
+          showDivider={false}
+          stacked
+        />
+
+        <motion.div
+          className="skill-card-3d-grid grid grid-cols-1 gap-card-gap sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          role="list"
+          variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={listViewport}
+        >
+          {skills.map((skill, index) => {
+            const SkillIcon = iconMap[skill.name];
+            const iconColor = iconColors[skill.name] || 'text-secondary';
+
+            return (
+              <SkillCard3D
+                key={skill.name}
+                shouldReduceMotion={shouldReduceMotion}
+                motionProps={{
+                  variants: shouldReduceMotion ? reducedMotionVariant : listItem,
+                  role: 'listitem',
+                  itemScope: true,
+                  itemType: 'https://schema.org/Thing',
+                }}
+              >
+                <div className="mb-4 flex items-start justify-between">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded border border-outline bg-surface transition-colors group-hover:border-primary-fixed ${iconColor}`}
+                  >
+                    {SkillIcon ? (
+                      <SkillIcon className="text-xl" aria-hidden="true" />
+                    ) : (
+                      <span className="material-symbols-outlined">integration_instructions</span>
+                    )}
+                  </div>
+                  <span className="skill-level-badge">{skill.competency}</span>
                 </div>
-              </div>
-              <div className="surface-panel">
-                <div className="mb-2 flex justify-between">
-                  <span className="text-slate-200">{t('skills.projectsCompleted')}</span>
-                  <span className="font-bold text-[#EAD8B1]" itemProp="aggregateRating">{skill.projects}</span>
+                <h3 className="mb-1 text-xl font-semibold text-on-surface" itemProp="name">
+                  {skill.name}
+                </h3>
+                <p className="mb-4 min-h-[40px] text-sm text-on-surface-variant" itemProp="description">
+                  {skill.description}
+                </p>
+                <div className="flex items-center justify-between font-mono text-sm">
+                  <span className="text-on-surface-variant">{t('skills.projectsCompleted')}</span>
+                  <span className="font-bold text-primary-fixed" itemProp="aggregateRating">
+                    {skill.projects}+
+                  </span>
                 </div>
-                <p className="text-sm italic leading-6 text-slate-200" itemProp="description">{skill.description}</p>
-              </div>
-            </motion.article>
-          );
-        })}
-      </motion.div>
+              </SkillCard3D>
+            );
+          })}
+        </motion.div>
+      </div>
     </motion.section>
   );
 }

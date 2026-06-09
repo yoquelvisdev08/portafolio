@@ -1,62 +1,91 @@
 import React from 'react';
-import { FaBriefcase } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 import {
   revealContainer,
   reducedMotionVariant,
   sectionViewport,
-  listViewport,
   listContainer,
   listItem,
-  cardInteractions,
 } from '../lib/motion';
 
 function Experience() {
   const { t, i18n } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
+  const jobs = t('experience.jobs', { returnObjects: true });
 
   return (
-    <section className="my-24" aria-label={t('experience.title')}>
-      <h2 className="section-title">{t('experience.title')}</h2>
-      <motion.div
-        className="mt-7 space-y-7"
-        variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewport}
-      >
+    <motion.section
+      id="experience"
+      className="section-block scroll-mt-28"
+      aria-label={t('experience.title')}
+      variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={sectionViewport}
+    >
+      <div className="mx-auto max-w-container-max px-gutter">
+        <SectionHeader title={t('experience.title')} showDivider={false} stacked />
+
         <motion.div
           key={i18n.language}
-          role="list"
+          className="relative space-y-8"
           variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={listViewport}
-          className="space-y-7"
+          viewport={sectionViewport}
         >
-          {t('experience.jobs', { returnObjects: true }).map((exp, index) => (
+          <div
+            className="absolute bottom-11 left-3 top-11 w-px -translate-x-1/2 bg-outline"
+            aria-hidden="true"
+          />
+
+          {jobs.map((job, index) => (
             <motion.article
               key={`${i18n.language}-${index}`}
+              className="relative flex items-start gap-6 md:gap-8"
               variants={shouldReduceMotion ? reducedMotionVariant : listItem}
-              className="card p-7"
-              {...(shouldReduceMotion ? {} : cardInteractions)}
               role="listitem"
               itemScope
               itemType="https://schema.org/JobPosting"
             >
-            <div className="mb-4 flex items-center">
-              <FaBriefcase className="text-2xl text-[#6A9AB0] mr-4" aria-hidden="true" />
-              <h3 className="text-xl font-semibold text-[#EAD8B1]" itemProp="title">{exp.title}</h3>
-            </div>
-            <p className="mb-2 text-white/95" itemProp="hiringOrganization">{exp.company}</p>
-            <p className="mb-4 text-sm uppercase tracking-wide text-white/75" itemProp="datePosted">{exp.period}</p>
-            <p className="leading-7 text-white/95" itemProp="description">{exp.description}</p>
+              <div
+                className={`relative z-10 mt-8 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface ${
+                  index === 0 ? 'timeline-dot-active' : 'timeline-dot'
+                }`}
+                aria-hidden="true"
+              >
+                {index === 0 && <div className="h-2 w-2 rounded-full bg-primary-fixed" />}
+              </div>
+
+              <div
+                className={`glass-card min-w-0 flex-1 rounded-card p-8 ${
+                  index === 0 ? '' : 'opacity-80 transition-opacity hover:opacity-100'
+                }`}
+              >
+                <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h3 className="text-xl font-semibold text-on-surface" itemProp="title">
+                      {job.title}
+                    </h3>
+                    <p className="mt-1 font-mono text-sm text-primary-fixed" itemProp="hiringOrganization">
+                      {job.company}
+                    </p>
+                  </div>
+                  <span className="self-start rounded bg-surface-container px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant" itemProp="datePosted">
+                    {job.period}
+                  </span>
+                </div>
+                <p className="text-on-surface-variant" itemProp="description">
+                  {job.description}
+                </p>
+              </div>
             </motion.article>
           ))}
         </motion.div>
-      </motion.div>
-    </section>
+      </div>
+    </motion.section>
   );
 }
 

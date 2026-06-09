@@ -1,124 +1,161 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
 import GenerateCV from './GenerateCV';
-import CoinPhoto from './CoinPhoto';
+import HeroPhoto from './HeroPhoto';
 import { revealContainer, revealItem, reducedMotionVariant } from '../lib/motion';
 
 const Header = () => {
   const { t } = useTranslation();
+  const { isBlue } = useTheme();
   const shouldReduceMotion = useReducedMotion();
   const proofChips = t('header.proofChips', { returnObjects: true });
   const nameParts = t('home.name').split(' ');
-  const first = nameParts[0] || '';
-  const second = nameParts[1] || '';
-  const third = nameParts[2] || '';
 
   return (
-    <header className="py-12 md:py-16">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <header
+      id="header"
+      className={`relative flex items-center overflow-hidden ${
+        isBlue ? 'pb-10 pt-32 md:pt-36' : 'pb-10 pt-24'
+      }`}
+    >
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-fixed/5 blur-[120px]"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-container-max grid-cols-1 items-start gap-10 px-gutter lg:grid-cols-2 lg:gap-8">
         <motion.div
-          className="glass-effect flex flex-col items-center gap-8 rounded-3xl border border-[#6A9AB0]/25 p-7 md:flex-row md:items-start md:gap-12 md:p-10"
+          className="order-2 flex flex-col items-start gap-6 lg:order-1 lg:gap-8"
           initial="hidden"
           animate="visible"
           variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
-          whileHover={shouldReduceMotion ? undefined : { y: -2 }}
         >
           <motion.div
-            className="md:mb-0"
+            className="inline-flex items-center gap-2 rounded-full border border-primary-fixed/30 bg-primary-fixed/10 px-4 py-2 font-label-caps text-label-caps text-primary-fixed shadow-[0_0_15px_rgba(195,244,0,0.15)]"
             variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-            aria-label={`${t('home.name')} - ${t('header.title')}`}
           >
-            <CoinPhoto />
+            <span className="h-2 w-2 animate-pulse rounded-full bg-primary-fixed" />
+            {t('header.availability')}
           </motion.div>
 
-          <div className="w-full text-center md:text-left">
-            <motion.p
-              className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#9dc0d0]"
-              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+          <motion.div variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
+            <h1
+              className={`font-display leading-[1.1] ${
+                isBlue ? 'text-[48px] text-white md:text-display' : 'text-display text-on-surface'
+              }`}
             >
-              {t('home.greeting')}
-            </motion.p>
-            <motion.h1
-              className="mb-4 text-4xl font-extrabold leading-[0.94] tracking-tight text-[#EAD8B1] md:text-6xl lg:text-7xl"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
-              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-            >
-              <div className="flex flex-col space-y-2">
-                <span className="inline-block text-shadow-[0_0_18px_rgba(132,175,194,0.3)]">&gt;_{first}</span>
-                <span className="inline-block pl-4 text-shadow-[0_0_16px_rgba(132,175,194,0.24)]">&gt;_{second}</span>
-                <span className="inline-block pl-8 text-shadow-[0_0_14px_rgba(132,175,194,0.2)]">&gt;_{third}</span>
-              </div>
-            </motion.h1>
-            <motion.p
-              className="mb-3 max-w-2xl text-xl font-semibold leading-relaxed text-[#eff5ff] md:text-3xl"
+              {isBlue ? (
+                <>
+                  <span className="mb-4 block font-code-sm text-code-sm uppercase tracking-widest text-primary-fixed opacity-80">
+                    {t('home.greetingBlue')}
+                  </span>
+                  <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                    {nameParts[0]}
+                  </span>
+                  <br />
+                  <span className="bg-gradient-to-r from-white/90 to-white/50 bg-clip-text text-transparent">
+                    {nameParts.slice(1).join(' ')}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="mb-2 block font-code-sm text-code-sm text-primary opacity-90">
+                    {t('home.greetingLight')}
+                  </span>
+                  {nameParts.map((part) => (
+                    <span key={part} className="block">
+                      &gt;_{part}
+                    </span>
+                  ))}
+                </>
+              )}
+            </h1>
+          </motion.div>
+
+          {!isBlue && (
+            <motion.h2
+              className="font-headline-lg text-headline-lg text-secondary opacity-90"
               variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             >
               {t('header.title')}
-            </motion.p>
-            <motion.p
-              className="mb-6 max-w-2xl text-base leading-7 text-[#d2e2f0] md:text-lg"
-              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-            >
-              {t('home.description')}
-            </motion.p>
+            </motion.h2>
+          )}
 
-            <motion.div
-              className="mb-7 flex flex-wrap justify-center gap-2.5 md:justify-start"
-              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-            >
-              {proofChips.map((chip, index) => (
-                <span key={`${chip}-${index}`} className="proof-chip">
-                  {chip}
-                </span>
-              ))}
+          {isBlue && (
+            <motion.div className="flex items-center gap-4" variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
+              <div className="h-1 w-12 bg-primary-fixed" />
+              <h2 className="font-headline-lg text-headline-lg m-0 text-secondary opacity-90">
+                {t('header.title')}
+              </h2>
             </motion.div>
+          )}
 
-            <motion.div
-              className="mb-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center md:justify-start"
-              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-            >
-              <GenerateCV />
-              <a href="#contact" className="btn-secondary w-full sm:w-auto">
-                {t('header.contactCta')}
-              </a>
-            </motion.div>
+          <motion.p
+            className="max-w-xl font-body-lg text-body-lg text-on-surface-variant md:text-xl"
+            variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+          >
+            {t('home.description')}
+          </motion.p>
 
-            <motion.div
-              className="flex justify-center space-x-3 md:justify-start"
-              variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-              aria-label={t('accessibility.headerSocialLinks')}
+          <motion.div
+            className="flex flex-wrap gap-2.5"
+            variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+          >
+            {proofChips.map((chip, index) => (
+              <span key={`${chip}-${index}`} className="proof-chip">
+                {chip}
+              </span>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="mt-2 flex flex-wrap gap-4"
+            variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+          >
+            <a
+              href="#contact"
+              className={`btn-primary font-bold ${isBlue ? 'rounded-full px-8 py-4 shadow-[0_0_20px_rgba(195,244,0,0.2)] hover:-translate-y-1' : ''}`}
             >
+              {isBlue ? t('header.primaryCta') : t('header.contactCta')}
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+            <GenerateCV variant="hero" />
+          </motion.div>
+
+          <motion.div
+            className="flex gap-3"
+            variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+            aria-label={t('accessibility.headerSocialLinks')}
+          >
+            {[
+              { href: 'https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/', icon: FaLinkedin, label: t('accessibility.socialLinkedin') },
+              { href: 'https://github.com/yoquelvisdev08', icon: FaGithub, label: t('accessibility.socialGithub') },
+              { href: 'https://www.instagram.com/yoquelvis_08', icon: FaInstagram, label: t('accessibility.socialInstagram') },
+            ].map(({ href, icon: Icon, label }) => (
               <a
-                href="https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/"
-                className="rounded-full border border-[#7ea6ba]/35 bg-[#112f4b]/60 p-2.5 text-2xl text-white transition-colors duration-300 hover:text-[#6A9AB0] focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
+                key={href}
+                href={href}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-outline bg-surface-container text-xl text-on-surface transition-colors hover:text-primary-fixed"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={t('accessibility.socialLinkedin')}
+                aria-label={label}
               >
-                <FaLinkedin />
+                <Icon />
               </a>
-              <a
-                href="https://github.com/yoquelvisdev08"
-                className="rounded-full border border-[#7ea6ba]/35 bg-[#112f4b]/60 p-2.5 text-2xl text-white transition-colors duration-300 hover:text-gray-300 focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t('accessibility.socialGithub')}
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.instagram.com/yoquelvis_08"
-                className="rounded-full border border-[#7ea6ba]/35 bg-[#112f4b]/60 p-2.5 text-2xl text-white transition-colors duration-300 hover:text-blue-300 focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744]"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t('accessibility.socialInstagram')}
-              >
-                <FaInstagram />
-              </a>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className={`order-1 flex justify-center lg:order-2 lg:justify-end ${
+            isBlue ? 'lg:pt-[6.5rem]' : 'lg:pt-[5.5rem]'
+          }`}
+          variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
+        >
+          <HeroPhoto />
         </motion.div>
       </div>
     </header>

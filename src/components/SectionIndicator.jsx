@@ -1,11 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useScrollSpy } from '../hooks/useScrollSpy';
 import { slideInRight, timings } from '../lib/motion';
 
 const SectionIndicator = () => {
   const { t } = useTranslation();
-  const [activeSection, setActiveSection] = useState('');
   const shouldReduceMotion = useReducedMotion();
 
   const sections = useMemo(
@@ -21,44 +21,10 @@ const SectionIndicator = () => {
     [t],
   );
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const pageTop = window.scrollY;
-      const buffer = 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const elementTop = element.offsetTop;
-          const elementBottom = elementTop + element.offsetHeight;
-
-          if (pageTop >= elementTop - buffer && pageTop < elementBottom - buffer) {
-            setActiveSection(section.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections]);
-
-  const handleClick = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: shouldReduceMotion ? 'auto' : 'smooth',
-      });
-    }
-  };
+  const { activeSection, scrollToSection } = useScrollSpy(
+    sections.map((section) => section.id),
+    120,
+  );
 
   return (
     <motion.nav
@@ -70,23 +36,21 @@ const SectionIndicator = () => {
       aria-label={t('navigation.sectionIndicator', 'Section navigation')}
     >
       {sections.map(({ id, label }) => (
-        <motion.div
-          key={id}
-          className="relative group"
-        >
+        <motion.div key={id} className="group relative">
           <motion.button
-            onClick={() => handleClick(id)}
-            className={`h-4 w-4 rounded-full border border-[#EAD8B1]/50 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#EAD8B1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b2744] ${
+            type="button"
+            onClick={() => scrollToSection(id, 100)}
+            className={`h-4 w-4 rounded-full border border-outline transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${
               activeSection === id
-                ? 'scale-125 bg-[#EAD8B1]'
-                : 'bg-[#EAD8B1]/45 hover:scale-110 hover:bg-[#EAD8B1]'
+                ? 'scale-125 bg-primary-fixed'
+                : 'bg-surface-container hover:scale-110 hover:bg-primary-fixed/60'
             }`}
             whileHover={shouldReduceMotion ? undefined : { scale: 1.3 }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
             aria-label={t('accessibility.goToSection', { section: label })}
             aria-current={activeSection === id ? 'location' : undefined}
           />
-          <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%+1rem)] whitespace-nowrap text-sm text-[#EAD8B1] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="absolute left-0 top-1/2 -translate-x-[calc(100%+1rem)] -translate-y-1/2 whitespace-nowrap text-sm text-on-surface-variant opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             {label}
           </span>
         </motion.div>
