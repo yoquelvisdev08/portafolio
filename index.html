@@ -135,6 +135,45 @@
       "inLanguage": ["es", "en"]
     }
     </script>
+    <script>
+      (function () {
+        var languageKey = 'language';
+        var themeKey = 'portfolio-theme';
+        var themeColors = { blue: '#0b1326', light: '#f7f9fb' };
+
+        var storedTheme = localStorage.getItem(themeKey);
+        var theme =
+          storedTheme === 'light' || storedTheme === 'blue'
+            ? storedTheme
+            : window.matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'blue';
+
+        document.documentElement.setAttribute('data-theme', theme);
+
+        var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) {
+          themeColorMeta.setAttribute('content', themeColors[theme] || themeColors.blue);
+        }
+
+        var storedLanguage = localStorage.getItem(languageKey);
+        var language = storedLanguage === 'en' || storedLanguage === 'es' ? storedLanguage : (function () {
+          var browserLanguages = navigator.languages && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language || 'en'];
+
+          for (var index = 0; index < browserLanguages.length; index += 1) {
+            var code = browserLanguages[index].toLowerCase().split('-')[0];
+            if (code === 'es') return 'es';
+            if (code === 'en') return 'en';
+          }
+
+          return 'en';
+        })();
+
+        document.documentElement.setAttribute('lang', language);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
 import { popIn, reducedMotionVariant } from '../lib/motion';
+import { saveLanguagePreference } from '../lib/preferences';
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation();
@@ -9,7 +10,7 @@ const LanguageSelector = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    localStorage.setItem('language', lng);
+    saveLanguagePreference(lng);
   };
 
   const buttonClass = (active) =>
