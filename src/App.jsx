@@ -18,6 +18,7 @@ import SectionIndicator from './components/SectionIndicator';
 import LanguageSelector from './components/LanguageSelector';
 import SEOHead from './components/SEOHead';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import PwaUpdateToast from './components/PwaUpdateToast';
 import PageBackground from './components/PageBackground';
 
@@ -69,6 +70,7 @@ function AppContent() {
         </div>
         <PwaUpdateToast />
         <Analytics />
+        <SpeedInsights />
       </div>
     </MotionConfig>
   );
