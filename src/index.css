@@ -105,18 +105,20 @@ body,
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
+  overflow-x: clip;
   color: var(--color-on-surface);
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 a,
@@ -255,6 +257,10 @@ html.icons-ready .material-symbols-outlined {
 }
 
 @layer components {
+  .page-x {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
   .section-block {
     @apply pt-12 sm:pt-14 lg:pt-16;
   }
@@ -268,7 +274,7 @@ html.icons-ready .material-symbols-outlined {
   }
 
   .section-title {
-    @apply font-headline-lg text-headline-lg text-on-surface;
+    @apply font-headline-lg text-2xl sm:text-headline-lg text-on-surface;
     text-wrap: balance;
   }
 
@@ -299,7 +305,7 @@ html.icons-ready .material-symbols-outlined {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-control px-8 py-3 font-label-caps text-label-caps transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-control px-4 py-2.5 text-xs sm:px-8 sm:py-3 sm:text-label-caps font-label-caps transition-all duration-200;
     background: var(--color-primary-fixed);
     color: var(--color-on-primary);
     box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary-fixed) 25%, transparent);
@@ -316,7 +322,7 @@ html.icons-ready .material-symbols-outlined {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-control px-8 py-3 font-label-caps text-label-caps transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-control px-4 py-2.5 text-xs sm:px-8 sm:py-3 sm:text-label-caps font-label-caps transition-all duration-200;
     color: var(--color-on-surface);
     border: 1px solid var(--color-outline);
     background: color-mix(in srgb, var(--color-surface-container) 60%, transparent);
@@ -430,7 +436,13 @@ html.icons-ready .material-symbols-outlined {
     width: 100%;
     height: 100%;
     perspective: 1100px;
-    touch-action: none;
+    touch-action: pan-y;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero-photo-3d__scene {
+      touch-action: none;
+    }
   }
 
   .hero-photo-3d__stage {
@@ -760,7 +772,7 @@ html.icons-ready .material-symbols-outlined {
   }
 
   .dev-cube-panel {
-    @apply relative flex flex-col items-center justify-center;
+    @apply relative flex w-full max-w-full flex-col items-center justify-center overflow-x-clip;
     min-height: 420px;
   }
 
@@ -768,8 +780,8 @@ html.icons-ready .material-symbols-outlined {
     position: absolute;
     top: 38%;
     left: 50%;
-    width: 280px;
-    height: 280px;
+    width: min(280px, 78vw);
+    height: min(280px, 78vw);
     border-radius: 50%;
     background: color-mix(in srgb, var(--color-primary-fixed) 18%, transparent);
     filter: blur(60px);
@@ -779,12 +791,18 @@ html.icons-ready .material-symbols-outlined {
 
   .dev-cube-scene {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: min(280px, 78vw);
+    height: min(280px, 78vw);
     perspective: 1100px;
-    touch-action: none;
+    touch-action: pan-y;
     cursor: grab;
     user-select: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dev-cube-scene {
+      touch-action: none;
+    }
   }
 
   .dev-cube-scene--dragging {
@@ -901,14 +919,14 @@ html.icons-ready .material-symbols-outlined {
   }
 
   .dev-cube-orbit--outer {
-    width: 260px;
-    height: 260px;
+    width: min(260px, 72vw);
+    height: min(260px, 72vw);
     animation: dev-cube-orbit-spin 18s linear infinite;
   }
 
   .dev-cube-orbit--inner {
-    width: 210px;
-    height: 210px;
+    width: min(210px, 58vw);
+    height: min(210px, 58vw);
     border-color: color-mix(in srgb, var(--color-secondary) 40%, transparent);
     animation: dev-cube-orbit-spin 12s linear infinite reverse;
   }
@@ -954,6 +972,13 @@ html.icons-ready .material-symbols-outlined {
   .dev-cube-panel__active-dot {
     @apply h-2 w-2 rounded-full bg-primary-fixed;
     box-shadow: 0 0 10px var(--color-primary-fixed);
+  }
+
+  @media (max-width: 639px) {
+    .dev-cube-panel {
+      min-height: auto;
+      padding-block: 1.5rem;
+    }
   }
 }
 

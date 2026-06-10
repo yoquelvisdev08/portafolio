@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 
   return (
     <motion.button
-      className="fixed bottom-6 right-6 z-50 rounded-full border border-outline bg-surface-container p-3 text-primary-fixed shadow-lg backdrop-blur-md transition-colors hover:border-primary-fixed hover:bg-primary-fixed/10 focus-visible:ring-2 focus-visible:ring-primary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+      className="fixed bottom-[max(5.5rem,calc(env(safe-area-inset-bottom)+4.25rem))] right-[max(1.25rem,env(safe-area-inset-right))] z-50 rounded-full border border-outline bg-surface-container p-3 text-primary-fixed shadow-lg backdrop-blur-md transition-colors hover:border-primary-fixed hover:bg-primary-fixed/10 focus-visible:ring-2 focus-visible:ring-primary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
       initial="hidden"
       variants={slideInRight}
       animate={controls}

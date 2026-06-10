@@ -33,7 +33,7 @@ const Footer = () => {
   return (
     <footer className="relative z-10 w-full border-t border-outline-variant bg-surface-container-low/80 py-12 backdrop-blur-md">
       <motion.div
-        className="mx-auto flex max-w-container-max flex-col items-center justify-between gap-6 px-gutter md:flex-row"
+        className="page-x mx-auto flex max-w-container-max flex-col items-center justify-between gap-6 md:flex-row"
         initial="hidden"
         animate="visible"
         variants={shouldReduceMotion ? reducedMotionVariant : fadeIn}

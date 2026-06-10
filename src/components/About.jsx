@@ -23,7 +23,7 @@ function About() {
       className="section-block scroll-mt-28"
       aria-label={t('about.title')}
     >
-      <div className="mx-auto max-w-container-max px-gutter">
+      <div className="mx-auto max-w-container-max">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -34,14 +34,14 @@ function About() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12"
+          className="grid min-w-0 grid-cols-1 items-center gap-8 lg:grid-cols-12"
           initial="hidden"
           whileInView="visible"
           viewport={motionViewport}
           variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
         >
           <motion.article
-            className="glass-card rounded-card p-8 lg:col-span-7"
+            className="glass-card rounded-card p-5 sm:p-6 lg:col-span-7 lg:p-8"
             variants={shouldReduceMotion ? reducedMotionVariant : listItem}
           >
             <div className="space-y-5 font-body-lg text-body-lg leading-relaxed text-on-surface-variant">

@@ -45,14 +45,14 @@ const Contact = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-container-max px-gutter">
+      <div className="relative z-10 mx-auto max-w-container-max">
         <motion.div
-          className="glass-card rounded-2xl border-primary-fixed/20 p-8 shadow-[0_0_50px_rgba(0,0,0,0.08)] md:p-12"
+          className="glass-card rounded-2xl border-primary-fixed/20 p-5 shadow-[0_0_50px_rgba(0,0,0,0.08)] sm:p-8 md:p-12"
           variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
         >
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="font-display text-[32px] font-bold leading-tight text-on-surface md:text-[40px]">
+              <h2 className="font-display text-2xl font-bold leading-tight text-on-surface sm:text-[32px] md:text-[40px]">
                 {t('contact.ctaTitle')}
               </h2>
               <p className="mb-8 mt-4 font-body-lg text-body-lg text-on-surface-variant">
@@ -89,11 +89,11 @@ const Contact = () => {
                         </span>
                       )}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="mb-1 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">
                         {item.type}
                       </p>
-                      <p className="font-code-sm text-code-sm text-on-surface transition-colors group-hover:text-primary-fixed">
+                      <p className="break-words font-code-sm text-code-sm text-on-surface transition-colors group-hover:text-primary-fixed">
                         {item.text}
                       </p>
                     </div>
@@ -105,7 +105,7 @@ const Contact = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="rounded-card border border-outline bg-surface p-8"
+              className="rounded-card border border-outline bg-surface p-4 sm:p-6 lg:p-8"
             >
               <div className="terminal-dots mb-6" aria-hidden="true">
                 <div className="terminal-dot dot-red" />

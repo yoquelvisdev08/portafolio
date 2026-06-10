@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import SectionIndicator from './components/SectionIndicator';
 import LanguageSelector from './components/LanguageSelector';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import SEOHead from './components/SEOHead';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -51,6 +52,7 @@ function AppContent() {
         <ScrollToTop />
         <SectionIndicator />
         <LanguageSelector />
+        <WhatsAppFloat />
         <NavBar />
 
         <motion.div
@@ -61,7 +63,7 @@ function AppContent() {
 
         <div className="relative z-10">
           <Header />
-          <main className="mx-auto max-w-container-max px-gutter pb-8" id="main-content">
+          <main className="page-x mx-auto max-w-container-max pb-8" id="main-content">
             {sections.map(({ Component, id }) => (
               <Component key={id} />
             ))}

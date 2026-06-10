@@ -27,7 +27,7 @@ function Projects() {
       whileInView="visible"
       viewport={sectionViewport}
     >
-      <div className="mx-auto max-w-container-max px-gutter">
+      <div className="mx-auto max-w-container-max">
         <SectionHeader
           title={t('projects.title')}
           subtitle={t('projects.description')}
@@ -36,7 +36,7 @@ function Projects() {
         />
 
         <motion.div
-          className="project-window-grid grid grid-cols-1 gap-8 lg:grid-cols-2"
+          className="project-window-grid grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8"
           role="list"
           variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
           initial="hidden"

@@ -42,7 +42,8 @@
     "scrollToTop": "Scroll to top",
     "languageSelector": "Language selector",
     "switchToEnglish": "Switch language to English",
-    "switchToSpanish": "Switch language to Spanish"
+    "switchToSpanish": "Switch language to Spanish",
+    "whatsapp": "Chat on WhatsApp"
   },
   "home": {
     "greeting": "Hi, I'm",

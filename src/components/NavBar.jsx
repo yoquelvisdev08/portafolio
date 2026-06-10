@@ -73,7 +73,7 @@ function NavBar() {
             <ThemeToggle />
             <a
               href="#contact"
-              className="btn-primary hidden rounded-full px-5 py-2 font-bold md:flex"
+              className="btn-primary hidden rounded-full px-5 py-2 font-bold lg:flex"
               onClick={(event) => {
                 event.preventDefault();
                 handleNavClick('contact');
@@ -118,17 +118,17 @@ function NavBar() {
       className="sticky top-0 z-50 w-full border-b border-outline-variant/30 bg-surface/90 shadow-sm backdrop-blur-xl"
       aria-label={t('navigation.mainNav')}
     >
-      <div className="mx-auto flex max-w-container-max items-center justify-between px-gutter py-4">
+      <div className="page-x mx-auto flex max-w-container-max items-center justify-between py-4">
         <a
           href="#header"
-          className="group flex items-center gap-2 font-headline-md text-headline-md font-bold text-primary"
+          className="group flex items-center gap-2 font-headline-md text-lg font-bold text-primary sm:text-headline-md"
           onClick={(event) => {
             event.preventDefault();
             handleNavClick('header');
           }}
         >
           <span className="material-symbols-outlined text-primary transition-transform group-hover:rotate-12">code</span>
-          YOQUELVIS.DEV
+          <span className="hidden sm:inline">YOQUELVIS.DEV</span>
         </a>
 
         <div className="hidden items-center gap-8 font-label-caps text-label-caps uppercase tracking-widest md:flex">
@@ -150,8 +150,18 @@ function NavBar() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-outline-variant px-gutter py-4 md:hidden">
+        <div className="page-x border-t border-outline-variant py-4 md:hidden">
           <div className="flex flex-col gap-2">{navContent}</div>
+          <a
+            href="#contact"
+            className="btn-primary mt-4 w-full"
+            onClick={(event) => {
+              event.preventDefault();
+              handleNavClick('contact');
+            }}
+          >
+            {t('header.contactCta')}
+          </a>
         </div>
       )}
     </nav>

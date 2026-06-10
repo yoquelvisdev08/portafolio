@@ -17,6 +17,9 @@ function HeroBookBadge() {
   const copyRef = useRef(null);
   const [copyWidth, setCopyWidth] = useState(0);
   const [expanded, setExpanded] = useState(!shouldReduceMotion);
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1024,
+  );
 
   const measureCopy = () => {
     if (!copyRef.current) {
@@ -42,6 +45,14 @@ function HeroBookBadge() {
   }, [t, i18n.language]);
 
   useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
     if (shouldReduceMotion) {
       return undefined;
     }
@@ -59,15 +70,21 @@ function HeroBookBadge() {
 
   const panelTransition = shouldReduceMotion ? { duration: 0 } : panelEase;
   const expandedPanelWidth = copyWidth + PANEL_PADDING_RIGHT;
-  const expandedWidth = ICON_SIZE + expandedPanelWidth;
+  const expandedWidth = Math.min(
+    ICON_SIZE + expandedPanelWidth,
+    Math.max(ICON_SIZE, viewportWidth - 24),
+  );
+  const expandedPanelContentWidth = Math.max(ICON_SIZE, expandedWidth - ICON_SIZE);
+  const isCompact = viewportWidth < 640;
+  const badgeOffset = isCompact ? '-12%' : '-38%';
 
   return (
     <motion.aside
-      className="absolute bottom-2 left-0 z-30 cursor-pointer"
+      className="absolute bottom-2 left-0 z-30 max-w-[calc(100vw-1.5rem)] cursor-pointer"
       style={{
         width: ICON_SIZE,
         height: ICON_SIZE,
-        transform: 'translateX(-38%)',
+        transform: `translateX(${badgeOffset})`,
       }}
       initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -104,7 +121,10 @@ function HeroBookBadge() {
           style={{ width: expandedWidth, paddingRight: PANEL_PADDING_RIGHT }}
         >
           <div aria-hidden="true" style={{ width: ICON_SIZE, flexShrink: 0 }} />
-          <div className="whitespace-nowrap pl-1">
+          <div
+            className={`pl-1 ${isCompact ? 'max-w-[calc(100vw-6rem)] whitespace-normal' : 'whitespace-nowrap'}`}
+            style={{ width: expandedPanelContentWidth }}
+          >
             <p className="font-mono text-sm font-semibold leading-snug text-on-surface sm:text-base">
               {t('header.heroBadgeValue')}
             </p>

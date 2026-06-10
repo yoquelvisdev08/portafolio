@@ -25,7 +25,7 @@ function Experience() {
       whileInView="visible"
       viewport={sectionViewport}
     >
-      <div className="mx-auto max-w-container-max px-gutter">
+      <div className="mx-auto max-w-container-max">
         <SectionHeader title={t('experience.title')} showDivider={false} stacked />
 
         <motion.div
@@ -60,7 +60,7 @@ function Experience() {
               </div>
 
               <div
-                className={`glass-card min-w-0 flex-1 rounded-card p-8 ${
+                className={`glass-card min-w-0 flex-1 rounded-card p-5 sm:p-6 lg:p-8 ${
                   index === 0 ? '' : 'opacity-80 transition-opacity hover:opacity-100'
                 }`}
               >

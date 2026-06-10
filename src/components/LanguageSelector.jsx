@@ -22,7 +22,7 @@ const LanguageSelector = () => {
 
   return (
     <motion.div
-      className="fixed bottom-5 left-5 z-50"
+      className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-[max(1.25rem,env(safe-area-inset-left))] z-50"
       initial="hidden"
       animate="visible"
       variants={shouldReduceMotion ? reducedMotionVariant : popIn}

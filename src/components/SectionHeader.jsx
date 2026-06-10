@@ -28,7 +28,7 @@ function SectionHeader({ title, subtitle, centered = false, showDivider = true, 
       <h2 className="font-headline-lg text-headline-lg shrink-0 text-on-surface">{title}</h2>
       <div className="h-px min-w-[3rem] flex-grow bg-outline" />
       {subtitle && (
-        <span className="hidden items-center gap-2 font-body-md text-sm text-on-surface-variant lg:flex lg:shrink-0">
+        <span className="flex w-full items-center gap-2 font-body-md text-sm text-on-surface-variant sm:w-auto lg:shrink-0">
           <span className="material-symbols-outlined text-[16px]">info</span>
           {subtitle}
         </span>

@@ -81,7 +81,7 @@ function Education() {
       viewport={sectionViewport}
       aria-label={t('education.title')}
     >
-      <div className="mx-auto max-w-container-max px-gutter">
+      <div className="mx-auto max-w-container-max">
         <SectionHeader title={t('education.studiesTitle')} />
 
         <motion.div
@@ -94,7 +94,7 @@ function Education() {
           {studies.map((study) => (
             <motion.article
               key={study.id}
-              className={`glass-card group flex h-full flex-col justify-between rounded-card p-8 ${
+              className={`glass-card group flex h-full flex-col justify-between rounded-card p-5 sm:p-6 lg:p-8 ${
                 study.certificate ? 'cursor-pointer' : 'opacity-90'
               }`}
               variants={shouldReduceMotion ? reducedMotionVariant : listItem}
@@ -118,7 +118,7 @@ function Education() {
                 <p className="mb-4 font-mono text-sm text-secondary">{study.institution}</p>
                 <p className="text-on-surface-variant">{study.description}</p>
               </div>
-              <div className="mt-6 flex items-center justify-between border-t border-outline pt-6">
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-outline pt-6">
                 <span className="rounded bg-surface-container px-3 py-1 font-mono text-xs uppercase tracking-widest text-on-surface-variant">
                   {study.year}
                 </span>
@@ -128,7 +128,11 @@ function Education() {
           ))}
         </motion.div>
 
-        <SectionHeader title={t('education.coursesTitle')} subtitle={t('education.description')} />
+        <SectionHeader
+          title={t('education.coursesTitle')}
+          subtitle={t('education.description')}
+          stacked
+        />
 
         <motion.div
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"

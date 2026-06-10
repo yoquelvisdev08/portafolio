@@ -56,7 +56,7 @@ function Skills() {
       whileInView="visible"
       viewport={sectionViewport}
     >
-      <div className="mx-auto max-w-container-max px-gutter">
+      <div className="mx-auto max-w-container-max">
         <SectionHeader
           title={t('skills.title')}
           subtitle={t('skills.description')}

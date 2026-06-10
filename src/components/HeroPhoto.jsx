@@ -73,7 +73,7 @@ function HeroPhoto() {
 
   if (isBlue) {
     return (
-      <div className="hero-photo-3d relative h-72 w-72 md:h-[450px] md:w-[450px]">
+      <div className="hero-photo-3d relative mx-auto aspect-square w-full max-w-[min(100%,18rem)] sm:max-w-[20rem] md:h-[450px] md:w-[450px] md:max-w-none">
         <div className="hero-photo-3d__ambient" aria-hidden="true" />
         <div className="hero-photo-3d__ambient hero-photo-3d__ambient--secondary" aria-hidden="true" />
 
@@ -115,14 +115,14 @@ function HeroPhoto() {
   }
 
   return (
-    <div className="relative flex justify-center lg:justify-end">
-      <div className="relative h-64 w-64 animate-[spin_20s_linear_infinite] rounded-full border-2 border-dashed border-primary-fixed/20 p-2 md:h-96 md:w-96">
+    <div className="relative flex w-full max-w-[min(100%,16rem)] justify-center sm:max-w-[18rem] md:max-w-[24rem] lg:ml-auto lg:justify-end">
+      <div className="relative aspect-square w-full animate-[spin_20s_linear_infinite] rounded-full border-2 border-dashed border-primary-fixed/20 p-2">
         <div
           className="absolute inset-0 animate-[spin_15s_linear_infinite_reverse] rounded-full border-2 border-dashed border-secondary/20"
           aria-hidden="true"
         />
       </div>
-      <div className="absolute left-1/2 top-[45%] z-10 h-60 w-60 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-4 border-surface-low shadow-2xl md:h-[360px] md:w-[360px]">
+      <div className="absolute left-1/2 top-[45%] z-10 aspect-square w-[92%] max-w-[15rem] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-4 border-surface-low shadow-2xl sm:max-w-[17rem] md:max-w-[22.5rem]">
         <img
           src={heroPhotos.light}
           alt={t('home.name')}

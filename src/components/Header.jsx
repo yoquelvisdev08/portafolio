@@ -17,15 +17,15 @@ const Header = () => {
     <header
       id="header"
       className={`relative flex items-center overflow-hidden ${
-        isBlue ? 'pb-10 pt-32 md:pt-36' : 'pb-10 pt-24'
+        isBlue ? 'pb-10 pt-28 sm:pt-32 md:pt-36' : 'pb-10 pt-20 sm:pt-24'
       }`}
     >
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-fixed/5 blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[min(800px,150vw)] w-[min(800px,150vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-fixed/5 blur-[120px]"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-container-max grid-cols-1 items-start gap-10 px-gutter lg:grid-cols-2 lg:gap-8">
+      <div className="page-x relative z-10 mx-auto grid w-full max-w-container-max grid-cols-1 items-start gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-8">
         <motion.div
           className="order-2 flex flex-col items-start gap-6 lg:order-1 lg:gap-8"
           initial="hidden"
@@ -33,7 +33,7 @@ const Header = () => {
           variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
         >
           <motion.div
-            className="inline-flex items-center gap-2 rounded-full border border-primary-fixed/30 bg-primary-fixed/10 px-4 py-2 font-label-caps text-label-caps text-primary-fixed shadow-[0_0_15px_rgba(195,244,0,0.15)]"
+            className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-primary-fixed/30 bg-primary-fixed/10 px-3 py-2 text-xs sm:px-4 sm:text-label-caps font-label-caps text-primary-fixed shadow-[0_0_15px_rgba(195,244,0,0.15)]"
             variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
           >
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary-fixed" />
@@ -42,8 +42,8 @@ const Header = () => {
 
           <motion.div variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
             <h1
-              className={`font-display leading-[1.1] ${
-                isBlue ? 'text-[48px] text-white md:text-display' : 'text-display text-on-surface'
+              className={`font-display text-balance leading-[1.1] text-3xl sm:text-4xl md:text-5xl lg:text-display ${
+                isBlue ? 'text-white' : 'text-on-surface'
               }`}
             >
               {isBlue ? (
@@ -76,7 +76,7 @@ const Header = () => {
 
           {!isBlue && (
             <motion.h2
-              className="font-headline-lg text-headline-lg text-secondary opacity-90"
+              className="font-headline-lg text-xl text-secondary opacity-90 sm:text-headline-lg"
               variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
             >
               {t('header.title')}
@@ -86,7 +86,7 @@ const Header = () => {
           {isBlue && (
             <motion.div className="flex items-center gap-4" variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
               <div className="h-1 w-12 bg-primary-fixed" />
-              <h2 className="font-headline-lg text-headline-lg m-0 text-secondary opacity-90">
+              <h2 className="font-headline-lg m-0 text-xl text-secondary opacity-90 sm:text-headline-lg">
                 {t('header.title')}
               </h2>
             </motion.div>
@@ -148,7 +148,7 @@ const Header = () => {
         </motion.div>
 
         <motion.div
-          className={`order-1 flex justify-center lg:order-2 lg:justify-end ${
+          className={`order-1 flex w-full min-w-0 justify-center lg:order-2 lg:w-auto lg:justify-end ${
             isBlue ? 'lg:pt-[6.5rem]' : 'lg:pt-[5.5rem]'
           }`}
           variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
