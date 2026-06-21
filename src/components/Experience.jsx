@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
 import SectionHeader from './SectionHeader';
+import { useActiveIndexOnScroll } from '../hooks/useActiveIndexOnScroll';
 import {
   revealContainer,
   reducedMotionVariant,
@@ -14,6 +15,8 @@ function Experience() {
   const { t, i18n } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
   const jobs = t('experience.jobs', { returnObjects: true });
+  const itemRefs = useRef([]);
+  const activeIndex = useActiveIndexOnScroll(itemRefs);
 
   return (
     <motion.section
@@ -41,9 +44,15 @@ function Experience() {
             aria-hidden="true"
           />
 
-          {jobs.map((job, index) => (
+          {jobs.map((job, index) => {
+            const isActive = activeIndex === index;
+
+            return (
             <motion.article
               key={`${i18n.language}-${index}`}
+              ref={(element) => {
+                itemRefs.current[index] = element;
+              }}
               className="relative flex items-start gap-6 md:gap-8"
               variants={shouldReduceMotion ? reducedMotionVariant : listItem}
               role="listitem"
@@ -51,17 +60,17 @@ function Experience() {
               itemType="https://schema.org/JobPosting"
             >
               <div
-                className={`relative z-10 mt-8 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface ${
-                  index === 0 ? 'timeline-dot-active' : 'timeline-dot'
+                className={`relative z-10 mt-8 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface transition-all duration-300 ${
+                  isActive ? 'timeline-dot-active scale-110' : 'timeline-dot'
                 }`}
                 aria-hidden="true"
               >
-                {index === 0 && <div className="h-2 w-2 rounded-full bg-primary-fixed" />}
+                {isActive && <div className="h-2 w-2 rounded-full bg-primary-fixed" />}
               </div>
 
               <div
-                className={`glass-card min-w-0 flex-1 rounded-card p-5 sm:p-6 lg:p-8 ${
-                  index === 0 ? '' : 'opacity-80 transition-opacity hover:opacity-100'
+                className={`glass-card min-w-0 flex-1 rounded-card p-5 transition-opacity duration-300 sm:p-6 lg:p-8 ${
+                  isActive ? 'opacity-100 ring-1 ring-primary-fixed/20' : 'opacity-80 hover:opacity-100'
                 }`}
               >
                 <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -82,7 +91,8 @@ function Experience() {
                 </p>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </motion.section>

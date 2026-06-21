@@ -16,6 +16,7 @@ function HeroPhoto() {
   const stageRef = useRef(null);
   const pointerRef = useRef({ x: 0, y: 0 });
   const frameRef = useRef(null);
+  const photoSrc = isBlue ? heroPhotos.dark : heroPhotos.light;
 
   const applyStageTransform = useCallback(() => {
     if (!stageRef.current) {
@@ -30,7 +31,7 @@ function HeroPhoto() {
   }, []);
 
   useEffect(() => {
-    if (shouldReduceMotion || !isBlue) {
+    if (shouldReduceMotion) {
       return undefined;
     }
 
@@ -49,7 +50,7 @@ function HeroPhoto() {
         cancelAnimationFrame(frameRef.current);
       }
     };
-  }, [applyStageTransform, isBlue, shouldReduceMotion]);
+  }, [applyStageTransform, shouldReduceMotion]);
 
   const handlePointerMove = (event) => {
     if (!sceneRef.current || shouldReduceMotion) {
@@ -71,65 +72,44 @@ function HeroPhoto() {
     }
   };
 
-  if (isBlue) {
-    return (
-      <div className="hero-photo-3d relative mx-auto aspect-square w-full max-w-[min(100%,18rem)] sm:max-w-[20rem] md:h-[450px] md:w-[450px] md:max-w-none">
-        <div className="hero-photo-3d__ambient" aria-hidden="true" />
-        <div className="hero-photo-3d__ambient hero-photo-3d__ambient--secondary" aria-hidden="true" />
+  return (
+    <div className="hero-photo-3d relative mx-auto aspect-square w-full max-w-[min(100%,18rem)] sm:max-w-[20rem] md:h-[450px] md:w-[450px] md:max-w-none">
+      <div className="hero-photo-3d__ambient" aria-hidden="true" />
+      <div className="hero-photo-3d__ambient hero-photo-3d__ambient--secondary" aria-hidden="true" />
 
+      <div
+        ref={sceneRef}
+        className="hero-photo-3d__scene"
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+        role="presentation"
+      >
         <div
-          ref={sceneRef}
-          className="hero-photo-3d__scene"
-          onPointerMove={handlePointerMove}
-          onPointerLeave={handlePointerLeave}
-          role="presentation"
+          ref={stageRef}
+          className="hero-photo-3d__stage"
+          style={{
+            transform: `rotateX(${BASE_ROTATION.x}deg) rotateY(${BASE_ROTATION.y}deg)`,
+          }}
         >
-          <div
-            ref={stageRef}
-            className="hero-photo-3d__stage"
-            style={{
-              transform: `rotateX(${BASE_ROTATION.x}deg) rotateY(${BASE_ROTATION.y}deg)`,
-            }}
-          >
-            <div className="hero-photo-3d__plate hero-photo-3d__plate--back" aria-hidden="true" />
-            <div className="hero-photo-3d__plate hero-photo-3d__plate--mid" aria-hidden="true" />
+          <div className="hero-photo-3d__plate hero-photo-3d__plate--back" aria-hidden="true" />
+          <div className="hero-photo-3d__plate hero-photo-3d__plate--mid" aria-hidden="true" />
 
-            <div className="hero-photo-3d__frame group">
-              <div className="hero-photo-3d__shine" aria-hidden="true" />
-              <img
-                src={heroPhotos.dark}
-                alt={t('home.name')}
-                className="hero-photo-3d__img"
-                loading="eager"
-                draggable="false"
-              />
-            </div>
+          <div className="hero-photo-3d__frame group">
+            <div className="hero-photo-3d__shine" aria-hidden="true" />
+            <img
+              src={photoSrc}
+              alt={t('home.name')}
+              className={`hero-photo-3d__img ${isBlue ? '' : 'hero-photo-img grayscale hover:grayscale-0'}`}
+              loading="eager"
+              draggable="false"
+            />
           </div>
-
-          <div className="hero-photo-3d__shadow" aria-hidden="true" />
         </div>
 
-        <HeroBookBadge />
+        <div className="hero-photo-3d__shadow" aria-hidden="true" />
       </div>
-    );
-  }
 
-  return (
-    <div className="relative flex w-full max-w-[min(100%,16rem)] justify-center sm:max-w-[18rem] md:max-w-[24rem] lg:ml-auto lg:justify-end">
-      <div className="relative aspect-square w-full animate-[spin_20s_linear_infinite] rounded-full border-2 border-dashed border-primary-fixed/20 p-2">
-        <div
-          className="absolute inset-0 animate-[spin_15s_linear_infinite_reverse] rounded-full border-2 border-dashed border-secondary/20"
-          aria-hidden="true"
-        />
-      </div>
-      <div className="absolute left-1/2 top-[45%] z-10 aspect-square w-[92%] max-w-[15rem] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-4 border-surface-low shadow-2xl sm:max-w-[17rem] md:max-w-[22.5rem]">
-        <img
-          src={heroPhotos.light}
-          alt={t('home.name')}
-          className="hero-photo-img grayscale transition-all duration-500 hover:grayscale-0"
-          loading="eager"
-        />
-      </div>
+      <HeroBookBadge />
     </div>
   );
 }

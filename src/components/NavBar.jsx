@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../context/ThemeContext';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 import ThemeToggle from './ThemeToggle';
 
@@ -14,7 +13,6 @@ const NAV_ITEMS = [
 
 function NavBar() {
   const { t } = useTranslation();
-  const { isBlue } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const sectionIds = useMemo(() => ['header', ...NAV_ITEMS.map((item) => item.id)], []);
@@ -27,7 +25,7 @@ function NavBar() {
 
   const handleNavClick = (sectionId) => {
     setMobileOpen(false);
-    scrollToSection(sectionId, isBlue ? 100 : 80);
+    scrollToSection(sectionId, 100);
   };
 
   const navLinkClass = (id) =>
@@ -44,102 +42,46 @@ function NavBar() {
     </button>
   ));
 
-  if (isBlue) {
-    return (
-      <nav
-        className="fixed left-1/2 top-6 z-50 w-[95%] max-w-container-max -translate-x-1/2 transition-all duration-300"
-        aria-label={t('navigation.mainNav')}
-      >
-        <div className="glass-card flex items-center justify-between rounded-full border-white/10 bg-surface/90 px-4 py-3 shadow-2xl sm:px-6">
-          <a
-            href="#header"
-            className="group flex items-center gap-3 font-headline-md text-xl font-bold text-primary-fixed"
-            onClick={(event) => {
-              event.preventDefault();
-              handleNavClick('header');
-            }}
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-fixed/30 bg-primary-fixed/10 transition-transform group-hover:scale-110">
-              <span className="material-symbols-outlined text-primary-fixed">terminal</span>
-            </div>
-            <span className="hidden tracking-tight sm:block">YOQUELVIS.DEV</span>
-          </a>
-
-          <div className="hidden items-center justify-center gap-1 rounded-full border border-white/5 bg-black/20 px-2 py-1 font-label-caps text-label-caps uppercase tracking-widest lg:flex">
-            {navContent}
-          </div>
-
-          <div className="flex items-center gap-2 sm:gap-4">
-            <ThemeToggle />
-            <a
-              href="#contact"
-              className="btn-primary hidden rounded-full px-5 py-2 font-bold lg:flex"
-              onClick={(event) => {
-                event.preventDefault();
-                handleNavClick('contact');
-              }}
-            >
-              <span className="material-symbols-outlined text-[18px]">chat</span>
-              {t('header.contactCta')}
-            </a>
-            <button
-              type="button"
-              className="rounded-full bg-white/5 p-2 text-on-surface transition-colors hover:text-primary-fixed lg:hidden"
-              onClick={() => setMobileOpen((open) => !open)}
-              aria-expanded={mobileOpen}
-              aria-label={t('navigation.toggleMenu')}
-            >
-              <span className="material-symbols-outlined">{mobileOpen ? 'close' : 'menu'}</span>
-            </button>
-          </div>
-        </div>
-
-        {mobileOpen && (
-          <div className="glass-card mt-3 rounded-2xl border-outline p-4 lg:hidden">
-            <div className="flex flex-col gap-1">{navContent}</div>
-            <a
-              href="#contact"
-              className="btn-primary mt-4 w-full rounded-full"
-              onClick={(event) => {
-                event.preventDefault();
-                handleNavClick('contact');
-              }}
-            >
-              {t('header.contactCta')}
-            </a>
-          </div>
-        )}
-      </nav>
-    );
-  }
-
   return (
     <nav
-      className="sticky top-0 z-50 w-full border-b border-outline-variant/30 bg-surface/90 shadow-sm backdrop-blur-xl"
+      className="fixed left-1/2 top-6 z-50 w-[95%] max-w-container-max -translate-x-1/2 transition-all duration-300"
       aria-label={t('navigation.mainNav')}
     >
-      <div className="page-x mx-auto flex max-w-container-max items-center justify-between py-4">
+      <div className="glass-card flex items-center justify-between rounded-full border-white/10 bg-surface/90 px-4 py-3 shadow-2xl sm:px-6">
         <a
           href="#header"
-          className="group flex items-center gap-2 font-headline-md text-lg font-bold text-primary sm:text-headline-md"
+          className="group flex items-center gap-3 font-headline-md text-xl font-bold text-primary-fixed"
           onClick={(event) => {
             event.preventDefault();
             handleNavClick('header');
           }}
         >
-          <span className="material-symbols-outlined text-primary transition-transform group-hover:rotate-12">code</span>
-          <span className="hidden sm:inline">YOQUELVIS.DEV</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-fixed/30 bg-primary-fixed/10 transition-transform group-hover:scale-110">
+            <span className="material-symbols-outlined text-primary-fixed">terminal</span>
+          </div>
+          <span className="hidden tracking-tight sm:block">YOQUELVIS.DEV</span>
         </a>
 
-        <div className="hidden items-center gap-8 font-label-caps text-label-caps uppercase tracking-widest md:flex">
+        <div className="hidden items-center justify-center gap-1 rounded-full border border-outline/40 bg-surface-container/40 px-2 py-1 font-label-caps text-label-caps uppercase tracking-widest lg:flex">
           {navContent}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggle />
+          <a
+            href="#contact"
+            className="btn-primary hidden rounded-full px-5 py-2 font-bold lg:flex"
+            onClick={(event) => {
+              event.preventDefault();
+              handleNavClick('contact');
+            }}
+          >
+            <span className="material-symbols-outlined text-[18px]">chat</span>
+            {t('header.contactCta')}
+          </a>
           <button
             type="button"
-            className="p-2 text-on-surface transition-colors hover:text-primary md:hidden"
+            className="rounded-full bg-surface-container/60 p-2 text-on-surface transition-colors hover:text-primary-fixed lg:hidden"
             onClick={() => setMobileOpen((open) => !open)}
             aria-expanded={mobileOpen}
             aria-label={t('navigation.toggleMenu')}
@@ -150,11 +92,11 @@ function NavBar() {
       </div>
 
       {mobileOpen && (
-        <div className="page-x border-t border-outline-variant py-4 md:hidden">
-          <div className="flex flex-col gap-2">{navContent}</div>
+        <div className="glass-card mt-3 rounded-2xl border-outline p-4 lg:hidden">
+          <div className="flex flex-col gap-1">{navContent}</div>
           <a
             href="#contact"
-            className="btn-primary mt-4 w-full"
+            className="btn-primary mt-4 w-full rounded-full"
             onClick={(event) => {
               event.preventDefault();
               handleNavClick('contact');

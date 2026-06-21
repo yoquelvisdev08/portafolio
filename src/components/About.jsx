@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import AboutDevCube from './AboutDevCube';
+import AboutTerminal from './AboutTerminal';
 import SectionHeader from './SectionHeader';
 import {
   listContainer,
@@ -15,7 +16,6 @@ function About() {
   const { t } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
   const motionViewport = { ...sectionViewport, amount: 0.18, margin: '0px 0px -6% 0px' };
-  const paragraphs = t('about.paragraphs', { returnObjects: true });
 
   return (
     <section
@@ -40,17 +40,11 @@ function About() {
           viewport={motionViewport}
           variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
         >
-          <motion.article
-            className="glass-card rounded-card p-5 sm:p-6 lg:col-span-7 lg:p-8"
-            variants={shouldReduceMotion ? reducedMotionVariant : listItem}
-          >
-            <div className="space-y-5 font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
-              {Array.isArray(paragraphs) &&
-                paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-            </div>
-          </motion.article>
+          <AboutTerminal
+            motionProps={{
+              variants: shouldReduceMotion ? reducedMotionVariant : listItem,
+            }}
+          />
 
           <AboutDevCube />
         </motion.div>

@@ -14,7 +14,6 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import SectionIndicator from './components/SectionIndicator';
 import LanguageSelector from './components/LanguageSelector';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import SEOHead from './components/SEOHead';
@@ -50,7 +49,6 @@ function PortfolioContent() {
       <div className="relative min-h-screen text-on-surface">
         <PageBackground />
         <ScrollToTop />
-        <SectionIndicator />
         <LanguageSelector />
         <WhatsAppFloat />
         <NavBar />

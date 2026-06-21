@@ -55,6 +55,9 @@
   "downloadCV": "Descargar CV",
   "about": {
     "title": "Sobre Mí",
+    "terminalCommand": "yoquelvis@dev:~$ cat sobre_mi.txt",
+    "terminalTitle": "about — zsh",
+    "terminalPrompt": "yoquelvis@dev:~$ _",
     "expertise": {
       "frontend": {
         "title": "Frontend",

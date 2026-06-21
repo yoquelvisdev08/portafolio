@@ -759,10 +759,34 @@ html.icons-ready .material-symbols-outlined {
   .timeline-dot-active {
     border: 2px solid var(--color-primary-fixed);
     box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary-fixed) 50%, transparent);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .timeline-dot {
     border: 2px solid var(--color-outline);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  @keyframes terminal-cursor-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .about-terminal__cursor {
+    animation: terminal-cursor-blink 1s step-end infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-terminal__cursor {
+      animation: none;
+    }
   }
 
   .skill-level-badge {
