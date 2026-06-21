@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import SiteBrand from './SiteBrand';
 import { buttonInteractions, interactionTransition, fadeIn, reducedMotionVariant, timings } from '../lib/motion';
 
 const Footer = () => {
@@ -41,10 +42,11 @@ const Footer = () => {
       >
         <a
           href="#header"
-          className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-primary-fixed transition-opacity hover:opacity-80"
+          className="flex items-center gap-2 transition-opacity hover:opacity-80"
+          aria-label={t('nav.brandAria')}
         >
-          <span className="material-symbols-outlined text-[18px]">code</span>
-          YOQUELVIS.DEV
+          <span className="material-symbols-outlined text-[18px] text-primary-fixed">code</span>
+          <SiteBrand size="footer" />
         </a>
 
         <p className="text-center text-sm text-on-surface-variant md:text-left">

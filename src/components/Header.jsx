@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="relative flex items-center overflow-hidden pb-10 pt-28 sm:pt-32 md:pt-36"
+      className="relative flex items-center overflow-hidden pb-10 pt-[max(6.5rem,calc(env(safe-area-inset-top)+5.5rem))] sm:pt-32 md:pt-36"
     >
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 h-[min(800px,150vw)] w-[min(800px,150vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-fixed/5 blur-[120px]"
@@ -52,7 +52,7 @@ const Header = () => {
                 isBlue ? 'text-white' : 'text-on-surface'
               }`}
             >
-              <span className="mb-4 block font-code-sm text-code-sm uppercase tracking-widest text-primary-fixed opacity-80">
+              <span className="mb-2 block font-code-sm text-[11px] uppercase tracking-widest text-primary-fixed opacity-80 sm:mb-4 sm:text-code-sm">
                 {t('home.greetingBlue')}
               </span>
               <span className={nameGradientPrimary}>{nameParts[0]}</span>
@@ -61,10 +61,10 @@ const Header = () => {
             </h1>
           </motion.div>
 
-          <motion.div className="flex items-center gap-4" variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
-            <div className="h-1 w-12 bg-primary-fixed" />
-            <h2 className="font-headline-lg m-0 text-xl text-secondary opacity-90 sm:text-headline-lg">
-              {t('header.title')}
+          <motion.div variants={shouldReduceMotion ? reducedMotionVariant : revealItem}>
+            <h2 className="hero-role w-full max-w-full" aria-label={t('header.title')}>
+              <span className="hero-role__lead">{t('header.titleLead')}</span>
+              <span className="hero-role__accent">{t('header.titleAccent')}</span>
             </h2>
           </motion.div>
 
@@ -92,7 +92,7 @@ const Header = () => {
           >
             <a
               href="#contact"
-              className="btn-primary rounded-full px-8 py-4 font-bold shadow-[0_0_20px_rgba(195,244,0,0.2)] hover:-translate-y-1"
+              className="btn-primary w-full rounded-full px-6 py-3.5 font-bold shadow-[0_0_20px_rgba(195,244,0,0.2)] hover:-translate-y-1 sm:w-auto sm:px-8 sm:py-4"
             >
               {t('header.primaryCta')}
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

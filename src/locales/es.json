@@ -1,6 +1,8 @@
 {
   "header": {
     "title": "Desarrollador de Software",
+    "titleLead": "Desarrollador",
+    "titleAccent": "de Software",
     "description": "Creando soluciones innovadoras",
     "availability": "Disponible para nuevas oportunidades",
     "primaryCta": "Iniciar un proyecto",
@@ -15,6 +17,9 @@
   },
   "nav": {
     "home": "Inicio",
+    "brandPrimary": "CREA",
+    "brandAccent": "ENTREGA",
+    "brandAria": "CREA ENTREGA · portafolio de desarrollo web",
     "about": "Sobre Mí",
     "experience": "Experiencia", 
     "skills": "Habilidades",
@@ -30,6 +35,18 @@
   "theme": {
     "switchToLight": "Cambiar a tema claro",
     "switchToBlue": "Cambiar a tema azul"
+  },
+  "themeIntro": {
+    "ariaLabel": "Introduccion de tema del portafolio",
+    "eyebrow": "Experiencia inmersiva",
+    "bootLine1": "yoquelvis.dev --boot",
+    "bootLine2": "init surface: light",
+    "bootLine3": "deploy theme: blue-dark",
+    "terminalTitle": "boot — zsh",
+    "completedTitle": "deploy — zsh",
+    "compiling": "compiling modules...",
+    "completed": "completed",
+    "skip": "Saltar intro"
   },
   "accessibility": {
     "headerSocialLinks": "Enlaces sociales del encabezado",

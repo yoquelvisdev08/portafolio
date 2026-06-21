@@ -1,5 +1,6 @@
 export const LANGUAGE_STORAGE_KEY = 'language';
 export const THEME_STORAGE_KEY = 'portfolio-theme';
+export const THEME_INTRO_SESSION_KEY = 'portfolio-theme-intro-seen';
 
 const SUPPORTED_LANGUAGES = ['en', 'es'];
 const SUPPORTED_THEMES = ['blue', 'light'];
@@ -79,6 +80,35 @@ export function hasStoredThemePreference() {
 export function saveThemePreference(theme) {
   if (typeof localStorage !== 'undefined' && SUPPORTED_THEMES.includes(theme)) {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }
+}
+
+export function shouldPlayThemeIntro() {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  const path = window.location.pathname;
+  if (path !== '/' && path !== '') {
+    return false;
+  }
+
+  try {
+    return !sessionStorage.getItem(THEME_INTRO_SESSION_KEY);
+  } catch {
+    return false;
+  }
+}
+
+export function markThemeIntroSeen() {
+  if (typeof sessionStorage === 'undefined') {
+    return;
+  }
+
+  try {
+    sessionStorage.setItem(THEME_INTRO_SESSION_KEY, '1');
+  } catch {
+    // sessionStorage puede estar bloqueado
   }
 }
 

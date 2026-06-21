@@ -1,7 +1,5 @@
 import React from 'react';
 import { MotionConfig, motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n';
 import Modal from 'react-modal';
 import { ThemeProvider } from './context/ThemeContext';
 import NavBar from './components/NavBar';
@@ -21,6 +19,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import PwaUpdateToast from './components/PwaUpdateToast';
 import PageBackground from './components/PageBackground';
+import ThemeIntroOverlay from './components/ThemeIntroOverlay';
 
 Modal.setAppElement('#root');
 
@@ -48,6 +47,7 @@ function PortfolioContent() {
       <SEOHead />
       <div className="relative min-h-screen text-on-surface">
         <PageBackground />
+        <ThemeIntroOverlay />
         <ScrollToTop />
         <LanguageSelector />
         <WhatsAppFloat />
@@ -78,11 +78,9 @@ function PortfolioContent() {
 
 function PortfolioApp() {
   return (
-    <I18nextProvider i18n={i18n}>
-      <ThemeProvider>
-        <PortfolioContent />
-      </ThemeProvider>
-    </I18nextProvider>
+    <ThemeProvider>
+      <PortfolioContent />
+    </ThemeProvider>
   );
 }
 

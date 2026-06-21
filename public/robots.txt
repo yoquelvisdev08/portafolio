@@ -3,8 +3,10 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://yoquelvis.dev/sitemap.xml
+User-agent: Googlebot
+Allow: /
 
-# Crawl-delay (opcional, para ser amigable con los servidores)
-Crawl-delay: 1
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://yoquelvis.dev/sitemap.xml

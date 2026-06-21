@@ -1,6 +1,8 @@
 {
   "header": {
     "title": "Software Developer",
+    "titleLead": "Software",
+    "titleAccent": "Developer",
     "description": "Creating innovative solutions",
     "availability": "Available for new opportunities",
     "primaryCta": "Start a Project",
@@ -15,6 +17,9 @@
   },
   "nav": {
     "home": "Home",
+    "brandPrimary": "BUILD",
+    "brandAccent": "SHIP",
+    "brandAria": "BUILD SHIP · web development portfolio",
     "about": "About",
     "experience": "Experience", 
     "skills": "Skills",
@@ -30,6 +35,18 @@
   "theme": {
     "switchToLight": "Switch to light theme",
     "switchToBlue": "Switch to blue theme"
+  },
+  "themeIntro": {
+    "ariaLabel": "Portfolio theme introduction",
+    "eyebrow": "Immersive experience",
+    "bootLine1": "yoquelvis.dev --boot",
+    "bootLine2": "init surface: light",
+    "bootLine3": "deploy theme: blue-dark",
+    "terminalTitle": "boot — zsh",
+    "completedTitle": "deploy — zsh",
+    "compiling": "compiling modules...",
+    "completed": "completed",
+    "skip": "Skip intro"
   },
   "accessibility": {
     "headerSocialLinks": "Header social links",

@@ -65,5 +65,11 @@ export function useTypewriter(lines, options = {}) {
     return () => window.clearTimeout(timer);
   }, [charIndex, enabled, hasStarted, isComplete, lineIndex, linePause, lines, speed]);
 
-  return { visibleLines, isComplete, isTyping: hasStarted && !isComplete, lineIndex };
+  return {
+    visibleLines,
+    isComplete,
+    isTyping: hasStarted && !isComplete,
+    hasStarted,
+    lineIndex,
+  };
 }

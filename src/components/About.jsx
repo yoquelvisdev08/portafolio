@@ -7,7 +7,6 @@ import SectionHeader from './SectionHeader';
 import {
   listContainer,
   listItem,
-  revealItem,
   reducedMotionVariant,
   sectionViewport,
 } from '../lib/motion';
@@ -23,23 +22,18 @@ function About() {
       className="section-block scroll-mt-28"
       aria-label={t('about.title')}
     >
-      <div className="mx-auto max-w-container-max">
+      <div className="mx-auto w-full min-w-0 max-w-container-max">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={motionViewport}
-          variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
-        >
-          <SectionHeader title={t('about.title')} showDivider={false} />
-        </motion.div>
-
-        <motion.div
-          className="grid min-w-0 grid-cols-1 items-center gap-8 lg:grid-cols-12"
+          className="grid min-w-0 grid-cols-1 items-start gap-5 lg:grid-cols-12 lg:gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={motionViewport}
           variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
         >
+          <div className="lg:col-span-12">
+            <SectionHeader title={t('about.title')} showDivider={false} compact />
+          </div>
+
           <AboutTerminal
             motionProps={{
               variants: shouldReduceMotion ? reducedMotionVariant : listItem,

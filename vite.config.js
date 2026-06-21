@@ -12,9 +12,9 @@ export default defineConfig({
       includeAssets: ['pwa-192x192.png', 'robots.txt', 'sitemap.xml', 'me.JPG', 'c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg', 'pwa-512x512.png', 'fonts/MaterialSymbolsOutlined.ttf'],
       manifest: {
         id: '/',
-        name: 'Yoquelvis Jorge Abreu Portfolio',
-        short_name: 'Yoquelvis Dev',
-        description: 'Portfolio profesional de Yoquelvis Jorge Abreu, Software Developer.',
+        name: 'Yoquelvis Jorge Abreu | Desarrollador Web',
+        short_name: 'CREA·ENTREGA',
+        description: 'Portafolio de Yoquelvis Jorge Abreu: desarrollo web con React, Next.js y TypeScript en República Dominicana.',
         theme_color: '#0d223d',
         background_color: '#071628',
         scope: '/',

@@ -1,9 +1,11 @@
 import React from 'react';
 
-function SectionHeader({ title, subtitle, centered = false, showDivider = true, stacked = false }) {
+function SectionHeader({ title, subtitle, centered = false, showDivider = true, stacked = false, compact = false }) {
+  const spacing = compact ? 'mb-3' : 'mb-6';
+
   if (centered) {
     return (
-      <div className="mb-6 flex flex-col items-center text-center">
+      <div className={`${spacing} flex flex-col items-center text-center`}>
         <h2 className="font-headline-lg text-headline-lg text-on-surface mb-3">{title}</h2>
         {subtitle && (
           <p className="max-w-2xl font-body-md text-body-md text-on-surface-variant">{subtitle}</p>
@@ -14,7 +16,7 @@ function SectionHeader({ title, subtitle, centered = false, showDivider = true, 
 
   if (stacked || !showDivider) {
     return (
-      <div className="mb-6">
+      <div className={spacing}>
         <h2 className="font-headline-lg text-headline-lg text-on-surface">{title}</h2>
         {subtitle && (
           <p className="mt-2 max-w-2xl font-body-md text-sm text-on-surface-variant">{subtitle}</p>
@@ -24,7 +26,7 @@ function SectionHeader({ title, subtitle, centered = false, showDivider = true, 
   }
 
   return (
-    <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+    <div className={`${spacing} flex flex-wrap items-center gap-x-4 gap-y-2`}>
       <h2 className="font-headline-lg text-headline-lg shrink-0 text-on-surface">{title}</h2>
       <div className="h-px min-w-[3rem] flex-grow bg-outline" />
       {subtitle && (

@@ -2,6 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 import ThemeToggle from './ThemeToggle';
+import SiteBrand from './SiteBrand';
+import { useTheme } from '../context/ThemeContext';
 
 const NAV_ITEMS = [
   { id: 'about', key: 'about' },
@@ -13,6 +15,7 @@ const NAV_ITEMS = [
 
 function NavBar() {
   const { t } = useTranslation();
+  const { introActive, themeToggleRef } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const sectionIds = useMemo(() => ['header', ...NAV_ITEMS.map((item) => item.id)], []);
@@ -44,13 +47,14 @@ function NavBar() {
 
   return (
     <nav
-      className="fixed left-1/2 top-6 z-50 w-[95%] max-w-container-max -translate-x-1/2 transition-all duration-300"
+      className="fixed left-1/2 top-[max(0.85rem,env(safe-area-inset-top))] z-50 w-[min(96vw,100%)] max-w-container-max -translate-x-1/2 transition-all duration-300 sm:top-6"
       aria-label={t('navigation.mainNav')}
     >
-      <div className="glass-card flex items-center justify-between rounded-full border-white/10 bg-surface/90 px-4 py-3 shadow-2xl sm:px-6">
+      <div className="glass-card flex items-center justify-between rounded-full border-white/10 bg-surface/90 px-3 py-2.5 shadow-2xl sm:px-6 sm:py-3">
         <a
           href="#header"
           className="group flex items-center gap-3 font-headline-md text-xl font-bold text-primary-fixed"
+          aria-label={t('nav.brandAria')}
           onClick={(event) => {
             event.preventDefault();
             handleNavClick('header');
@@ -59,7 +63,9 @@ function NavBar() {
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-fixed/30 bg-primary-fixed/10 transition-transform group-hover:scale-110">
             <span className="material-symbols-outlined text-primary-fixed">terminal</span>
           </div>
-          <span className="hidden tracking-tight sm:block">YOQUELVIS.DEV</span>
+          <span className="hidden sm:block">
+            <SiteBrand />
+          </span>
         </a>
 
         <div className="hidden items-center justify-center gap-1 rounded-full border border-outline/40 bg-surface-container/40 px-2 py-1 font-label-caps text-label-caps uppercase tracking-widest lg:flex">
@@ -67,7 +73,7 @@ function NavBar() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <ThemeToggle />
+          <ThemeToggle ref={themeToggleRef} visible={!introActive} />
           <a
             href="#contact"
             className="btn-primary hidden rounded-full px-5 py-2 font-bold lg:flex"

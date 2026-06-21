@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import PageBackground from '../components/PageBackground';
+import SiteBrand from '../components/SiteBrand';
 import PricingPlanCard from '../components/pricing/PricingPlanCard';
 import {
   buildMeetingWhatsAppUrl,
@@ -57,16 +58,18 @@ function PrecioPage() {
 
         <header className="page-x relative z-10 mx-auto max-w-container-max pt-10 sm:pt-14">
           <div className="flex items-center justify-between gap-4">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="group flex items-center gap-2 font-headline-md text-lg font-bold text-primary-fixed sm:text-xl"
-              aria-label="Yoquelvis.dev"
+              aria-label="CREA ENTREGA · portafolio"
             >
               <span className="material-symbols-outlined text-primary-fixed transition-transform group-hover:rotate-12">
                 terminal
               </span>
-              <span className="hidden sm:inline">YOQUELVIS.DEV</span>
-            </a>
+              <span className="hidden sm:inline">
+                <SiteBrand />
+              </span>
+            </Link>
             <div className="flex items-center gap-2 sm:gap-3">
               <Link
                 to="/"
