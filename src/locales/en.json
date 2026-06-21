@@ -194,6 +194,13 @@
     },
     "items": [
       {
+        "title": "Velocity Prime",
+        "description": "Formula 1 paddock-style dashboard: live timing, drivers, teams, standings, and race calendar. Dark UI with red accents, clipped-corner cards, and real-time race weekend data.",
+        "link": "https://formula1-ecru.vercel.app/",
+        "icon": "velocity",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Vite", "F1 API"]
+      },
+      {
         "title": "Sablee",
         "description": "Immersive racing team landing page with strong visual identity, section-based navigation (team, competition, merch, sponsors), and a sports-dashboard-style UI.",
         "link": "https://sablee-sooty.vercel.app/",

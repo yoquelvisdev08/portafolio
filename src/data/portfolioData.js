@@ -4,6 +4,7 @@ export const heroPhotos = {
 };
 
 export const projectPreviews = {
+  velocity: '/proyecto/velocity-preview.png',
   employee: '/proyecto/barcode-preview.jpg',
   avatar: '/proyecto/avatar-preview.png',
   schedule: '/proyecto/schedule-preview.png',
@@ -11,6 +12,7 @@ export const projectPreviews = {
 };
 
 export const projectWindowFiles = {
+  velocity: 'velocity_prime.tsx',
   employee: 'barcode_generator.py',
   avatar: 'avatar_studio.tsx',
   schedule: 'schedule_hub.tsx',
