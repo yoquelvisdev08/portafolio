@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       injectRegister: false,
       includeAssets: ['pwa-192x192.png', 'robots.txt', 'sitemap.xml', 'me.JPG', 'c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg', 'pwa-512x512.png', 'fonts/MaterialSymbolsOutlined.ttf'],
       manifest: {
@@ -47,8 +47,8 @@ export default defineConfig({
       },
       workbox: {
         cleanupOutdatedCaches: true,
-        clientsClaim: false,
-        skipWaiting: false,
+        clientsClaim: true,
+        skipWaiting: true,
         globPatterns: ['**/*.{js,css,html,svg,png,jpg,jpeg,webp,pdf,json,ttf,woff2}'],
         runtimeCaching: [
           {

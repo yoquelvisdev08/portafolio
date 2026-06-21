@@ -17,7 +17,7 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 import SEOHead from './components/SEOHead';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import PwaUpdateToast from './components/PwaUpdateToast';
+import PwaAutoUpdate from './components/PwaAutoUpdate';
 import PageBackground from './components/PageBackground';
 import ThemeIntroOverlay from './components/ThemeIntroOverlay';
 
@@ -68,7 +68,7 @@ function PortfolioContent() {
           </main>
           <Footer />
         </div>
-        <PwaUpdateToast />
+        <PwaAutoUpdate />
         <Analytics />
         <SpeedInsights />
       </div>
