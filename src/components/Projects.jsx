@@ -4,11 +4,9 @@ import { useTranslation } from 'react-i18next';
 import ProjectWindowCard from './ProjectWindowCard';
 import SectionHeader from './SectionHeader';
 import {
-  revealContainer,
   reducedMotionVariant,
   listContainer,
   listItem,
-  sectionViewport,
   listViewport,
 } from '../lib/motion';
 
@@ -18,14 +16,10 @@ function Projects() {
   const projects = t('projects.items', { returnObjects: true });
 
   return (
-    <motion.section
+    <section
       id="projects"
       className="section-block scroll-mt-28"
       aria-label={t('projects.title')}
-      variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={sectionViewport}
     >
       <div className="mx-auto max-w-container-max">
         <SectionHeader
@@ -56,7 +50,7 @@ function Projects() {
           ))}
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 

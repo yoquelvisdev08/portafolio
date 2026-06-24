@@ -11,14 +11,14 @@ export const timings = {
 
 export const sectionViewport = {
   once: true,
-  amount: 0.2,
-  margin: '0px 0px -12% 0px',
+  amount: 0.08,
+  margin: '0px 0px 0px 0px',
 };
 
 export const listViewport = {
   once: true,
-  amount: 0.14,
-  margin: '0px 0px -10% 0px',
+  amount: 0,
+  margin: '0px 0px 80px 0px',
 };
 
 export const revealContainer = {
@@ -113,9 +113,8 @@ export const toastSlideUp = {
 };
 
 export const listContainer = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.07,
       delayChildren: 0.03,
