@@ -79,6 +79,11 @@ export const cvData = {
     ],
     projects: [
       {
+        name: 'El Impostor',
+        stack: 'Next.js, React, TypeScript, Tailwind CSS, Socket.io, Node.js',
+        impact: 'Built a real-time multiplayer word game for 3-12 players with room creation, clue rounds, voting, rankings, and a mobile-first experience at juegaimpostor.com.'
+      },
+      {
         name: 'Sablee',
         stack: 'Next.js, React, TypeScript, Tailwind CSS, Framer Motion',
         impact: 'Built an immersive racing team landing page with section navigation and a sports-dashboard visual experience.'
@@ -206,6 +211,11 @@ export const cvData = {
       }
     ],
     projects: [
+      {
+        name: 'El Impostor',
+        stack: 'Next.js, React, TypeScript, Tailwind CSS, Socket.io, Node.js',
+        impact: 'Juego de palabras multijugador en tiempo real para 3-12 jugadores con salas, pistas, votacion, ranking y experiencia mobile-first en juegaimpostor.com.'
+      },
       {
         name: 'Sablee',
         stack: 'Next.js, React, TypeScript, Tailwind CSS, Framer Motion',

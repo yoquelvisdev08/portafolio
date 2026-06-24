@@ -214,6 +214,13 @@
     },
     "items": [
       {
+        "title": "El Impostor",
+        "description": "Juego de palabras online multijugador en tiempo real para 3-12 jugadores. Sin registro: crea una sala, tira pistas, discutí, votá y encontrá al impostor. UI oscura con identidad visual propia, ranking y experiencia mobile-first.",
+        "link": "https://juegaimpostor.com/",
+        "icon": "impostor",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Socket.io", "Node.js"]
+      },
+      {
         "title": "Velocity Prime",
         "description": "Dashboard de Formula 1 con estética paddock: live timing, pilotos, equipos, standings y calendario. UI oscura con acentos rojos, cards con esquinas recortadas y datos de carrera en tiempo real.",
         "link": "https://formula1-ecru.vercel.app/",

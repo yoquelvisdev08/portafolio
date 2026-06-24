@@ -214,6 +214,13 @@
     },
     "items": [
       {
+        "title": "El Impostor",
+        "description": "Real-time online multiplayer word game for 3-12 players. No signup required: create a room, drop clues, discuss, vote, and find the impostor. Dark UI with distinct branding, rankings, and a mobile-first experience.",
+        "link": "https://juegaimpostor.com/",
+        "icon": "impostor",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Socket.io", "Node.js"]
+      },
+      {
         "title": "Velocity Prime",
         "description": "Formula 1 paddock-style dashboard: live timing, drivers, teams, standings, and race calendar. Dark UI with red accents, clipped-corner cards, and real-time race weekend data.",
         "link": "https://formula1-ecru.vercel.app/",
