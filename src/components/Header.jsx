@@ -105,16 +105,16 @@ const Header = () => {
             aria-label={t('accessibility.headerSocialLinks')}
           >
             {[
-              { href: 'https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/', icon: FaLinkedin, label: t('accessibility.socialLinkedin') },
-              { href: 'https://github.com/yoquelvisdev08', icon: FaGithub, label: t('accessibility.socialGithub') },
-              { href: 'https://www.instagram.com/yoquelvis_08', icon: FaInstagram, label: t('accessibility.socialInstagram') },
-            ].map(({ href, icon: Icon, label }) => (
+              { href: 'https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/', icon: FaLinkedin, label: t('accessibility.socialLinkedin'), relMe: true },
+              { href: 'https://github.com/yoquelvisdev08', icon: FaGithub, label: t('accessibility.socialGithub'), relMe: true },
+              { href: 'https://www.instagram.com/yoquelvis_08', icon: FaInstagram, label: t('accessibility.socialInstagram'), relMe: true },
+            ].map(({ href, icon: Icon, label, relMe }) => (
               <a
                 key={href}
                 href={href}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-outline bg-surface-container text-xl text-on-surface transition-colors hover:text-primary-fixed"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={relMe ? 'me noopener noreferrer' : 'noopener noreferrer'}
                 aria-label={label}
               >
                 <Icon />

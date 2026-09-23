@@ -120,9 +120,38 @@ function ProjectWindowCard({ project, shouldReduceMotion, motionProps = {} }) {
             </h3>
           )}
 
-          <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-on-surface-variant" itemProp="description">
+          <p className="mb-3 text-sm leading-relaxed text-on-surface-variant" itemProp="description">
             {project.description}
           </p>
+
+          {(project.problem || project.architecture || project.result) && (
+            <dl className="mb-4 space-y-2 text-xs leading-relaxed text-on-surface-variant">
+              {project.problem && (
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-widest text-primary-fixed">
+                    {t('projects.caseStudy.problem')}
+                  </dt>
+                  <dd className="mt-0.5">{project.problem}</dd>
+                </div>
+              )}
+              {project.architecture && (
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-widest text-primary-fixed">
+                    {t('projects.caseStudy.architecture')}
+                  </dt>
+                  <dd className="mt-0.5">{project.architecture}</dd>
+                </div>
+              )}
+              {project.result && (
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-widest text-primary-fixed">
+                    {t('projects.caseStudy.result')}
+                  </dt>
+                  <dd className="mt-0.5">{project.result}</dd>
+                </div>
+              )}
+            </dl>
+          )}
 
           {project.technologies && (
             <div className="mb-5 flex flex-wrap gap-2">

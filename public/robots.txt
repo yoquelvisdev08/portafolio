@@ -1,12 +1,4 @@
-# robots.txt para yoquelvis.dev
-
 User-agent: *
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
 Allow: /
 
 Sitemap: https://yoquelvis.dev/sitemap.xml

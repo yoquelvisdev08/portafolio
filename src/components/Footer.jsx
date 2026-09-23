@@ -16,18 +16,21 @@ const Footer = () => {
       href: 'https://github.com/yoquelvisdev08',
       label: t('accessibility.socialGithub'),
       name: 'GitHub',
+      relMe: true,
     },
     {
       icon: FaLinkedin,
       href: 'https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/',
       label: t('accessibility.socialLinkedin'),
       name: 'LinkedIn',
+      relMe: true,
     },
     {
       icon: FaEnvelope,
       href: 'mailto:yoquelvis18@gmail.com',
       label: t('accessibility.socialEmail'),
       name: 'Email',
+      relMe: false,
     },
   ];
 
@@ -61,7 +64,13 @@ const Footer = () => {
               aria-label={link.label}
               className="flex items-center gap-2 text-on-surface-variant transition-colors hover:text-primary-fixed"
               target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-              rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+              rel={
+                link.href.startsWith('mailto:')
+                  ? undefined
+                  : link.relMe
+                    ? 'me noopener noreferrer'
+                    : 'noopener noreferrer'
+              }
               {...(shouldReduceMotion ? {} : buttonInteractions)}
               transition={interactionTransition}
             >

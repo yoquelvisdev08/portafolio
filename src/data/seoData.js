@@ -3,37 +3,44 @@ export const SITE_ORIGIN = SITE_URL.replace(/\/$/, '');
 
 export const SEO_PROFILE = {
   name: 'Yoquelvis Jorge Abreu',
+  shortName: 'Yoquelvis',
   email: 'yoquelvis18@gmail.com',
   phone: '+18294223313',
-  image: `${SITE_ORIGIN}/me.JPG`,
+  image: `${SITE_ORIGIN}/og-image.png`,
+  profileImage: `${SITE_ORIGIN}/me.JPG`,
   twitter: '@yoquelvis_08',
   country: 'DO',
   region: 'DO-01',
   placename: 'Santo Domingo, Dominican Republic',
+  sameAs: [
+    'https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/',
+    'https://github.com/yoquelvisdev08',
+    'https://www.instagram.com/yoquelvis_08',
+  ],
 };
 
 export const SEO_BY_LANGUAGE = {
   es: {
-    title:
-      'Yoquelvis Jorge Abreu | Desarrollador Web Full Stack en República Dominicana · React & Next.js',
+    title: 'Yoquelvis Jorge Abreu | Software Engineer · React & Next.js',
     description:
-      'Portafolio de Yoquelvis Jorge Abreu: desarrollador web y de software en RD. Creo landing pages, sitios corporativos y apps con React, Next.js, TypeScript y Node.js. Código listo para producción, UX clara y entregas serias. Escríbeme para tu próximo proyecto.',
+      'Desarrollador web full stack en RD. React, Next.js, TypeScript y Node.js. Landing pages, apps y código listo para producción. Contáctame en yoquelvis.dev.',
     keywords:
       'desarrollador web republica dominicana, desarrollador react santo domingo, next.js developer RD, typescript developer, full stack developer dominicana, freelance desarrollador web, portafolio desarrollador software, crear pagina web RD, desarrollo web profesional, programador react nextjs, landing page dominicana, desarrollador frontend backend, yoquelvis jorge abreu',
     ogLocale: 'es_DO',
-    siteName: 'Yoquelvis Jorge Abreu · Desarrollador Web',
+    siteName: 'Yoquelvis Jorge Abreu · Software Engineer',
     brandTagline: 'Código que llega a producción',
+    jobTitle: 'Software Engineer',
   },
   en: {
-    title:
-      'Yoquelvis Jorge Abreu | Full Stack Web Developer in Dominican Republic · React & Next.js',
+    title: 'Yoquelvis Jorge Abreu | Software Engineer · React & Next.js',
     description:
-      'Portfolio of Yoquelvis Jorge Abreu, software and web developer based in the Dominican Republic. I build landing pages, business websites, and apps with React, Next.js, TypeScript, and Node.js. Production-ready code, clear UX, and reliable delivery. Contact me for your next project.',
+      'Full stack web developer in the Dominican Republic. React, Next.js, TypeScript and Node.js. Landing pages, apps and production-ready code. Contact me at yoquelvis.dev.',
     keywords:
       'web developer dominican republic, react developer santo domingo, next.js developer DR, typescript developer, full stack developer, freelance web developer, software developer portfolio, hire react developer, professional web development, frontend backend developer, landing page developer, yoquelvis jorge abreu',
     ogLocale: 'en_US',
-    siteName: 'Yoquelvis Jorge Abreu · Web Developer',
+    siteName: 'Yoquelvis Jorge Abreu · Software Engineer',
     brandTagline: 'Code built for production',
+    jobTitle: 'Software Engineer',
   },
 };
 
@@ -42,8 +49,10 @@ export function getSeoContent(language) {
 }
 
 export function buildCanonicalUrl(language) {
-  const lang = language === 'es' ? 'es' : 'en';
-  return `${SITE_ORIGIN}/?lang=${lang}`;
+  if (language === 'es' || language === 'en') {
+    return `${SITE_ORIGIN}/?lang=${language}`;
+  }
+  return `${SITE_ORIGIN}/`;
 }
 
 export function buildStructuredData(language) {
@@ -54,19 +63,17 @@ export function buildStructuredData(language) {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': ['Person', 'ProfilePage'],
+        '@type': 'Person',
+        '@id': `${SITE_ORIGIN}/#person`,
         name: SEO_PROFILE.name,
-        jobTitle: isSpanish ? 'Desarrollador de Software' : 'Software Developer',
+        alternateName: SEO_PROFILE.shortName,
+        jobTitle: seo.jobTitle,
         url: SITE_ORIGIN,
-        image: SEO_PROFILE.image,
+        image: SEO_PROFILE.profileImage,
         description: seo.description,
         email: SEO_PROFILE.email,
         telephone: SEO_PROFILE.phone,
-        sameAs: [
-          'https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/',
-          'https://github.com/yoquelvisdev08',
-          'https://www.instagram.com/yoquelvis_08',
-        ],
+        sameAs: SEO_PROFILE.sameAs,
         address: {
           '@type': 'PostalAddress',
           addressCountry: SEO_PROFILE.country,
@@ -111,31 +118,24 @@ export function buildStructuredData(language) {
       },
       {
         '@type': 'WebSite',
+        '@id': `${SITE_ORIGIN}/#website`,
         name: seo.siteName,
         url: SITE_ORIGIN,
         description: seo.description,
         inLanguage: ['es', 'en'],
-        publisher: {
-          '@type': 'Person',
-          name: SEO_PROFILE.name,
-        },
-        author: {
-          '@type': 'Person',
-          name: SEO_PROFILE.name,
-        },
+        publisher: { '@id': `${SITE_ORIGIN}/#person` },
+        author: { '@id': `${SITE_ORIGIN}/#person` },
       },
       {
         '@type': 'ProfessionalService',
+        '@id': `${SITE_ORIGIN}/#service`,
         name: isSpanish
           ? 'Desarrollo Web y Software · Yoquelvis Jorge Abreu'
           : 'Web & Software Development · Yoquelvis Jorge Abreu',
         description: seo.description,
         url: SITE_ORIGIN,
         image: SEO_PROFILE.image,
-        provider: {
-          '@type': 'Person',
-          name: SEO_PROFILE.name,
-        },
+        provider: { '@id': `${SITE_ORIGIN}/#person` },
         areaServed: [
           {
             '@type': 'Country',

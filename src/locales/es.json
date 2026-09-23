@@ -206,6 +206,11 @@
     "title": "Proyectos Destacados",
     "description": "Una muestra de mis proyectos más significativos e innovadores",
     "viewProject": "Ver Proyecto",
+    "caseStudy": {
+      "problem": "Problema",
+      "architecture": "Arquitectura",
+      "result": "Resultado"
+    },
     "status": {
       "live": "live",
       "demo": "demo"
@@ -213,35 +218,50 @@
     "items": [
       {
         "title": "El Impostor",
-        "description": "Juego de palabras online multijugador en tiempo real para 3-12 jugadores. Sin registro: crea una sala, tira pistas, discutí, votá y encontrá al impostor. UI oscura con identidad visual propia, ranking y experiencia mobile-first.",
+        "description": "Juego de palabras online multijugador en tiempo real para 3-12 jugadores. Sin registro: crea una sala, tira pistas, discutí, votá y encontrá al impostor.",
+        "problem": "Necesidad de un party game web usable en celular sin instalar apps ni forzar registro.",
+        "architecture": "Next.js + React + TypeScript, backend Node con Socket.io para salas y rondas en tiempo real, UI mobile-first.",
+        "result": "Producto en producción en juegaimpostor.com con salas, votación, ranking y experiencia sin fricción.",
         "link": "https://juegaimpostor.com/",
         "icon": "impostor",
         "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Socket.io", "Node.js"]
       },
       {
         "title": "Velocity Prime",
-        "description": "Dashboard de Formula 1 con estética paddock: live timing, pilotos, equipos, standings y calendario. UI oscura con acentos rojos, cards con esquinas recortadas y datos de carrera en tiempo real.",
+        "description": "Dashboard de Formula 1 con estética paddock: live timing, pilotos, equipos, standings y calendario.",
+        "problem": "Consumir y presentar datos de F1 de forma clara, rápida y con identidad visual de paddock.",
+        "architecture": "React + TypeScript + Vite, Tailwind CSS y consumo de API de F1 con cards de esquinas recortadas.",
+        "result": "Dashboard listo para producción con timing, standings y calendario usable en desktop y mobile.",
         "link": "https://formula1-ecru.vercel.app/",
         "icon": "velocity",
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Vite", "F1 API"]
       },
       {
         "title": "Sablee",
-        "description": "Landing inmersiva para equipo de carreras con identidad visual fuerte, navegación por secciones (equipo, competencia, merchandising, sponsors) y UI tipo dashboard deportivo.",
+        "description": "Landing inmersiva para equipo de carreras con identidad visual fuerte y navegación por secciones.",
+        "problem": "Comunicar marca deportiva con ritmo visual alto sin sacrificar claridad ni performance.",
+        "architecture": "Next.js + React + TypeScript, Tailwind CSS y Framer Motion para secciones y microinteracciones.",
+        "result": "Landing inmersiva con navegación por equipo, competencia, merch y sponsors.",
         "link": "https://sablee-sooty.vercel.app/",
         "icon": "sable",
         "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
       },
       {
         "title": "AVATARIA 3000",
-        "description": "Creador de avatares únicos con múltiples estilos visuales, vista previa en tiempo real, control de tamaño y descarga directa desde una interfaz limpia y responsive.",
+        "description": "Creador de avatares únicos con múltiples estilos, vista previa en tiempo real y descarga directa.",
+        "problem": "Generar avatares personalizados sin flujo complejo ni dependencias pesadas de diseño.",
+        "architecture": "React + JavaScript + Tailwind CSS integrado con DiceBear API para estilos y export.",
+        "result": "Herramienta responsive con preview en vivo, control de tamaño y descarga inmediata.",
         "link": "https://avatar-3000.vercel.app/",
         "icon": "avatar",
         "technologies": ["React", "JavaScript", "Tailwind CSS", "DiceBear API"]
       },
       {
         "title": "ScheduleHub",
-        "description": "Plataforma para estudiantes universitarios: sube tu horario en PDF, procésalo con IA y visualízalo en un calendario semanal personalizable con exportación a PNG, CSV y JSON.",
+        "description": "Plataforma académica: subí un PDF de horario, procesalo con IA y visualizalo en calendario exportable.",
+        "problem": "Los estudiantes pierden tiempo reorganizando horarios desde PDFs poco estructurados.",
+        "architecture": "Next.js 14, Prisma + PostgreSQL y extracción asistida por Google Gemini AI.",
+        "result": "Flujo demo de PDF a calendario semanal con exportación a PNG, CSV y JSON.",
         "link": "https://horario-delta-ten.vercel.app/",
         "icon": "schedule",
         "status": "demo",
@@ -249,7 +269,10 @@
       },
       {
         "title": "Generador de Código de Empleado",
-        "description": "Aplicación de escritorio con PyQt6 para generar códigos de barras con ID único, gestión SQLite, autenticación por roles, editor de carnets con plantillas HTML y verificación OCR automática.",
+        "description": "App de escritorio PyQt6 para códigos de barras, carnets HTML y verificación OCR.",
+        "problem": "Generar IDs y carnets de empleado con control de roles y validación automática.",
+        "architecture": "Python + PyQt6, SQLite, plantillas HTML, Pillow y Tesseract OCR.",
+        "result": "Herramienta desktop con autenticación, plantillas personalizables y verificación OCR.",
         "icon": "employee",
         "github": "https://github.com/yoquelvisdev08/Generador-de-codigo-de-empleado",
         "technologies": ["Python", "PyQt6", "SQLite", "Tesseract OCR", "Pillow"]

@@ -4,16 +4,22 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://yoquelvis.dev/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yoquelvis.dev/?lang=es" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yoquelvis.dev/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoquelvis.dev/" />
     <image:image>
-      <image:loc>https://yoquelvis.dev/me.JPG</image:loc>
-      <image:title>Yoquelvis Jorge Abreu - Desarrollador Web</image:title>
+      <image:loc>https://yoquelvis.dev/og-image.png</image:loc>
+      <image:title>Yoquelvis Jorge Abreu - Software Engineer</image:title>
       <image:caption>Portafolio profesional de desarrollo web en República Dominicana</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://yoquelvis.dev/precio</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

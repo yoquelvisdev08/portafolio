@@ -30,34 +30,40 @@ function SEOHead() {
       element.setAttribute('content', content);
     };
 
-    const updateLinkTag = (rel, href, extra = {}) => {
-      let element = document.querySelector(`link[rel="${rel}"]${extra.hreflang ? `[hreflang="${extra.hreflang}"]` : ''}`);
-      if (!element) {
-        element = document.createElement('link');
-        element.setAttribute('rel', rel);
-        document.head.appendChild(element);
-      }
-      element.setAttribute('href', href);
-      Object.entries(extra).forEach(([key, value]) => {
-        element.setAttribute(key, value);
-      });
-    };
-
     updateMetaTag('description', seo.description);
     updateMetaTag('keywords', seo.keywords);
     updateMetaTag('title', seo.title);
     updateMetaTag('geo.region', SEO_PROFILE.region);
     updateMetaTag('geo.placename', SEO_PROFILE.placename);
+
     updateMetaTag('og:title', seo.title, 'property');
     updateMetaTag('og:description', seo.description, 'property');
     updateMetaTag('og:url', canonicalUrl, 'property');
+    updateMetaTag('og:image', SEO_PROFILE.image, 'property');
+    updateMetaTag('og:image:secure_url', SEO_PROFILE.image, 'property');
+    updateMetaTag('og:image:type', 'image/png', 'property');
+    updateMetaTag('og:image:width', '1200', 'property');
+    updateMetaTag('og:image:height', '630', 'property');
+    updateMetaTag('og:image:alt', `${SEO_PROFILE.name} — ${seo.jobTitle}`, 'property');
     updateMetaTag('og:site_name', seo.siteName, 'property');
     updateMetaTag('og:locale', seo.ogLocale, 'property');
     updateMetaTag('og:locale:alternate', currentLang === 'es' ? 'en_US' : 'es_DO', 'property');
-    updateMetaTag('twitter:title', seo.title, 'property');
-    updateMetaTag('twitter:description', seo.description, 'property');
 
-    updateLinkTag('canonical', canonicalUrl);
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', seo.title);
+    updateMetaTag('twitter:description', seo.description);
+    updateMetaTag('twitter:image', SEO_PROFILE.image);
+    updateMetaTag('twitter:image:alt', `${SEO_PROFILE.name} — ${seo.jobTitle}`);
+    updateMetaTag('twitter:url', canonicalUrl);
+    updateMetaTag('twitter:creator', SEO_PROFILE.twitter);
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', canonicalUrl);
 
     document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((node) => {
       node.remove();
@@ -83,7 +89,7 @@ function SEOHead() {
       document.head.appendChild(structuredDataNode);
     }
     structuredDataNode.textContent = JSON.stringify(buildStructuredData(currentLang));
-  }, [canonicalUrl, currentLang, seo.description, seo.keywords, seo.ogLocale, seo.siteName, seo.title]);
+  }, [canonicalUrl, currentLang, seo]);
 
   return null;
 }
