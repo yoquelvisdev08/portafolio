@@ -1,15 +1,7 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.yoquelvis.dev" }],
-      "destination": "https://yoquelvis.dev/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/((?!api/|googlea0507fa0e8c2544e\\.html|robots\\.txt|sitemap\\.xml|og-image\\.png|favicon\\.svg|apple-touch-icon\\.png).*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
