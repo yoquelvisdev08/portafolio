@@ -1,0 +1,70 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Yoquelvis Jorge Abreu",
+    "identifier": "https://yoquelvis.dev",
+    "documentationUrl": "https://yoquelvis.dev/llms.txt",
+    "logoUrl": "https://yoquelvis.dev/favicon.svg",
+    "trustManifest": {
+      "identity": "https://yoquelvis.dev",
+      "identityType": "https"
+    }
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:yoquelvis.dev:site:portfolio",
+      "displayName": "Yoquelvis Jorge Abreu Portfolio",
+      "type": "text/markdown",
+      "url": "https://yoquelvis.dev/llms.txt",
+      "description": "Personal portfolio and hiring profile for a full stack software engineer focused on React, Next.js, TypeScript and Node.js in the Dominican Republic.",
+      "tags": [
+        "portfolio",
+        "software-engineer",
+        "react",
+        "nextjs",
+        "typescript",
+        "dominican-republic"
+      ],
+      "capabilities": [
+        "WebDevelopment",
+        "FrontendDevelopment",
+        "FullStackDevelopment",
+        "LandingPages",
+        "React",
+        "Nextjs"
+      ],
+      "representativeQueries": [
+        "Who is Yoquelvis Jorge Abreu?",
+        "Hire a React and Next.js developer in Dominican Republic",
+        "Yoquelvis portfolio projects pricing and contact",
+        "Full stack web developer Santo Domingo React TypeScript"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-23T01:30:00Z",
+      "trustManifest": {
+        "identity": "https://yoquelvis.dev",
+        "identityType": "https"
+      }
+    },
+    {
+      "identifier": "urn:air:yoquelvis.dev:site:pricing",
+      "displayName": "Web Development Pricing",
+      "type": "text/html",
+      "url": "https://yoquelvis.dev/precio",
+      "description": "Public pricing and service plans for landing pages, business sites, and custom web products.",
+      "tags": ["pricing", "services", "freelance"],
+      "capabilities": ["Pricing", "Consulting", "WebDevelopment"],
+      "representativeQueries": [
+        "How much does Yoquelvis charge for a landing page?",
+        "Web development service plans and packages",
+        "Freelance React developer pricing Dominican Republic"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-23T01:30:00Z",
+      "trustManifest": {
+        "identity": "https://yoquelvis.dev",
+        "identityType": "https"
+      }
+    }
+  ]
+}
