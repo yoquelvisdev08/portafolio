@@ -55,7 +55,6 @@ function Experience() {
               }}
               className="relative flex items-start gap-6 md:gap-8"
               variants={shouldReduceMotion ? reducedMotionVariant : listItem}
-              role="listitem"
               itemScope
               itemType="https://schema.org/JobPosting"
             >

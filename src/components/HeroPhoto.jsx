@@ -15,7 +15,7 @@ function HeroPhoto() {
   const stageRef = useRef(null);
   const pointerRef = useRef({ x: 0, y: 0 });
   const frameRef = useRef(null);
-  const photoSrc = isBlue ? heroPhotos.dark : heroPhotos.light;
+  const photo = isBlue ? heroPhotos.dark : heroPhotos.light;
 
   const applyStageTransform = useCallback(() => {
     if (!stageRef.current) {
@@ -95,13 +95,20 @@ function HeroPhoto() {
 
           <div className="hero-photo-3d__frame group">
             <div className="hero-photo-3d__shine" aria-hidden="true" />
-            <img
-              src={photoSrc}
-              alt={t('home.name')}
-              className={`hero-photo-3d__img ${isBlue ? '' : 'hero-photo-img grayscale hover:grayscale-0'}`}
-              loading="eager"
-              draggable="false"
-            />
+            <picture>
+              <source srcSet={photo.webp} type="image/webp" />
+              <img
+                src={photo.fallback}
+                alt={t('home.name')}
+                width={900}
+                height={900}
+                className={`hero-photo-3d__img ${isBlue ? '' : 'hero-photo-img grayscale hover:grayscale-0'}`}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                draggable="false"
+              />
+            </picture>
           </div>
         </div>
 
