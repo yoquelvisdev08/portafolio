@@ -10,12 +10,30 @@ export const heroPhotos = {
 };
 
 export const projectPreviews = {
-  impostor: '/proyecto/impostor-preview.png',
-  velocity: '/proyecto/velocity-preview.png',
-  employee: '/proyecto/barcode-preview.jpg',
-  avatar: '/proyecto/avatar-preview.png',
-  schedule: '/proyecto/schedule-preview.png',
-  sable: '/proyecto/sable-preview.png',
+  impostor: {
+    webp: '/proyecto/impostor-preview.webp',
+    fallback: '/proyecto/impostor-preview.png',
+  },
+  velocity: {
+    webp: '/proyecto/velocity-preview.webp',
+    fallback: '/proyecto/velocity-preview.png',
+  },
+  employee: {
+    webp: null,
+    fallback: '/proyecto/barcode-preview.jpg',
+  },
+  avatar: {
+    webp: '/proyecto/avatar-preview.webp',
+    fallback: '/proyecto/avatar-preview.png',
+  },
+  schedule: {
+    webp: '/proyecto/schedule-preview.webp',
+    fallback: '/proyecto/schedule-preview.png',
+  },
+  sable: {
+    webp: '/proyecto/sable-preview.webp',
+    fallback: '/proyecto/sable-preview.png',
+  },
 };
 
 export const projectWindowFiles = {

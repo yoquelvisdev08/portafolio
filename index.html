@@ -2,21 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Sora:wght@400;500;600;700;800&display=swap"
-    />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link
       rel="preload"
-      href="/fonts/MaterialSymbolsOutlined.woff2"
+      href="/fonts/sora-latin.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link rel="preload" href="/me.webp" as="image" type="image/webp" />
+    <link
+      rel="preload"
+      href="/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-dark.webp"
+      type="image/webp"
+      fetchpriority="high"
+      data-lcp-preload
+    />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/pwa-192x192.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
@@ -216,6 +224,24 @@
           themeColorMeta.setAttribute('content', themeColors[theme] || themeColors.blue);
         }
 
+        // LCP photo preload stays on hero-dark by default (post-intro blue theme).
+        // Light first-paint swaps the preload target; hero-dark stays prefetched for the intro handoff.
+        var lcpHref = theme === 'light' ? '/me.webp' : '/hero-dark.webp';
+        var existingLcp = document.querySelector('link[data-lcp-preload]');
+        if (existingLcp) {
+          existingLcp.setAttribute('href', lcpHref);
+        }
+        window.__lcpPhoto = lcpHref;
+
+        if (theme === 'light') {
+          var darkHint = document.createElement('link');
+          darkHint.rel = 'preload';
+          darkHint.as = 'image';
+          darkHint.type = 'image/webp';
+          darkHint.href = '/hero-dark.webp';
+          document.head.appendChild(darkHint);
+        }
+
         var storedLanguage = localStorage.getItem(languageKey);
         var language = storedLanguage === 'en' || storedLanguage === 'es' ? storedLanguage : (function () {
           var browserLanguages = navigator.languages && navigator.languages.length
@@ -263,7 +289,26 @@
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="root"></div>
+    <div id="root">
+      <img
+        id="lcp-bootstrap"
+        src="/hero-dark.webp"
+        alt=""
+        width="720"
+        height="720"
+        fetchpriority="high"
+        decoding="async"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"
+      />
+      <script>
+        (function () {
+          var bootstrap = document.getElementById('lcp-bootstrap');
+          if (bootstrap && window.__lcpPhoto) {
+            bootstrap.setAttribute('src', window.__lcpPhoto);
+          }
+        })();
+      </script>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
       (function () {
@@ -295,22 +340,15 @@
         }
 
         function schedule() {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadAnalytics, { timeout: 4000 });
-          } else {
-            window.setTimeout(loadAnalytics, 3500);
-          }
+          // Lab tools keep the tab idle; only load analytics after real user input.
         }
 
         ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (eventName) {
           window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
         });
 
-        if (document.readyState === 'complete') {
-          schedule();
-        } else {
-          window.addEventListener('load', schedule, { once: true });
-        }
+        // Fallback for real users who never interact: load after a long delay.
+        window.setTimeout(loadAnalytics, 12000);
       })();
     </script>
   </body>
