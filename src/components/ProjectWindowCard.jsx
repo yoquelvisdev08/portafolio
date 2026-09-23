@@ -37,13 +37,17 @@ function ProjectWindowCard({ project, shouldReduceMotion, motionProps = {} }) {
 
   const previewContent = preview ? (
     <div className="project-window__preview">
-      <img
-        src={preview}
-        alt={project.title}
-        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-        loading="lazy"
-        draggable="false"
-      />
+      <picture>
+        {preview.webp ? <source srcSet={preview.webp} type="image/webp" /> : null}
+        <img
+          src={preview.fallback || preview}
+          alt={project.title}
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          loading="lazy"
+          decoding="async"
+          draggable="false"
+        />
+      </picture>
       <div className="project-window__scanline" aria-hidden="true" />
     </div>
   ) : null;

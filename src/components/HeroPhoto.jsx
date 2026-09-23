@@ -100,8 +100,8 @@ function HeroPhoto() {
               <img
                 src={photo.fallback}
                 alt={t('home.name')}
-                width={900}
-                height={900}
+                width={720}
+                height={720}
                 className={`hero-photo-3d__img ${isBlue ? '' : 'hero-photo-img grayscale hover:grayscale-0'}`}
                 loading="eager"
                 fetchPriority="high"

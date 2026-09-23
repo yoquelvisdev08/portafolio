@@ -21,6 +21,9 @@ export default defineConfig({
         'pwa-512x512.png',
         'fonts/MaterialSymbolsOutlined.woff2',
         'fonts/MaterialSymbolsOutlined.ttf',
+        'fonts/inter-latin.woff2',
+        'fonts/sora-latin.woff2',
+        'fonts/jetbrains-latin.woff2',
       ],
       manifest: {
         id: '/',
