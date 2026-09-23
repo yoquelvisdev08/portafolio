@@ -54,16 +54,18 @@ function NavBar() {
         <a
           href="#header"
           className="group flex items-center gap-3 font-headline-md text-xl font-bold text-primary-fixed"
-          aria-label={t('nav.brandAria')}
+          aria-label={`${t('nav.brandPrimary')} · ${t('nav.brandAccent')}`}
           onClick={(event) => {
             event.preventDefault();
             handleNavClick('header');
           }}
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-fixed/30 bg-primary-fixed/10 transition-transform group-hover:scale-110">
-            <span className="material-symbols-outlined text-primary-fixed">terminal</span>
+            <span className="material-symbols-outlined text-primary-fixed" aria-hidden="true">
+              terminal
+            </span>
           </div>
-          <span className="hidden sm:block">
+          <span className="hidden sm:block" aria-hidden="true">
             <SiteBrand />
           </span>
         </a>

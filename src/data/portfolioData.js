@@ -1,6 +1,12 @@
 export const heroPhotos = {
-  dark: '/c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg',
-  light: '/me.JPG',
+  dark: {
+    webp: '/hero-dark.webp',
+    fallback: '/hero-dark.jpg',
+  },
+  light: {
+    webp: '/me.webp',
+    fallback: '/me.JPG',
+  },
 };
 
 export const projectPreviews = {

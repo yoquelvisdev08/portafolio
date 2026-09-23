@@ -46,9 +46,10 @@ const Footer = () => {
         <a
           href="#header"
           className="flex items-center gap-2 transition-opacity hover:opacity-80"
-          aria-label={t('nav.brandAria')}
         >
-          <span className="material-symbols-outlined text-[18px] text-primary-fixed">code</span>
+          <span className="material-symbols-outlined text-[18px] text-primary-fixed" aria-hidden="true">
+            code
+          </span>
           <SiteBrand size="footer" />
         </a>
 

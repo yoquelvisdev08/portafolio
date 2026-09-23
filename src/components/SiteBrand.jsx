@@ -12,7 +12,6 @@ function SiteBrand({ className = '', size = 'nav' }) {
   return (
     <span
       className={`inline-flex items-baseline gap-1 font-mono font-bold uppercase ${sizeClasses} ${className}`}
-      aria-hidden="true"
     >
       <span className="text-on-surface-variant">{t('nav.brandPrimary')}</span>
       <span className="text-primary-fixed">·</span>

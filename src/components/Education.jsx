@@ -91,28 +91,34 @@ function Education() {
           whileInView="visible"
           viewport={listViewport}
         >
-          {studies.map((study) => (
-            <motion.article
+          {studies.map((study) => {
+            const isInteractive = Boolean(study.certificate);
+            const CardTag = isInteractive ? motion.div : motion.article;
+
+            return (
+            <CardTag
               key={study.id}
               className={`glass-card group flex h-full flex-col justify-between rounded-card p-5 sm:p-6 lg:p-8 ${
-                study.certificate ? 'cursor-pointer' : 'opacity-90'
+                isInteractive ? 'cursor-pointer' : 'opacity-90'
               }`}
               variants={shouldReduceMotion ? reducedMotionVariant : listItem}
-              {...(study.certificate && !shouldReduceMotion ? cardInteractions : nonInteractiveCard)}
+              {...(isInteractive && !shouldReduceMotion ? cardInteractions : nonInteractiveCard)}
               onClick={() => openCertificateModal(study.certificate)}
               onKeyDown={(event) => {
-                if (!study.certificate) return;
+                if (!isInteractive) return;
                 if (event.key === 'Enter' || event.key === ' ') {
                   event.preventDefault();
                   openCertificateModal(study.certificate);
                 }
               }}
-              role={study.certificate ? 'button' : undefined}
-              tabIndex={study.certificate ? 0 : -1}
+              role={isInteractive ? 'button' : undefined}
+              tabIndex={isInteractive ? 0 : undefined}
             >
               <div>
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-fixed/10 text-primary-fixed transition-transform group-hover:scale-110">
-                  <span className="material-symbols-outlined text-2xl">{study.icon}</span>
+                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">
+                    {study.icon}
+                  </span>
                 </div>
                 <h3 className="mb-2 text-xl font-semibold text-on-surface">{study.degree}</h3>
                 <p className="mb-4 font-mono text-sm text-secondary">{study.institution}</p>
@@ -124,8 +130,9 @@ function Education() {
                 </span>
                 <span className="font-mono text-sm text-primary-fixed">{statusLabel(study.status)}</span>
               </div>
-            </motion.article>
-          ))}
+            </CardTag>
+            );
+          })}
         </motion.div>
 
         <SectionHeader
@@ -142,7 +149,7 @@ function Education() {
           viewport={listViewport}
         >
           {courses.map((course, index) => (
-            <motion.article
+            <motion.div
               key={course.id}
               className={`glass-card cursor-pointer rounded-card border-l-4 p-6 transition-transform hover:-translate-y-1 ${
                 borderAccents[index % borderAccents.length]
@@ -158,16 +165,17 @@ function Education() {
               }}
               role="button"
               tabIndex={0}
-              aria-label={`${course.degree} - ${t('education.certificateAvailable')}`}
             >
               <h3 className="mb-2 text-lg font-semibold text-on-surface">{course.degree}</h3>
               <p className="mb-1 text-sm text-on-surface-variant">{course.institution}</p>
               <p className="mb-4 font-mono text-xs text-on-surface-variant">{course.year}</p>
               <div className="flex items-center gap-2 font-mono text-xs text-primary-fixed">
-                <span className="material-symbols-outlined text-[16px]">workspace_premium</span>
+                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
+                  workspace_premium
+                </span>
                 <span>{t('education.certificateAvailable')}</span>
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </motion.div>
       </div>

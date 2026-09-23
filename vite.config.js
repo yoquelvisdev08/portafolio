@@ -9,7 +9,19 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: false,
-      includeAssets: ['pwa-192x192.png', 'robots.txt', 'sitemap.xml', 'me.JPG', 'c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg', 'pwa-512x512.png', 'fonts/MaterialSymbolsOutlined.ttf'],
+      includeAssets: [
+        'pwa-192x192.png',
+        'robots.txt',
+        'sitemap.xml',
+        'me.JPG',
+        'me.webp',
+        'hero-dark.webp',
+        'hero-dark.jpg',
+        'c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg',
+        'pwa-512x512.png',
+        'fonts/MaterialSymbolsOutlined.woff2',
+        'fonts/MaterialSymbolsOutlined.ttf',
+      ],
       manifest: {
         id: '/',
         name: 'Yoquelvis Jorge Abreu | Desarrollador Web',

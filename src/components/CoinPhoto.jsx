@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-const PHOTO_FRONT = '/c188c5cb-1118-46df-bd8f-8ea71f8a6a26.jpg';
+const PHOTO_FRONT = '/hero-dark.jpg';
 const PHOTO_BACK = '/me.JPG';
 const COIN_COLOR = 0xead8b1;
 

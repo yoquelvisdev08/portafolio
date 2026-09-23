@@ -35,7 +35,7 @@ const LanguageSelector = () => {
             onClick={() => changeLanguage('en')}
             className={buttonClass(i18n.language === 'en')}
             title={t('accessibility.switchToEnglish')}
-            aria-label={t('accessibility.switchToEnglish')}
+            aria-label={`EN — ${t('accessibility.switchToEnglish')}`}
             aria-pressed={i18n.language === 'en'}
           >
             EN
@@ -45,7 +45,7 @@ const LanguageSelector = () => {
             onClick={() => changeLanguage('es')}
             className={buttonClass(i18n.language === 'es')}
             title={t('accessibility.switchToSpanish')}
-            aria-label={t('accessibility.switchToSpanish')}
+            aria-label={`ES — ${t('accessibility.switchToSpanish')}`}
             aria-pressed={i18n.language === 'es'}
           >
             ES

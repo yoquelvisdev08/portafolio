@@ -66,13 +66,12 @@ function Skills() {
 
         <motion.div
           className="skill-card-3d-grid grid grid-cols-1 gap-card-gap sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          role="list"
           variants={shouldReduceMotion ? reducedMotionVariant : listContainer}
           initial="hidden"
           whileInView="visible"
           viewport={listViewport}
         >
-          {skills.map((skill, index) => {
+          {skills.map((skill) => {
             const SkillIcon = iconMap[skill.name];
             const iconColor = iconColors[skill.name] || 'text-secondary';
 
@@ -82,7 +81,6 @@ function Skills() {
                 shouldReduceMotion={shouldReduceMotion}
                 motionProps={{
                   variants: shouldReduceMotion ? reducedMotionVariant : listItem,
-                  role: 'listitem',
                   itemScope: true,
                   itemType: 'https://schema.org/Thing',
                 }}
