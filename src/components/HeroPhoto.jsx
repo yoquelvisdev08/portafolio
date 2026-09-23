@@ -3,7 +3,6 @@ import { useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { heroPhotos } from '../data/portfolioData';
-import HeroBookBadge from './HeroBookBadge';
 
 const TILT_STRENGTH = { x: 16, y: 20 };
 const BASE_ROTATION = { x: -6, y: 10 };
@@ -73,7 +72,7 @@ function HeroPhoto() {
   };
 
   return (
-    <div className="hero-photo-3d relative mx-auto aspect-square w-full max-w-[min(100%,18rem)] sm:max-w-[20rem] md:h-[450px] md:w-[450px] md:max-w-none">
+    <div className="hero-photo-3d relative mx-auto aspect-square w-full max-w-[min(100%,18rem)] overflow-x-clip sm:max-w-[20rem] sm:overflow-visible md:h-[450px] md:w-[450px] md:max-w-none">
       <div className="hero-photo-3d__ambient" aria-hidden="true" />
       <div className="hero-photo-3d__ambient hero-photo-3d__ambient--secondary" aria-hidden="true" />
 
@@ -108,8 +107,6 @@ function HeroPhoto() {
 
         <div className="hero-photo-3d__shadow" aria-hidden="true" />
       </div>
-
-      <HeroBookBadge />
     </div>
   );
 }

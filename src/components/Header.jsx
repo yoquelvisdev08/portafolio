@@ -24,16 +24,16 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="relative flex items-center overflow-hidden pb-10 pt-[max(6.5rem,calc(env(safe-area-inset-top)+5.5rem))] sm:pt-32 md:pt-36"
+      className="relative flex items-center overflow-x-clip pb-10 pt-[max(6.5rem,calc(env(safe-area-inset-top)+5.5rem))] sm:overflow-x-visible sm:pt-32 md:pt-36"
     >
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 h-[min(800px,150vw)] w-[min(800px,150vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-fixed/5 blur-[120px]"
         aria-hidden="true"
       />
 
-      <div className="page-x relative z-10 mx-auto grid w-full max-w-container-max grid-cols-1 items-start gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-8">
+      <div className="page-x relative z-10 mx-auto grid w-full min-w-0 max-w-container-max grid-cols-1 items-start gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-8">
         <motion.div
-          className="order-2 flex flex-col items-start gap-6 lg:order-1 lg:gap-8"
+          className="order-2 flex w-full min-w-0 flex-col items-start gap-6 lg:order-1 lg:gap-8"
           initial="hidden"
           animate="visible"
           variants={shouldReduceMotion ? reducedMotionVariant : revealContainer}
@@ -69,7 +69,7 @@ const Header = () => {
           </motion.div>
 
           <motion.p
-            className="max-w-xl font-body-lg text-body-lg text-on-surface-variant md:text-xl"
+            className="w-full max-w-xl break-words font-body-lg text-body-lg text-on-surface-variant md:text-xl"
             variants={shouldReduceMotion ? reducedMotionVariant : revealItem}
           >
             {t('home.description')}

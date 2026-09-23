@@ -108,17 +108,24 @@ body,
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
   overflow-x: clip;
+  max-width: 100%;
   color: var(--color-on-surface);
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+#root {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 a,
@@ -608,22 +615,6 @@ html.icons-ready .material-symbols-outlined {
   .hero-photo-overlay {
     background: var(--hero-overlay);
     mix-blend-mode: overlay;
-  }
-
-  .hero-badge {
-    @apply glass-card;
-    min-width: 0;
-  }
-
-  .hero-badge:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 3px;
-  }
-
-  .hero-badge-icon {
-    background: color-mix(in srgb, var(--color-primary-fixed) 22%, transparent);
-    color: var(--color-primary-fixed);
-    box-shadow: 0 0 18px color-mix(in srgb, var(--color-primary-fixed) 25%, transparent);
   }
 
   .section-alt {

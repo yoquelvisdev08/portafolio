@@ -47,7 +47,7 @@ function NavBar() {
 
   return (
     <nav
-      className="fixed left-1/2 top-[max(0.85rem,env(safe-area-inset-top))] z-50 w-[min(96vw,100%)] max-w-container-max -translate-x-1/2 transition-all duration-300 sm:top-6"
+      className="fixed left-1/2 top-[max(0.85rem,env(safe-area-inset-top))] z-50 w-[calc(100%-1.5rem)] max-w-container-max -translate-x-1/2 transition-all duration-300 sm:top-6"
       aria-label={t('navigation.mainNav')}
     >
       <div className="glass-card flex items-center justify-between rounded-full border-white/10 bg-surface/90 px-3 py-2.5 shadow-2xl sm:px-6 sm:py-3">
