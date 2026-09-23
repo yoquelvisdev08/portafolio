@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://yoquelvis.dev/sitemap.xml
+# LLM / agent discovery
+# https://llmstxt.org/ — https://yoquelvis.dev/llms.txt
+# https://yoquelvis.dev/.well-known/ai-catalog.json

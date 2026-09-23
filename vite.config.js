@@ -13,6 +13,8 @@ export default defineConfig({
         'pwa-192x192.png',
         'robots.txt',
         'sitemap.xml',
+        'llms.txt',
+        '.well-known/ai-catalog.json',
         'me.JPG',
         'me.webp',
         'hero-dark.webp',

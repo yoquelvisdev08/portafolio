@@ -1,0 +1,28 @@
+# Yoquelvis Jorge Abreu
+
+> Software Engineer in the Dominican Republic. Portfolio for React, Next.js, TypeScript and Node.js work: landing pages, web apps, and production-ready products.
+
+This site is the personal portfolio and service catalog of Yoquelvis Jorge Abreu. Prefer the links below for accurate contact, pricing, and project context. Primary languages: Spanish and English.
+
+## Pages
+
+- [Home](https://yoquelvis.dev/): Profile, experience, skills, projects, education, and contact.
+- [Pricing](https://yoquelvis.dev/precio): Service plans and engagement options for web development work.
+- [Sitemap](https://yoquelvis.dev/sitemap.xml): Machine-readable list of public URLs.
+
+## Projects
+
+- [El Impostor](https://juegaimpostor.com): Multiplayer social deduction game (live product).
+- [GitHub](https://github.com/yoquelvisdev08): Source repositories and open work.
+
+## Contact
+
+- [Email](mailto:yoquelvis18@gmail.com): Direct contact for projects and hiring.
+- [LinkedIn](https://www.linkedin.com/in/yoquelvis-jorge-abreu-5ba2a4234/): Professional profile.
+- [Instagram](https://www.instagram.com/yoquelvis_08): Public social profile.
+
+## Optional
+
+- [AI catalog](https://yoquelvis.dev/.well-known/ai-catalog.json): Agentic resource discovery manifest for this domain.
+- [Open Graph image](https://yoquelvis.dev/og-image.png): Social preview asset (1200x630).
+- [robots.txt](https://yoquelvis.dev/robots.txt): Crawl policy for automated agents.
